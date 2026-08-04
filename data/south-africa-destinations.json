@@ -2,6 +2,25 @@
   "meta": {
     "country": "South Africa",
     "iso2": "ZA",
+    "adminLabelPlural": "provinces",
+    "mapBounds": [
+      16.0,
+      33.4,
+      -35.2,
+      -21.8
+    ],
+    "geographicLabels": [
+      {
+        "text": "ATLANTIC OCEAN",
+        "x": 112,
+        "y": 560
+      },
+      {
+        "text": "INDIAN OCEAN",
+        "x": 590,
+        "y": 520
+      }
+    ],
     "assessmentDate": "2026-08-04",
     "destinationCount": 35,
     "airportCount": 9,

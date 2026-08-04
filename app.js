@@ -1,6 +1,8 @@
 const state = {
     countries: [],
     mapFeatures: [],
+    countryMaps: {},
+    activeCountryIso2: null,
     provinceFeatures: [],
     destinations: [],
     mustVisitScores: {},
@@ -74,15 +76,38 @@ const els = {
     mapNavigationControls: document.querySelector('#mapNavigationControls')
 };
 
-const southAfricaBaseViewBox = { x: 0, y: 0, width: 760, height: 700 };
-let southAfricaViewBox = { ...southAfricaBaseViewBox };
-let southAfricaZoomFrame = null;
-let southAfricaFocusPoint = null;
-let southAfricaHoverPlaceId = null;
-let southAfricaHoverPoint = null;
-let southAfricaHoverOrigin = null;
+const countryMapBaseViewBox = { x: 0, y: 0, width: 760, height: 700 };
+let countryMapViewBox = { ...countryMapBaseViewBox };
+let countryMapZoomFrame = null;
+let countryMapFocusPoint = null;
+let countryMapHoverPlaceId = null;
+let countryMapHoverPoint = null;
+let countryMapHoverOrigin = null;
 let manualMapDrag = null;
 let suppressManualMapClick = false;
+
+function activeCountryMap() {
+    return state.countryMaps[state.activeCountryIso2] || null;
+}
+
+function activeCountry() {
+    return state.countries.find((country) => country.iso2 === state.activeCountryIso2) || null;
+}
+
+function activateCountryMap(iso2) {
+    const map = state.countryMaps[iso2];
+    if (!map) return false;
+    state.activeCountryIso2 = iso2;
+    state.provinceFeatures = map.features;
+    state.destinations = map.destinations;
+    state.mustVisitScores = map.mustVisitScores;
+    state.airports = map.airports;
+    state.mapMode = 'country-detail';
+    state.selectedPlaceId = null;
+    state.selectedAirportId = null;
+    resetCountryMapViewBox(false);
+    return true;
+}
 
 function escapeHtml(value) {
     return String(value ?? '').replace(/[&<>'"]/g, (char) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', "'": '&#39;', '"': '&quot;' })[char]);
@@ -536,14 +561,14 @@ function metricRow(label, value, scale = 10) {
 }
 
 function renderDetail() {
-    if (state.mapMode === 'south-africa' && state.selectedAirportId) {
+    if (state.mapMode === 'country-detail' && state.selectedAirportId) {
         const airport = state.airports.find((item) => item.id === state.selectedAirportId);
         if (airport) {
             renderAirportDetail(airport);
             return;
         }
     }
-    if (state.mapMode === 'south-africa' && state.selectedPlaceId) {
+    if (state.mapMode === 'country-detail' && state.selectedPlaceId) {
         const place = state.destinations.find((item) => item.id === state.selectedPlaceId);
         if (place) {
             renderPlaceDetail(place);
@@ -612,6 +637,7 @@ function renderPlaceDetail(place) {
     const related = place.combineWith
         .map((id) => state.destinations.find((item) => item.id === id))
         .filter(Boolean);
+    const fieldNotes = place.fieldNotes || [];
     const image = place.image
         ? `<img class="place-hero-image" src="${escapeHtml(place.image)}" alt="${escapeHtml(place.imageAlt)}" />`
         : '<div class="place-hero-image placeholder" aria-hidden="true"></div>';
@@ -619,21 +645,22 @@ function renderPlaceDetail(place) {
     const fourByFourFact = shouldShowFourByFour(place.fourByFour, fourByFourScore)
         ? placeFact('4×4', '4×4 need', `${fourByFourScore}/10`, fourByFourScore * 10, scoreColor(100 - fourByFourScore * 10), place.fourByFour, 'Green: not needed · red: required')
         : '';
-    const mapsUrl = googleMapsUrl(place.coordinates);
+    const countryName = activeCountry()?.name || 'Country';
+    const mapsUrl = googleMapsUrl(place, countryName);
     els.detailContent.innerHTML = `
         <div class="place-hero">
             ${image}
             <div class="place-hero-shade"></div>
             <span class="place-kind ${place.kind}">${place.kind === 'region' ? 'Region' : 'Destination'}</span>
-            <div class="place-hero-copy"><small>${escapeHtml(place.category)} · ${escapeHtml(place.province)}</small><h2><a href="${escapeHtml(mapsUrl)}" target="_blank" rel="noreferrer" aria-label="Open ${escapeHtml(place.name)} in Google Maps">${escapeHtml(place.name)}<span aria-hidden="true">↗</span></a></h2></div>
+            <div class="place-hero-copy"><small>${escapeHtml(place.category)} · ${escapeHtml(place.province)}</small><div class="place-hero-title"><h2>${escapeHtml(place.name)}</h2><a class="google-maps-link" href="${escapeHtml(mapsUrl)}" target="_blank" rel="noreferrer" aria-label="Open ${escapeHtml(place.name)} place details and reviews in Google Maps" title="Open place details and reviews in Google Maps"><img src="./assets/icons/google-maps.svg" alt="" aria-hidden="true" /></a></div></div>
         </div>
-        <div class="place-toolbar"><button class="text-button" type="button" data-action="country-overview">← South Africa overview</button><span>${place.tags.map((tag) => escapeHtml(tag)).join(' · ')}</span></div>
+        <div class="place-toolbar"><button class="text-button" type="button" data-action="country-overview">← ${escapeHtml(countryName)} overview</button><span>${place.tags.map((tag) => escapeHtml(tag)).join(' · ')}</span></div>
         <p class="detail-summary place-summary">${escapeHtml(place.summary)}</p>
         <div class="world-class-score" style="--tone:${scoreColor(place.worldClass.score * 10)}">
             <div><span>World-class ${escapeHtml(place.worldClass.label)}</span><strong>${place.worldClass.score}<small>/10</small></strong></div>
             <p>${escapeHtml(place.worldClass.note)}</p>
         </div>
-        <div class="place-priority" style="--tone:${scoreColor(mustVisitScore(place) * 10)}"><span>Must-visit priority in South Africa</span><strong>${mustVisitScore(place)}/10</strong><small>${mustVisitLabel(mustVisitScore(place))}</small></div>
+        <div class="place-priority" style="--tone:${scoreColor(mustVisitScore(place) * 10)}"><span>Must-visit priority in ${escapeHtml(countryName)}</span><strong>${mustVisitScore(place)}/10</strong><small>${mustVisitLabel(mustVisitScore(place))}</small></div>
         <div class="place-facts">
             ${placeFact('◷', 'Recommended time', place.recommendedTime, recommendedTimeFill(place.recommendedTime), '#a9b46e', 'A well-paced allocation for this destination.', 'Relative to a 7-day stop')}
             ${placeFact('⌁', 'Connectivity', `${place.connectivityScore}/10`, place.connectivityScore * 10, scoreColor(place.connectivityScore * 10), place.connectivity)}
@@ -641,6 +668,10 @@ function renderPlaceDetail(place) {
             ${placeFact('♿', 'Accessibility', `${place.accessibilityScore}/10`, place.accessibilityScore * 10, scoreColor(place.accessibilityScore * 10), place.accessibility)}
             ${fourByFourFact}
         </div>
+        <section class="place-field-notes">
+            <div class="place-field-notes-heading"><span>${fieldNotes.length} field notes</span><a href="${escapeHtml(place.fieldNotesSourceUrl)}" target="_blank" rel="noreferrer">${escapeHtml(place.fieldNotesSourceLabel)} ↗</a></div>
+            <ul>${fieldNotes.map((note, index) => `<li><i aria-hidden="true">${['✦', '◌', '⌁', '◇'][index % 4]}</i><span>${escapeHtml(note)}</span></li>`).join('')}</ul>
+        </section>
         <section class="place-info-block"><span>Getting there</span><p>${escapeHtml(place.gettingThere)}</p></section>
         <section class="combine-section"><span>Combine with</span><div>${related.map((item) => `<button type="button" data-place-id="${item.id}">${item.kind === 'region' ? '◉' : '•'} ${escapeHtml(item.name)}</button>`).join('')}</div></section>
         <div class="place-source"><span>Planning source</span><a href="${escapeHtml(place.sourceUrl)}" target="_blank" rel="noreferrer">Open destination source ↗</a>${place.imageSourceUrl ? `<a href="${escapeHtml(place.imageSourceUrl)}" target="_blank" rel="noreferrer">${escapeHtml(place.imageCredit)} ↗</a>` : ''}</div>`;
@@ -670,9 +701,9 @@ function shouldShowFourByFour(value, score = fourByFourNeedScore(value)) {
     return !['not required', 'not applicable', 'no 4×4'].includes(description);
 }
 
-function googleMapsUrl(coordinates) {
-    const [longitude, latitude] = coordinates;
-    return `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(`${latitude},${longitude}`)}`;
+function googleMapsUrl(place, countryName) {
+    const query = [place.name, place.province, countryName].filter(Boolean).join(', ');
+    return `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(query)}&utm_source=larili_atlas&utm_campaign=place_details_search`;
 }
 
 function placeFact(icon, label, value, fill, tone, detail, title = `${fill}%`) {
@@ -683,12 +714,13 @@ function renderAirportDetail(airport) {
     const connectedPlaces = airport.connections
         .map((id) => state.destinations.find((place) => place.id === id))
         .filter(Boolean);
+    const countryName = activeCountry()?.name || 'Country';
     els.detailContent.innerHTML = `
         <div class="airport-hero">
             <div class="airport-symbol">✈</div>
             <div><span>${escapeHtml(airport.type)}</span><strong>${escapeHtml(airport.code)}</strong></div>
         </div>
-        <div class="place-toolbar"><button class="text-button" type="button" data-action="country-overview">← South Africa overview</button><span>Main airport</span></div>
+        <div class="place-toolbar"><button class="text-button" type="button" data-action="country-overview">← ${escapeHtml(countryName)} overview</button><span>Main airport</span></div>
         <h2 class="detail-name airport-name">${escapeHtml(airport.name)}</h2>
         <p class="detail-summary">${escapeHtml(airport.network)}</p>
         <div class="airport-route-grid">
@@ -790,19 +822,23 @@ function graticulePath() {
     return paths.join(' ');
 }
 
-function southAfricaProject([longitude, latitude]) {
-    return [48 + ((longitude - 16.0) / 17.4) * 664, 72 + ((-21.8 - latitude) / 13.4) * 530];
+function countryMapProject([longitude, latitude]) {
+    const [minimumLongitude, maximumLongitude, minimumLatitude, maximumLatitude] = activeCountryMap()?.meta.mapBounds || [16, 33.4, -35.2, -21.8];
+    return [
+        48 + ((longitude - minimumLongitude) / (maximumLongitude - minimumLongitude)) * 664,
+        72 + ((maximumLatitude - latitude) / (maximumLatitude - minimumLatitude)) * 530
+    ];
 }
 
 function markerAngleSeed(id) {
     return [...id].reduce((seed, character) => ((seed * 31) + character.charCodeAt(0)) % 360, 0);
 }
 
-function southAfricaPinLayout() {
+function countryMapPinLayout() {
     const pins = [
         ...state.destinations.filter((place) => place.kind !== 'region').map((place) => ({ id: place.id, coordinates: place.coordinates })),
         ...state.airports.map((airport) => ({ id: airport.id, coordinates: airport.coordinates }))
-    ].map((pin) => ({ ...pin, anchor: southAfricaProject(pin.coordinates) }));
+    ].map((pin) => ({ ...pin, anchor: countryMapProject(pin.coordinates) }));
     const ranked = pins.map((pin) => ({
         ...pin,
         nearest: Math.min(...pins.filter((other) => other.id !== pin.id).map((other) => Math.hypot(pin.anchor[0] - other.anchor[0], pin.anchor[1] - other.anchor[1]))),
@@ -851,24 +887,24 @@ function pinPositionAtZoom(layout, zoom) {
     ];
 }
 
-function southAfricaViewBoxFor(center, zoom, centered = false, anchorPoint = center) {
-    const width = southAfricaBaseViewBox.width / zoom;
-    const height = southAfricaBaseViewBox.height / zoom;
-    const horizontalAnchor = (anchorPoint[0] - southAfricaViewBox.x) / southAfricaViewBox.width;
-    const verticalAnchor = (anchorPoint[1] - southAfricaViewBox.y) / southAfricaViewBox.height;
+function countryMapViewBoxFor(center, zoom, centered = false, anchorPoint = center) {
+    const width = countryMapBaseViewBox.width / zoom;
+    const height = countryMapBaseViewBox.height / zoom;
+    const horizontalAnchor = (anchorPoint[0] - countryMapViewBox.x) / countryMapViewBox.width;
+    const verticalAnchor = (anchorPoint[1] - countryMapViewBox.y) / countryMapViewBox.height;
     const targetX = center[0] - width * (centered ? 0.5 : horizontalAnchor);
     const targetY = center[1] - height * (centered ? 0.5 : verticalAnchor);
     return {
-        x: centered ? targetX : Math.max(0, Math.min(southAfricaBaseViewBox.width - width, targetX)),
-        y: centered ? targetY : Math.max(0, Math.min(southAfricaBaseViewBox.height - height, targetY)),
+        x: centered ? targetX : Math.max(0, Math.min(countryMapBaseViewBox.width - width, targetX)),
+        y: centered ? targetY : Math.max(0, Math.min(countryMapBaseViewBox.height - height, targetY)),
         width,
         height
     };
 }
 
-function southAfricaFocusLabels(pinLayout) {
+function countryMapFocusLabels(pinLayout) {
     const destinationLabels = state.destinations.map((place) => {
-        const [x, y] = place.kind === 'region' ? southAfricaProject(place.coordinates) : pinLayout.get(place.id).pin;
+        const [x, y] = place.kind === 'region' ? countryMapProject(place.coordinates) : pinLayout.get(place.id).pin;
         return { x, y: y - (place.kind === 'region' ? 12 : 14), width: Math.min(158, Math.max(36, place.name.length * 6.3)), height: 13 };
     });
     const airportLabels = state.airports.map((airport) => {
@@ -876,45 +912,45 @@ function southAfricaFocusLabels(pinLayout) {
         return { x, y: y - 15, width: 34, height: 12 };
     });
     const provinceLabels = state.provinceFeatures.map((feature) => {
-        const [x, y] = geometryCenter(feature.geometry, southAfricaProject);
+        const [x, y] = geometryCenter(feature.geometry, countryMapProject);
         const name = provinceLabel(feature.properties.shapeName);
         return { x, y, width: Math.min(110, Math.max(48, name.length * 5.8)), height: 12 };
     });
     return [...destinationLabels, ...airportLabels, ...provinceLabels];
 }
 
-function southAfricaLabelsOverlap(labels, viewBox, zoom) {
+function countryMapLabelsOverlap(labels, viewBox, zoom) {
     const boxes = labels.map((label) => ({
         left: (label.x - viewBox.x) * zoom - label.width / 2,
         right: (label.x - viewBox.x) * zoom + label.width / 2,
         top: (label.y - viewBox.y) * zoom - label.height / 2,
         bottom: (label.y - viewBox.y) * zoom + label.height / 2
-    })).filter((box) => box.right >= 0 && box.left <= southAfricaBaseViewBox.width && box.bottom >= 0 && box.top <= southAfricaBaseViewBox.height);
+    })).filter((box) => box.right >= 0 && box.left <= countryMapBaseViewBox.width && box.bottom >= 0 && box.top <= countryMapBaseViewBox.height);
     return boxes.some((box, index) => boxes.slice(index + 1).some((other) => (
         box.left < other.right + 5 && box.right + 5 > other.left
         && box.top < other.bottom + 4 && box.bottom + 4 > other.top
     )));
 }
 
-function southAfricaSafeZoom(center, pinLayout, centered = false) {
-    const labels = southAfricaFocusLabels(pinLayout);
+function countryMapSafeZoom(center, pinLayout, centered = false) {
+    const labels = countryMapFocusLabels(pinLayout);
     const zoomLevels = [1.55, 1.8, 2.15, 2.55, 3, 3.5, 4, 4.4];
-    return zoomLevels.find((zoom) => !southAfricaLabelsOverlap(labels, southAfricaViewBoxFor(center, zoom, centered), zoom)) || zoomLevels.at(-1);
+    return zoomLevels.find((zoom) => !countryMapLabelsOverlap(labels, countryMapViewBoxFor(center, zoom, centered), zoom)) || zoomLevels.at(-1);
 }
 
-function applySouthAfricaViewBox(viewBox) {
-    southAfricaViewBox = { ...viewBox };
-    const zoom = southAfricaBaseViewBox.width / viewBox.width;
+function applyCountryMapViewBox(viewBox) {
+    countryMapViewBox = { ...viewBox };
+    const zoom = countryMapBaseViewBox.width / viewBox.width;
     els.africaMap.setAttribute('viewBox', `${viewBox.x.toFixed(2)} ${viewBox.y.toFixed(2)} ${viewBox.width.toFixed(2)} ${viewBox.height.toFixed(2)}`);
     els.africaMap.style.setProperty('--map-label-scale', String(1 / zoom));
     els.africaMap.style.setProperty('--map-marker-hover-scale', String(1.35 / zoom));
     els.africaMap.style.setProperty('--map-airport-hover-scale', String(1.25 / zoom));
     els.africaMap.classList.toggle('map-focus-active', zoom > 1.02);
-    updateSouthAfricaPinDisplacements(zoom);
+    updateCountryMapPinDisplacements(zoom);
     positionMapFocusClose();
 }
 
-function updateSouthAfricaPinDisplacements(zoom) {
+function updateCountryMapPinDisplacements(zoom) {
     els.africaMap.querySelectorAll('[data-pin-x][data-anchor-x]').forEach((marker) => {
         const layout = {
             anchor: [Number(marker.dataset.anchorX), Number(marker.dataset.anchorY)],
@@ -928,19 +964,19 @@ function updateSouthAfricaPinDisplacements(zoom) {
             stem.setAttribute('x2', x.toFixed(2));
             stem.setAttribute('y2', y.toFixed(2));
         }
-        if (marker.dataset.placeId === state.selectedPlaceId) southAfricaFocusPoint = [x, y];
-        if (!state.selectedPlaceId && marker.dataset.placeId === southAfricaHoverPlaceId) southAfricaHoverPoint = [x, y];
+        if (marker.dataset.placeId === state.selectedPlaceId) countryMapFocusPoint = [x, y];
+        if (!state.selectedPlaceId && marker.dataset.placeId === countryMapHoverPlaceId) countryMapHoverPoint = [x, y];
     });
 }
 
-function animateSouthAfricaViewBox(target, duration = 1050) {
-    if (southAfricaZoomFrame) cancelAnimationFrame(southAfricaZoomFrame);
-    const start = { ...southAfricaViewBox };
+function animateCountryMapViewBox(target, duration = 1050) {
+    if (countryMapZoomFrame) cancelAnimationFrame(countryMapZoomFrame);
+    const start = { ...countryMapViewBox };
     const startedAt = performance.now();
     const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
     if (reducedMotion || duration === 0) {
-        applySouthAfricaViewBox(target);
-        southAfricaZoomFrame = null;
+        applyCountryMapViewBox(target);
+        countryMapZoomFrame = null;
         return;
     }
     const tick = (now) => {
@@ -948,55 +984,55 @@ function animateSouthAfricaViewBox(target, duration = 1050) {
         const eased = progress < 0.5
             ? 4 * Math.pow(progress, 3)
             : 1 - Math.pow(-2 * progress + 2, 3) / 2;
-        applySouthAfricaViewBox({
+        applyCountryMapViewBox({
             x: start.x + (target.x - start.x) * eased,
             y: start.y + (target.y - start.y) * eased,
             width: start.width + (target.width - start.width) * eased,
             height: start.height + (target.height - start.height) * eased
         });
-        southAfricaZoomFrame = progress < 1 ? requestAnimationFrame(tick) : null;
+        countryMapZoomFrame = progress < 1 ? requestAnimationFrame(tick) : null;
     };
-    southAfricaZoomFrame = requestAnimationFrame(tick);
+    countryMapZoomFrame = requestAnimationFrame(tick);
 }
 
-function focusSouthAfricaPlace(placeId, pinLayout, centered = false) {
+function focusCountryMapPlace(placeId, pinLayout, centered = false) {
     const place = state.destinations.find((item) => item.id === placeId);
     if (!place) return;
     const layout = place.kind === 'region' ? null : pinLayout.get(place.id);
-    const currentZoom = southAfricaBaseViewBox.width / southAfricaViewBox.width;
-    const initialCenter = layout ? pinPositionAtZoom(layout, currentZoom) : southAfricaProject(place.coordinates);
-    const zoom = southAfricaSafeZoom(initialCenter, pinLayout, centered);
+    const currentZoom = countryMapBaseViewBox.width / countryMapViewBox.width;
+    const initialCenter = layout ? pinPositionAtZoom(layout, currentZoom) : countryMapProject(place.coordinates);
+    const zoom = countryMapSafeZoom(initialCenter, pinLayout, centered);
     const center = layout ? pinPositionAtZoom(layout, zoom) : initialCenter;
-    animateSouthAfricaViewBox(southAfricaViewBoxFor(center, zoom, centered, initialCenter));
+    animateCountryMapViewBox(countryMapViewBoxFor(center, zoom, centered, initialCenter));
     return center;
 }
 
-function resetSouthAfricaViewBox(animate = true) {
-    southAfricaHoverPlaceId = null;
-    southAfricaHoverPoint = null;
-    southAfricaHoverOrigin = null;
-    if (animate) animateSouthAfricaViewBox(southAfricaBaseViewBox, 1250);
+function resetCountryMapViewBox(animate = true) {
+    countryMapHoverPlaceId = null;
+    countryMapHoverPoint = null;
+    countryMapHoverOrigin = null;
+    if (animate) animateCountryMapViewBox(countryMapBaseViewBox, 1250);
     else {
-        if (southAfricaZoomFrame) cancelAnimationFrame(southAfricaZoomFrame);
-        southAfricaZoomFrame = null;
-        applySouthAfricaViewBox(southAfricaBaseViewBox);
+        if (countryMapZoomFrame) cancelAnimationFrame(countryMapZoomFrame);
+        countryMapZoomFrame = null;
+        applyCountryMapViewBox(countryMapBaseViewBox);
     }
 }
 
 function manualMapNavigationEnabled() {
-    return state.mapMode === 'south-africa' && state.mapNavigationMode === 'manual';
+    return state.mapMode === 'country-detail' && state.mapNavigationMode === 'manual';
 }
 
 function mapDragNavigationEnabled() {
-    return state.mapMode === 'south-africa' && ['manual', 'auto'].includes(state.mapNavigationMode);
+    return state.mapMode === 'country-detail' && ['manual', 'auto'].includes(state.mapNavigationMode);
 }
 
 function clampManualViewBox(viewBox) {
-    const width = Math.min(southAfricaBaseViewBox.width, viewBox.width);
-    const height = Math.min(southAfricaBaseViewBox.height, viewBox.height);
+    const width = Math.min(countryMapBaseViewBox.width, viewBox.width);
+    const height = Math.min(countryMapBaseViewBox.height, viewBox.height);
     return {
-        x: Math.max(0, Math.min(southAfricaBaseViewBox.width - width, viewBox.x)),
-        y: Math.max(0, Math.min(southAfricaBaseViewBox.height - height, viewBox.y)),
+        x: Math.max(0, Math.min(countryMapBaseViewBox.width - width, viewBox.x)),
+        y: Math.max(0, Math.min(countryMapBaseViewBox.height - height, viewBox.y)),
         width,
         height
     };
@@ -1016,15 +1052,15 @@ function handleManualMapWheel(event) {
     event.preventDefault();
     const mapPoint = mapPointFromClient(event.clientX, event.clientY);
     if (!mapPoint) return;
-    if (southAfricaZoomFrame) cancelAnimationFrame(southAfricaZoomFrame);
-    southAfricaZoomFrame = null;
-    const currentZoom = southAfricaBaseViewBox.width / southAfricaViewBox.width;
+    if (countryMapZoomFrame) cancelAnimationFrame(countryMapZoomFrame);
+    countryMapZoomFrame = null;
+    const currentZoom = countryMapBaseViewBox.width / countryMapViewBox.width;
     const nextZoom = Math.max(1, Math.min(6, currentZoom * Math.exp(-event.deltaY * 0.0015)));
-    const width = southAfricaBaseViewBox.width / nextZoom;
-    const height = southAfricaBaseViewBox.height / nextZoom;
-    const horizontalAnchor = (mapPoint.x - southAfricaViewBox.x) / southAfricaViewBox.width;
-    const verticalAnchor = (mapPoint.y - southAfricaViewBox.y) / southAfricaViewBox.height;
-    applySouthAfricaViewBox(clampManualViewBox({
+    const width = countryMapBaseViewBox.width / nextZoom;
+    const height = countryMapBaseViewBox.height / nextZoom;
+    const horizontalAnchor = (mapPoint.x - countryMapViewBox.x) / countryMapViewBox.width;
+    const verticalAnchor = (mapPoint.y - countryMapViewBox.y) / countryMapViewBox.height;
+    applyCountryMapViewBox(clampManualViewBox({
         x: mapPoint.x - width * horizontalAnchor,
         y: mapPoint.y - height * verticalAnchor,
         width,
@@ -1034,15 +1070,15 @@ function handleManualMapWheel(event) {
 
 function handleManualMapPointerDown(event) {
     if (!mapDragNavigationEnabled() || event.button !== 0) return;
-    if (southAfricaZoomFrame) cancelAnimationFrame(southAfricaZoomFrame);
-    southAfricaZoomFrame = null;
+    if (countryMapZoomFrame) cancelAnimationFrame(countryMapZoomFrame);
+    countryMapZoomFrame = null;
     const matrix = els.africaMap.getScreenCTM();
     if (!matrix) return;
     manualMapDrag = {
         pointerId: event.pointerId,
         startX: event.clientX,
         startY: event.clientY,
-        viewBox: { ...southAfricaViewBox },
+        viewBox: { ...countryMapViewBox },
         scaleX: Math.hypot(matrix.a, matrix.b),
         scaleY: Math.hypot(matrix.c, matrix.d),
         dragging: false
@@ -1058,14 +1094,14 @@ function handleManualMapPointerMove(event) {
     if (!manualMapDrag.dragging) {
         manualMapDrag.dragging = true;
         suppressManualMapClick = true;
-        southAfricaHoverPlaceId = null;
-        southAfricaHoverPoint = null;
-        southAfricaHoverOrigin = null;
+        countryMapHoverPlaceId = null;
+        countryMapHoverPoint = null;
+        countryMapHoverOrigin = null;
         hideMapTooltip();
         els.africaMap.setPointerCapture(event.pointerId);
         els.africaMap.classList.add('map-dragging');
     }
-    applySouthAfricaViewBox(clampManualViewBox({
+    applyCountryMapViewBox(clampManualViewBox({
         ...manualMapDrag.viewBox,
         x: manualMapDrag.viewBox.x - deltaX / Math.max(manualMapDrag.scaleX, 0.01),
         y: manualMapDrag.viewBox.y - deltaY / Math.max(manualMapDrag.scaleY, 0.01)
@@ -1093,22 +1129,22 @@ function syncMapNavigationControls() {
         button.setAttribute('aria-pressed', String(active));
     });
     els.africaMap.classList.toggle('map-manual-navigation', manualMapNavigationEnabled());
-    els.africaMap.classList.toggle('map-auto-navigation', state.mapMode === 'south-africa' && state.mapNavigationMode === 'auto');
+    els.africaMap.classList.toggle('map-auto-navigation', state.mapMode === 'country-detail' && state.mapNavigationMode === 'auto');
 }
 
 function setMapNavigationMode(mode) {
     if (!['manual', 'auto'].includes(mode) || state.mapNavigationMode === mode) return;
     state.mapNavigationMode = mode;
-    southAfricaHoverPlaceId = null;
-    southAfricaHoverPoint = null;
-    southAfricaHoverOrigin = null;
+    countryMapHoverPlaceId = null;
+    countryMapHoverPoint = null;
+    countryMapHoverOrigin = null;
     hideMapTooltip();
-    if (mode === 'manual' && southAfricaZoomFrame) {
-        cancelAnimationFrame(southAfricaZoomFrame);
-        southAfricaZoomFrame = null;
+    if (mode === 'manual' && countryMapZoomFrame) {
+        cancelAnimationFrame(countryMapZoomFrame);
+        countryMapZoomFrame = null;
     }
     renderMap();
-    if (mode === 'auto' && !state.selectedPlaceId) resetSouthAfricaViewBox();
+    if (mode === 'auto' && !state.selectedPlaceId) resetCountryMapViewBox();
     syncMapNavigationControls();
 }
 
@@ -1130,9 +1166,9 @@ function distanceToSegment(point, start, end) {
     return Math.hypot(point.x - (start.x + width * progress), point.y - (start.y + height * progress));
 }
 
-function releaseDistantSouthAfricaHover(event) {
-    if (manualMapDrag?.dragging || state.selectedPlaceId || !southAfricaHoverOrigin || !southAfricaHoverPoint) return;
-    const hoveredPlace = state.destinations.find((place) => place.id === southAfricaHoverPlaceId);
+function releaseDistantCountryMapHover(event) {
+    if (manualMapDrag?.dragging || state.selectedPlaceId || !countryMapHoverOrigin || !countryMapHoverPoint) return;
+    const hoveredPlace = state.destinations.find((place) => place.id === countryMapHoverPlaceId);
     if (hoveredPlace?.kind === 'region') {
         const halo = els.africaMap.querySelector(`[data-place-id="${hoveredPlace.id}"] .zone-halo`);
         const bounds = halo?.getBoundingClientRect();
@@ -1142,22 +1178,22 @@ function releaseDistantSouthAfricaHover(event) {
             if (horizontalDistance * horizontalDistance + verticalDistance * verticalDistance <= 1) return;
         }
     }
-    const markerPosition = screenPositionForMapPoint(southAfricaHoverPoint);
+    const markerPosition = screenPositionForMapPoint(countryMapHoverPoint);
     if (!markerPosition) return;
     const pointer = { x: event.clientX, y: event.clientY };
-    if (distanceToSegment(pointer, southAfricaHoverOrigin, markerPosition) > 90) {
+    if (distanceToSegment(pointer, countryMapHoverOrigin, markerPosition) > 90) {
         hideMapTooltip();
-        resetSouthAfricaViewBox();
+        resetCountryMapViewBox();
     }
 }
 
 function positionMapFocusClose() {
-    if (!southAfricaFocusPoint || els.mapFocusClose.hidden) return;
+    if (!countryMapFocusPoint || els.mapFocusClose.hidden) return;
     const matrix = els.africaMap.getScreenCTM();
     if (!matrix) return;
     const point = els.africaMap.createSVGPoint();
-    point.x = southAfricaFocusPoint[0];
-    point.y = southAfricaFocusPoint[1];
+    point.x = countryMapFocusPoint[0];
+    point.y = countryMapFocusPoint[1];
     const screenPoint = point.matrixTransform(matrix);
     const stageBounds = els.africaMap.parentElement.getBoundingClientRect();
     els.mapFocusClose.style.left = `${screenPoint.x - stageBounds.left}px`;
@@ -1167,37 +1203,45 @@ function positionMapFocusClose() {
 function closePlaceFocus() {
     state.selectedPlaceId = null;
     state.selectedAirportId = null;
-    southAfricaFocusPoint = null;
+    countryMapFocusPoint = null;
     els.mapFocusClose.hidden = true;
     hideMapTooltip();
     render();
-    if (state.mapNavigationMode === 'auto') resetSouthAfricaViewBox();
+    if (state.mapNavigationMode === 'auto') resetCountryMapViewBox();
 }
 
 function provinceLabel(name) {
-    return name === 'Nothern Cape' ? 'Northern Cape' : name;
+    const corrected = name === 'Nothern Cape' ? 'Northern Cape' : name;
+    return corrected.replace(/ District$/, '');
 }
 
-function renderSouthAfricaMap() {
-    els.mapTitle.textContent = 'South Africa';
+function renderCountryMap() {
+    const map = activeCountryMap();
+    const country = activeCountry();
+    if (!map || !country) {
+        state.mapMode = 'africa';
+        renderMap();
+        return;
+    }
+    els.mapTitle.textContent = country.name;
     els.mapBackButton.hidden = false;
     els.mapNavigationControls.hidden = false;
     els.mapInstruction.textContent = state.mapNavigationMode === 'manual'
         ? 'Scroll to zoom · drag to move · select a place to open its profile'
         : 'Hover to focus · select a place to lock it';
-    els.africaMap.setAttribute('aria-label', 'Map of South Africa provinces, travel destinations and airports');
+    els.africaMap.setAttribute('aria-label', `Map of ${country.name} ${map.meta.adminLabelPlural || 'regions'}, travel destinations and airports`);
     const provincePaths = state.provinceFeatures.map((feature, index) => {
         const name = provinceLabel(feature.properties.shapeName);
-        return `<path class="province-shape tone-${index % 3}" d="${geometryToPath(feature.geometry, southAfricaProject)}"><title>${escapeHtml(name)}</title></path>`;
+        return `<path class="province-shape tone-${index % 3}" d="${geometryToPath(feature.geometry, countryMapProject)}"><title>${escapeHtml(name)}</title></path>`;
     }).join('');
     const provinceLabels = state.provinceFeatures.map((feature) => {
         const name = provinceLabel(feature.properties.shapeName);
-        const [x, y] = geometryCenter(feature.geometry, southAfricaProject);
+        const [x, y] = geometryCenter(feature.geometry, countryMapProject);
         return `<text class="province-label" x="${x.toFixed(1)}" y="${y.toFixed(1)}" text-anchor="middle">${escapeHtml(name)}</text>`;
     }).join('');
-    const pinLayout = southAfricaPinLayout();
+    const pinLayout = countryMapPinLayout();
     const regions = state.destinations.filter((place) => place.kind === 'region').map((place) => {
-        const [x, y] = southAfricaProject(place.coordinates);
+        const [x, y] = countryMapProject(place.coordinates);
         const selected = place.id === state.selectedPlaceId;
         const priority = mustVisitScore(place);
         return `<g class="destination-marker destination-zone ${selected ? 'selected' : ''}" style="--tone:${scoreColor(priority * 10)}" data-place-id="${place.id}" tabindex="0" role="button" aria-label="Open ${escapeHtml(place.name)}, must-visit priority ${priority} out of 10">
@@ -1233,9 +1277,10 @@ function renderSouthAfricaMap() {
             <title>${escapeHtml(airport.name)} · ${escapeHtml(airport.type)}</title>
         </g>`;
     }).join('');
-    els.africaMap.innerHTML = `<defs><filter id="zoneGlow"><feGaussianBlur stdDeviation="5"></feGaussianBlur></filter></defs><text class="map-ocean-label" x="112" y="560">ATLANTIC OCEAN</text><text class="map-ocean-label" x="590" y="520">INDIAN OCEAN</text>${provincePaths}${provinceLabels}${regions}${points}${airports}`;
-    const currentMapZoom = southAfricaBaseViewBox.width / southAfricaViewBox.width;
-    updateSouthAfricaPinDisplacements(currentMapZoom);
+    const geographicLabels = (map.meta.geographicLabels || []).map((label) => `<text class="map-ocean-label" x="${label.x}" y="${label.y}"${label.rotate ? ` transform="rotate(${label.rotate} ${label.x} ${label.y})"` : ''}>${escapeHtml(label.text)}</text>`).join('');
+    els.africaMap.innerHTML = `<defs><filter id="zoneGlow"><feGaussianBlur stdDeviation="5"></feGaussianBlur></filter></defs>${geographicLabels}${provincePaths}${provinceLabels}${regions}${points}${airports}`;
+    const currentMapZoom = countryMapBaseViewBox.width / countryMapViewBox.width;
+    updateCountryMapPinDisplacements(currentMapZoom);
     els.africaMap.querySelectorAll('.destination-marker').forEach((marker) => {
         marker.addEventListener('click', () => {
             if (!manualDragConsumedClick()) selectPlace(marker.dataset.placeId);
@@ -1250,20 +1295,20 @@ function renderSouthAfricaMap() {
             if (state.mapNavigationMode !== 'auto') return;
             const placeId = marker.dataset.placeId;
             if (state.selectedPlaceId) return;
-            if (southAfricaHoverPlaceId && southAfricaHoverPlaceId !== placeId) {
-                const currentPlace = state.destinations.find((place) => place.id === southAfricaHoverPlaceId);
+            if (countryMapHoverPlaceId && countryMapHoverPlaceId !== placeId) {
+                const currentPlace = state.destinations.find((place) => place.id === countryMapHoverPlaceId);
                 const nextPlace = state.destinations.find((place) => place.id === placeId);
                 if (currentPlace?.kind !== 'region' || nextPlace?.kind === 'region') return;
             }
-            southAfricaHoverPlaceId = placeId;
-            southAfricaHoverOrigin = { x: event.clientX, y: event.clientY };
-            southAfricaHoverPoint = focusSouthAfricaPlace(placeId, pinLayout);
+            countryMapHoverPlaceId = placeId;
+            countryMapHoverOrigin = { x: event.clientX, y: event.clientY };
+            countryMapHoverPoint = focusCountryMapPlace(placeId, pinLayout);
         });
         marker.addEventListener('focus', () => {
-            if (state.mapNavigationMode === 'auto' && !state.selectedPlaceId) focusSouthAfricaPlace(marker.dataset.placeId, pinLayout);
+            if (state.mapNavigationMode === 'auto' && !state.selectedPlaceId) focusCountryMapPlace(marker.dataset.placeId, pinLayout);
         });
         marker.addEventListener('blur', () => {
-            if (state.mapNavigationMode === 'auto' && !state.selectedPlaceId) resetSouthAfricaViewBox();
+            if (state.mapNavigationMode === 'auto' && !state.selectedPlaceId) resetCountryMapViewBox();
         });
         marker.addEventListener('pointermove', (event) => showPlaceTooltip(event, marker.dataset.placeId));
         marker.addEventListener('pointerleave', hideMapTooltip);
@@ -1283,33 +1328,33 @@ function renderSouthAfricaMap() {
     });
     els.africaMap.onpointerleave = () => {
         hideMapTooltip();
-        if (!manualMapDrag?.dragging && state.mapNavigationMode === 'auto' && !state.selectedPlaceId) resetSouthAfricaViewBox();
+        if (!manualMapDrag?.dragging && state.mapNavigationMode === 'auto' && !state.selectedPlaceId) resetCountryMapViewBox();
     };
-    els.africaMap.onpointermove = state.mapNavigationMode === 'auto' ? releaseDistantSouthAfricaHover : null;
+    els.africaMap.onpointermove = state.mapNavigationMode === 'auto' ? releaseDistantCountryMapHover : null;
     const selectedPlace = state.destinations.find((place) => place.id === state.selectedPlaceId);
     if (selectedPlace) {
-        southAfricaFocusPoint = selectedPlace.kind === 'region'
-            ? southAfricaProject(selectedPlace.coordinates)
+        countryMapFocusPoint = selectedPlace.kind === 'region'
+            ? countryMapProject(selectedPlace.coordinates)
             : pinPositionAtZoom(pinLayout.get(selectedPlace.id), currentMapZoom);
-        southAfricaHoverPlaceId = selectedPlace.id;
+        countryMapHoverPlaceId = selectedPlace.id;
         els.mapFocusClose.hidden = false;
         els.mapFocusClose.setAttribute('aria-label', `Close ${selectedPlace.name} map focus`);
         positionMapFocusClose();
-        if (state.mapNavigationMode === 'auto') focusSouthAfricaPlace(selectedPlace.id, pinLayout, true);
+        if (state.mapNavigationMode === 'auto') focusCountryMapPlace(selectedPlace.id, pinLayout, true);
     } else {
-        southAfricaFocusPoint = null;
+        countryMapFocusPoint = null;
         els.mapFocusClose.hidden = true;
     }
     syncMapNavigationControls();
 }
 
 function renderMap() {
-    if (state.mapMode === 'south-africa') {
-        renderSouthAfricaMap();
+    if (state.mapMode === 'country-detail') {
+        renderCountryMap();
         return;
     }
-    resetSouthAfricaViewBox(false);
-    southAfricaFocusPoint = null;
+    resetCountryMapViewBox(false);
+    countryMapFocusPoint = null;
     els.mapFocusClose.hidden = true;
     els.mapNavigationControls.hidden = true;
     els.africaMap.onpointerleave = null;
@@ -1322,7 +1367,7 @@ function renderMap() {
     const byIso = new Map(state.countries.map((country) => [country.iso3, country]));
     byIso.set('SOL', byIso.get('SOM'));
     const visible = new Set(state.filtered.map((country) => country.slug));
-    const labelIsos = new Set(['MAR', 'EGY', 'KEN', 'NAM', 'ZAF']);
+    const labelIsos = new Set(['MAR', 'EGY', 'KEN', 'NAM', 'LSO', 'ZAF']);
     const religionMode = state.mapMetric === 'religion';
     const gradientDefinitions = religionMode
         ? `<defs>${state.countries.map(religionGradient).filter(Boolean).join('')}</defs>`
@@ -1421,7 +1466,7 @@ function renderStats() {
     els.statsCount.textContent = state.filtered.length;
     els.favoritesBadge.textContent = state.favorites.size;
     els.compareBadge.textContent = state.compare.length;
-    if (state.mapMode === 'south-africa') {
+    if (state.mapMode === 'country-detail') {
         const regionCount = state.destinations.filter((place) => place.kind === 'region').length;
         els.mapLayerLabel.textContent = `Travel layer · ${state.destinations.length} places · ${state.airports.length} airports`;
         els.mapLegend.className = 'destination-legend';
@@ -1443,19 +1488,16 @@ function renderStats() {
 function selectCountry(slug, fromMap) {
     state.selectedId = slug;
     const country = state.countries.find((item) => item.slug === slug);
-    if (country?.iso2 === 'ZA') {
-        state.mapMode = 'south-africa';
-        state.selectedPlaceId = null;
-        state.selectedAirportId = null;
-    }
+    const hasDrilldown = country ? activateCountryMap(country.iso2) : false;
+    if (!hasDrilldown && state.mapMode === 'country-detail') leaveCountryMap(false);
     render();
-    if (country?.iso2 === 'ZA' && !fromMap) document.querySelector('.map-card')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    if (hasDrilldown && !fromMap) document.querySelector('.map-card')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
     if (fromMap && window.matchMedia('(max-width: 680px)').matches) document.querySelector('#countryDetail').scrollIntoView({ behavior: 'smooth', block: 'start' });
 }
 
 function selectPlace(placeId) {
     if (!state.destinations.some((place) => place.id === placeId)) return;
-    state.mapMode = 'south-africa';
+    state.mapMode = 'country-detail';
     state.selectedPlaceId = placeId;
     state.selectedAirportId = null;
     render();
@@ -1463,19 +1505,20 @@ function selectPlace(placeId) {
 
 function selectAirport(airportId) {
     if (!state.airports.some((airport) => airport.id === airportId)) return;
-    state.mapMode = 'south-africa';
+    state.mapMode = 'country-detail';
     state.selectedPlaceId = null;
     state.selectedAirportId = airportId;
     render();
-    if (state.mapNavigationMode === 'auto') resetSouthAfricaViewBox();
+    if (state.mapNavigationMode === 'auto') resetCountryMapViewBox();
 }
 
-function leaveCountryMap() {
+function leaveCountryMap(shouldRender = true) {
     state.mapMode = 'africa';
+    state.activeCountryIso2 = null;
     state.selectedPlaceId = null;
     state.selectedAirportId = null;
     hideMapTooltip();
-    render();
+    if (shouldRender) render();
 }
 
 function toggleFavorite(slug) {
@@ -1576,23 +1619,38 @@ function bindControls() {
 
 async function init() {
     loadSavedState();
-    const [countriesResponse, mapResponse, provincesResponse, destinationsResponse] = await Promise.all([
+    const [countriesResponse, mapResponse, southAfricaRegionsResponse, southAfricaDestinationsResponse, lesothoRegionsResponse, lesothoDestinationsResponse, fieldNotesResponse] = await Promise.all([
         fetch('./data/countries.json'),
         fetch('./data/africa.geojson'),
         fetch('./data/south-africa-provinces.geojson'),
-        fetch('./data/south-africa-destinations.json')
+        fetch('./data/south-africa-destinations.json'),
+        fetch('./data/lesotho-districts.geojson'),
+        fetch('./data/lesotho-destinations.json'),
+        fetch('./data/destination-field-notes.json')
     ]);
-    if (!countriesResponse.ok || !mapResponse.ok || !provincesResponse.ok || !destinationsResponse.ok) throw new Error('Unable to load data');
+    if (![countriesResponse, mapResponse, southAfricaRegionsResponse, southAfricaDestinationsResponse, lesothoRegionsResponse, lesothoDestinationsResponse, fieldNotesResponse].every((response) => response.ok)) throw new Error('Unable to load data');
     const countriesData = await countriesResponse.json();
     const mapData = await mapResponse.json();
-    const provincesData = await provincesResponse.json();
-    const destinationsData = await destinationsResponse.json();
+    const southAfricaRegions = await southAfricaRegionsResponse.json();
+    const southAfricaDestinations = await southAfricaDestinationsResponse.json();
+    const lesothoRegions = await lesothoRegionsResponse.json();
+    const lesothoDestinations = await lesothoDestinationsResponse.json();
+    const fieldNotes = await fieldNotesResponse.json();
+    const withFieldNotes = (dataset, iso2) => ({
+        ...dataset,
+        destinations: dataset.destinations.map((place) => ({
+            ...place,
+            fieldNotes: fieldNotes[iso2][place.id].facts,
+            fieldNotesSourceLabel: fieldNotes[iso2][place.id].sourceLabel,
+            fieldNotesSourceUrl: fieldNotes[iso2][place.id].sourceUrl
+        }))
+    });
     state.countries = countriesData.countries;
     state.mapFeatures = mapData.features;
-    state.provinceFeatures = provincesData.features;
-    state.destinations = destinationsData.destinations;
-    state.mustVisitScores = destinationsData.mustVisitScores || {};
-    state.airports = destinationsData.airports || [];
+    state.countryMaps = {
+        ZA: { ...withFieldNotes(southAfricaDestinations, 'ZA'), features: southAfricaRegions.features },
+        LS: { ...withFieldNotes(lesothoDestinations, 'LS'), features: lesothoRegions.features }
+    };
     state.selectedId = state.countries.find((country) => country.iso2 === 'MA')?.slug || state.countries[0]?.slug;
     renderRegions();
     renderSortOptions();

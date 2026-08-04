@@ -29,7 +29,7 @@ class CountryDatabaseTests(unittest.TestCase):
             path.name for path in (ROOT / "scripts").glob("*.py") if path.is_file()
         }
 
-        self.assertEqual(maintained_scripts, {"fetch_south_africa_images.py"})
+        self.assertEqual(maintained_scripts, {"fetch_destination_images.py"})
 
 
 class ProfileEnrichmentTests(unittest.TestCase):
@@ -151,35 +151,43 @@ class SouthAfricaDestinationTests(unittest.TestCase):
         self.assertIn("const fourByFourFact = shouldShowFourByFour", script)
         self.assertIn("high clearance can help", royal_natal["fourByFour"])
 
-    def test_place_names_link_to_google_maps(self) -> None:
+    def test_google_maps_icon_links_to_named_place_details(self) -> None:
         script = (ROOT / "app.js").read_text(encoding="utf-8")
+        styles = (ROOT / "styles.css").read_text(encoding="utf-8")
+        icon = ROOT / "assets" / "icons" / "google-maps.svg"
         self.assertIn("function googleMapsUrl", script)
         self.assertIn("https://www.google.com/maps/search/?api=1&query=", script)
-        self.assertIn("Open ${escapeHtml(place.name)} in Google Maps", script)
+        self.assertIn("[place.name, place.province, countryName]", script)
+        self.assertNotIn("`${latitude},${longitude}`", script)
+        self.assertIn('class="google-maps-link"', script)
+        self.assertIn("place details and reviews in Google Maps", script)
+        self.assertIn("<h2>${escapeHtml(place.name)}</h2><a", script)
+        self.assertIn(".google-maps-link", styles)
+        self.assertTrue(icon.is_file())
 
     def test_place_hover_uses_collision_aware_smooth_map_focus(self) -> None:
         script = (ROOT / "app.js").read_text(encoding="utf-8")
         styles = (ROOT / "styles.css").read_text(encoding="utf-8")
         html = (ROOT / "index.html").read_text(encoding="utf-8")
-        self.assertIn("function southAfricaSafeZoom", script)
-        self.assertIn("function southAfricaLabelsOverlap", script)
+        self.assertIn("function countryMapSafeZoom", script)
+        self.assertIn("function countryMapLabelsOverlap", script)
         self.assertIn("requestAnimationFrame(tick)", script)
         self.assertIn("marker.addEventListener('pointerenter'", script)
-        self.assertIn("resetSouthAfricaViewBox", script)
+        self.assertIn("resetCountryMapViewBox", script)
         self.assertIn("centered ? 0.5 : horizontalAnchor", script)
         self.assertIn("x: centered ? targetX", script)
         self.assertIn("y: centered ? targetY", script)
-        self.assertIn("focusSouthAfricaPlace(selectedPlace.id, pinLayout, true)", script)
+        self.assertIn("focusCountryMapPlace(selectedPlace.id, pinLayout, true)", script)
         self.assertIn("if (state.selectedPlaceId) return;", script)
-        self.assertIn("southAfricaFocusPoint = null;\n    els.mapFocusClose.hidden = true;", script)
+        self.assertIn("countryMapFocusPoint = null;\n    els.mapFocusClose.hidden = true;", script)
         self.assertIn("duration = 1050", script)
-        self.assertIn("animateSouthAfricaViewBox(southAfricaBaseViewBox, 1250)", script)
-        self.assertIn("if (state.mapNavigationMode === 'auto' && !state.selectedPlaceId) resetSouthAfricaViewBox()", script)
+        self.assertIn("animateCountryMapViewBox(countryMapBaseViewBox, 1250)", script)
+        self.assertIn("if (state.mapNavigationMode === 'auto' && !state.selectedPlaceId) resetCountryMapViewBox()", script)
         self.assertIn("function distanceToSegment", script)
-        self.assertIn("function releaseDistantSouthAfricaHover", script)
+        self.assertIn("function releaseDistantCountryMapHover", script)
         self.assertIn("manualMapDrag?.dragging || state.selectedPlaceId", script)
-        self.assertIn("distanceToSegment(pointer, southAfricaHoverOrigin, markerPosition) > 90", script)
-        self.assertIn("els.africaMap.onpointermove = state.mapNavigationMode === 'auto' ? releaseDistantSouthAfricaHover : null", script)
+        self.assertIn("distanceToSegment(pointer, countryMapHoverOrigin, markerPosition) > 90", script)
+        self.assertIn("els.africaMap.onpointermove = state.mapNavigationMode === 'auto' ? releaseDistantCountryMapHover : null", script)
         self.assertIn("hoveredPlace?.kind === 'region'", script)
         self.assertIn("halo?.getBoundingClientRect()", script)
         self.assertIn("currentPlace?.kind !== 'region' || nextPlace?.kind === 'region'", script)
@@ -212,7 +220,7 @@ class SouthAfricaDestinationTests(unittest.TestCase):
         self.assertLess(pointer_capture, pointer_up_start)
         self.assertIn("manualDragConsumedClick", script)
         self.assertIn("{ passive: false }", script)
-        self.assertIn("if (state.mapNavigationMode === 'auto') focusSouthAfricaPlace", script)
+        self.assertIn("if (state.mapNavigationMode === 'auto') focusCountryMapPlace", script)
         self.assertIn(".map-manual-navigation", styles)
         self.assertIn(".map-auto-navigation.map-dragging", styles)
         self.assertIn("cursor: grab", styles)
@@ -222,12 +230,12 @@ class SouthAfricaDestinationTests(unittest.TestCase):
         styles = (ROOT / "styles.css").read_text(encoding="utf-8")
         self.assertIn("function pinDisplacementFactor", script)
         self.assertIn("function pinPositionAtZoom", script)
-        self.assertIn("function updateSouthAfricaPinDisplacements", script)
+        self.assertIn("function updateCountryMapPinDisplacements", script)
         self.assertIn('data-nearest="${nearest.toFixed(2)}"', script)
         self.assertIn('class="map-pin-body"', script)
-        self.assertIn("updateSouthAfricaPinDisplacements(zoom)", script)
+        self.assertIn("updateCountryMapPinDisplacements(zoom)", script)
         self.assertIn("pinPositionAtZoom(layout, currentZoom)", script)
-        self.assertIn("southAfricaViewBoxFor(center, zoom, centered, initialCenter)", script)
+        self.assertIn("countryMapViewBoxFor(center, zoom, centered, initialCenter)", script)
         self.assertNotIn("keepDisplaced", script)
         self.assertIn(".map-pin-body", styles)
 
@@ -238,7 +246,7 @@ class SouthAfricaDestinationTests(unittest.TestCase):
         script = (ROOT / "app.js").read_text(encoding="utf-8")
         html = (ROOT / "index.html").read_text(encoding="utf-8")
         self.assertEqual(len(provinces["features"]), 9)
-        self.assertIn("renderSouthAfricaMap", script)
+        self.assertIn("renderCountryMap", script)
         self.assertIn("renderPlaceDetail", script)
         self.assertIn('id="mapBackButton"', html)
 
@@ -338,6 +346,79 @@ class SouthAfricaDestinationTests(unittest.TestCase):
 
 
 class InterfaceRegressionTests(unittest.TestCase):
+    def test_lesotho_has_detailed_country_drilldown(self) -> None:
+        payload = json.loads(
+            (ROOT / "data" / "lesotho-destinations.json").read_text(encoding="utf-8")
+        )
+        districts = json.loads(
+            (ROOT / "data" / "lesotho-districts.geojson").read_text(encoding="utf-8")
+        )
+        destinations = payload["destinations"]
+        points = [place for place in destinations if place["kind"] != "region"]
+        regions = [place for place in destinations if place["kind"] == "region"]
+
+        self.assertGreaterEqual(len(points), 20)
+        self.assertGreaterEqual(len(regions), 5)
+        self.assertEqual(payload["meta"]["destinationCount"], len(destinations))
+        self.assertEqual(len(districts["features"]), 10)
+        self.assertEqual(payload["meta"]["mapBounds"], [27.0, 29.47, -30.69, -28.55])
+
+    def test_lesotho_places_match_south_africa_detail_level(self) -> None:
+        payload = json.loads(
+            (ROOT / "data" / "lesotho-destinations.json").read_text(encoding="utf-8")
+        )
+        destinations = payload["destinations"]
+        identifiers = {place["id"] for place in destinations}
+        required = {
+            "gettingThere", "connectivity", "connectivityScore", "difficulty",
+            "difficultyScore", "accessibility", "accessibilityScore", "fourByFour",
+            "recommendedTime", "combineWith", "worldClass", "image", "imageSourceUrl",
+            "imageCredit", "sourceUrl", "tags", "coordinates",
+        }
+
+        self.assertEqual(set(payload["mustVisitScores"]), identifiers)
+        for place in destinations:
+            with self.subTest(place=place["id"]):
+                self.assertFalse(required - set(place))
+                self.assertGreaterEqual(len(place["gettingThere"]), 180)
+                self.assertTrue(set(place["combineWith"]) <= identifiers)
+                self.assertTrue((ROOT / place["image"]).is_file())
+                self.assertGreater((ROOT / place["image"]).stat().st_size, 20_000)
+                for field in ("connectivityScore", "difficultyScore", "accessibilityScore"):
+                    self.assertGreaterEqual(place[field], 0)
+                    self.assertLessEqual(place[field], 10)
+                self.assertGreaterEqual(place["worldClass"]["score"], 0)
+                self.assertLessEqual(place["worldClass"]["score"], 10)
+
+    def test_lesotho_airports_distinguish_scheduled_and_charter_access(self) -> None:
+        payload = json.loads(
+            (ROOT / "data" / "lesotho-destinations.json").read_text(encoding="utf-8")
+        )
+        airports = {airport["code"]: airport for airport in payload["airports"]}
+        destination_ids = {place["id"] for place in payload["destinations"]}
+
+        self.assertEqual(payload["meta"]["airportCount"], len(airports))
+        self.assertEqual(set(airports), {"MSU", "SOK", "MKH"})
+        self.assertEqual(airports["MSU"]["directRoutes"], 1)
+        self.assertEqual(airports["MSU"]["topOriginCountry"], "South Africa")
+        self.assertEqual(airports["SOK"]["directRoutes"], 0)
+        self.assertEqual(airports["MKH"]["directRoutes"], 0)
+        for airport in airports.values():
+            self.assertTrue(set(airport["connections"]) <= destination_ids)
+            self.assertTrue(airport["sourceUrl"].startswith("https://"))
+
+    def test_country_drilldown_is_configured_for_south_africa_and_lesotho(self) -> None:
+        script = (ROOT / "app.js").read_text(encoding="utf-8")
+
+        self.assertIn("function activateCountryMap", script)
+        self.assertIn("activeCountryIso2", script)
+        self.assertIn("activeCountryMap()?.meta.mapBounds", script)
+        self.assertIn("ZA: { ...withFieldNotes(southAfricaDestinations, 'ZA')", script)
+        self.assertIn("LS: { ...withFieldNotes(lesothoDestinations, 'LS')", script)
+        self.assertIn("fetch('./data/lesotho-districts.geojson')", script)
+        self.assertIn("fetch('./data/lesotho-destinations.json')", script)
+        self.assertNotIn("country?.iso2 === 'ZA'", script)
+
     def test_larili_atlas_brand_asset_is_integrated(self) -> None:
         html = (ROOT / "index.html").read_text(encoding="utf-8")
         logo = ROOT / "assets" / "brand" / "larili-atlas-neon.png"
@@ -365,6 +446,41 @@ class InterfaceRegressionTests(unittest.TestCase):
         self.assertIn("scoreColor(100 - place.difficultyScore * 10), place.difficulty", script)
         self.assertIn("scoreColor(place.accessibilityScore * 10), place.accessibility", script)
         self.assertNotIn('class="place-info-grid"', script)
+
+    def test_every_place_card_renders_field_notes_before_directions(self) -> None:
+        script = (ROOT / "app.js").read_text(encoding="utf-8")
+        styles = (ROOT / "styles.css").read_text(encoding="utf-8")
+        notes = json.loads(
+            (ROOT / "data" / "destination-field-notes.json").read_text(encoding="utf-8")
+        )
+        field_notes = script.index('<section class="place-field-notes">')
+        directions = script.index('<section class="place-info-block"><span>Getting there</span>')
+
+        self.assertLess(field_notes, directions)
+        self.assertNotIn("function placeFieldNotes(place, related)", script)
+        self.assertIn("fetch('./data/destination-field-notes.json')", script)
+        self.assertIn("fieldNotes: fieldNotes[iso2][place.id].facts", script)
+        self.assertIn(".place-field-notes ul", styles)
+        self.assertIn(
+            ".place-field-notes ul { position: relative; z-index: 1; display: grid; "
+            "grid-template-columns: minmax(0, 1fr)",
+            styles,
+        )
+
+        for iso2, filename in (
+            ("ZA", "south-africa-destinations.json"),
+            ("LS", "lesotho-destinations.json"),
+        ):
+            destinations = json.loads((ROOT / "data" / filename).read_text(encoding="utf-8"))["destinations"]
+            self.assertEqual(set(notes[iso2]), {place["id"] for place in destinations})
+            for place in destinations:
+                with self.subTest(country=iso2, place=place["id"]):
+                    entry = notes[iso2][place["id"]]
+                    self.assertGreaterEqual(len(entry["facts"]), 3)
+                    self.assertLessEqual(len(entry["facts"]), 10)
+                    self.assertTrue(all(len(fact) >= 45 for fact in entry["facts"]))
+                    self.assertTrue(entry["sourceUrl"].startswith("https://"))
+                    self.assertTrue(entry["sourceLabel"])
 
     def test_filters_use_custom_dropdowns_and_map_is_larger(self) -> None:
         script = (ROOT / "app.js").read_text(encoding="utf-8")

@@ -1,0 +1,1400 @@
+{
+  "meta": {
+    "country": "Lesotho",
+    "iso2": "LS",
+    "assessmentDate": "2026-08-05",
+    "destinationCount": 30,
+    "airportCount": 3,
+    "adminLabelPlural": "districts",
+    "mapBounds": [
+      27.0,
+      29.47,
+      -30.69,
+      -28.55
+    ],
+    "geographicLabels": [],
+    "note": "Mountain roads, passes, park access and air services can change quickly with weather. Confirm permits, border hours and road conditions before travel.",
+    "boundarySource": "https://www.geoboundaries.org/api/current/gbOpen/LSO/ADM1/",
+    "primarySources": [
+      "https://www.visitlesotho.org.ls/place-to-visit",
+      "https://www.lhda.org.ls/home/tourism",
+      "https://whc.unesco.org/en/list/985/"
+    ]
+  },
+  "mustVisitScores": {
+    "northern-highlands": 8.8,
+    "katse-central-highlands": 8.7,
+    "eastern-highlands": 9.2,
+    "southern-highlands": 8.8,
+    "cultural-lowlands": 9.0,
+    "semonkong-malealea-belt": 8.9,
+    "maseru": 6.8,
+    "thaba-bosiu": 9.6,
+    "morija": 8.1,
+    "kome-caves": 8.5,
+    "ha-baroana": 6.8,
+    "maletsunyane-falls": 10,
+    "semonkong": 8.8,
+    "malealea": 8.9,
+    "gates-of-paradise": 7.5,
+    "tsehlanyane": 9.0,
+    "liphofung": 7.8,
+    "bokong": 8.4,
+    "katse-dam": 8.7,
+    "katse-botanical-garden": 6.5,
+    "afriski": 7.7,
+    "moteng-pass": 7.4,
+    "sani-pass": 9.7,
+    "thabana-ntlenyana": 9.3,
+    "sehlabathebe": 9.2,
+    "quthing-dinosaur-footprints": 7.7,
+    "masitise-cave-house": 7.2,
+    "mohale-dam": 8.0,
+    "ribaneng-falls": 7.9,
+    "lake-letsie": 8.2
+  },
+  "destinations": [
+    {
+      "id": "northern-highlands",
+      "name": "Northern Highlands",
+      "kind": "region",
+      "category": "Alpine parks & passes",
+      "province": "Butha-Buthe / Leribe",
+      "coordinates": [
+        28.55,
+        -28.82
+      ],
+      "radius": 82,
+      "wikiTitle": "Maloti_Mountains",
+      "summary": "Lesotho's easiest highland circuit, linking sandstone caves, indigenous mountain forest, dramatic passes and the country's winter-sports base.",
+      "gettingThere": "Enter via Caledonspoort or drive the A1 north from Maseru to Butha-Buthe, then use the surfaced A1/A8 spine for Liphofung, Ts'ehlanyane, Moteng and AfriSki. Allow extra daylight for fog, livestock and winter ice; distances look short but mountain speeds are low.",
+      "connectivity": "Reliable in Butha-Buthe and Hlotse, intermittent in valleys and weak above Moteng Pass.",
+      "connectivityScore": 5,
+      "difficulty": "Moderate road trip with high-altitude weather",
+      "difficultyScore": 6,
+      "accessibility": "Main corridor is paved; trails, reserve roads and winter conditions reduce access.",
+      "accessibilityScore": 6,
+      "fourByFour": "Not normally required on the main circuit; high clearance helps for remote trailheads and after snow or heavy rain.",
+      "recommendedTime": "3–5 days",
+      "combineWith": [
+        "tsehlanyane",
+        "liphofung",
+        "afriski",
+        "moteng-pass"
+      ],
+      "tags": [
+        "Mountains",
+        "Hiking",
+        "Road trip"
+      ],
+      "worldClass": {
+        "label": "Highland road trip",
+        "score": 8.7,
+        "note": "A compact, unusually high-altitude circuit with strong landscape variety."
+      },
+      "sourceUrl": "https://www.visitlesotho.org.ls/place-to-visit",
+      "image": "assets/places/ls/northern-highlands.jpg",
+      "imageAlt": "Northern Highlands landscape",
+      "imageSourceUrl": "https://en.wikipedia.org/wiki/Maloti_Mountains",
+      "imageCredit": "Wikipedia / Wikimedia Commons"
+    },
+    {
+      "id": "katse-central-highlands",
+      "name": "Katse & Central Highlands",
+      "kind": "region",
+      "category": "Dam & mountain region",
+      "province": "Leribe / Thaba-Tseka",
+      "coordinates": [
+        28.5,
+        -29.27
+      ],
+      "radius": 78,
+      "wikiTitle": "Lesotho_Highlands",
+      "summary": "A remote central plateau of engineered lakes, deep valleys, afro-alpine reserve land and some of Lesotho's most rewarding paved mountain driving.",
+      "gettingThere": "Approach Katse from Hlotse via the A8 and Mafika-Lisiu Pass, or continue west from Mokhotlong through the highlands. Fuel before leaving the lowlands, avoid night driving and budget most of a day between bases even when the distance appears modest.",
+      "connectivity": "Patchy outside Katse Village and Thaba-Tseka; download maps and accommodation details.",
+      "connectivityScore": 4,
+      "difficulty": "Long, winding stages with limited services",
+      "difficultyScore": 7,
+      "accessibility": "Katse is reached on paved roads, while reserve and village side trips are rougher.",
+      "accessibilityScore": 6,
+      "fourByFour": "Not required for Katse on the main paved approaches; useful for remote side roads and reserve access.",
+      "recommendedTime": "3–4 days",
+      "combineWith": [
+        "katse-dam",
+        "katse-botanical-garden",
+        "bokong",
+        "mohale-dam"
+      ],
+      "tags": [
+        "Scenic drive",
+        "Engineering",
+        "Hiking"
+      ],
+      "worldClass": {
+        "label": "Mountain engineering landscape",
+        "score": 8.4,
+        "note": "Katse's scale and setting make the water project a destination rather than just infrastructure."
+      },
+      "sourceUrl": "https://www.lhda.org.ls/home/tourism",
+      "image": "assets/places/ls/katse-central-highlands.jpg",
+      "imageAlt": "Katse & Central Highlands landscape",
+      "imageSourceUrl": "https://en.wikipedia.org/wiki/Lesotho_Highlands",
+      "imageCredit": "Wikipedia / Wikimedia Commons"
+    },
+    {
+      "id": "eastern-highlands",
+      "name": "Eastern Highlands",
+      "kind": "region",
+      "category": "High peaks & border passes",
+      "province": "Mokhotlong",
+      "coordinates": [
+        29.12,
+        -29.28
+      ],
+      "radius": 84,
+      "wikiTitle": "Drakensberg",
+      "summary": "Lesotho at its most vertical: Sani Pass, the Roof of Africa road, isolated shepherd settlements and the highest summit in southern Africa.",
+      "gettingThere": "Reach Mokhotlong on the A1 from Butha-Buthe, on the A3 from Thaba-Tseka, or climb Sani Pass from KwaZulu-Natal. Border formalities, snow, fog and rockfall can reshape the day; carry food, warm layers and offline navigation.",
+      "connectivity": "Usable in Mokhotlong, very limited on passes and away from settlements.",
+      "connectivityScore": 3,
+      "difficulty": "High altitude, volatile weather and demanding hikes",
+      "difficultyScore": 9,
+      "accessibility": "The A1 is paved, but summit walks and some border approaches are rugged and weather-sensitive.",
+      "accessibilityScore": 4,
+      "fourByFour": "Required or strongly recommended for Sani Pass approaches and remote tracks; not required for the paved A1 to Mokhotlong in normal conditions.",
+      "recommendedTime": "3–5 days",
+      "combineWith": [
+        "sani-pass",
+        "thabana-ntlenyana",
+        "afriski",
+        "moteng-pass"
+      ],
+      "tags": [
+        "High altitude",
+        "Hiking",
+        "4×4"
+      ],
+      "worldClass": {
+        "label": "High-altitude adventure",
+        "score": 9.2,
+        "note": "One of Africa's defining mountain-road and summit combinations."
+      },
+      "sourceUrl": "https://www.visitlesotho.org.ls/place-to-visit/sani-top-thabana-ntlenyana",
+      "image": "assets/places/ls/eastern-highlands.jpg",
+      "imageAlt": "Eastern Highlands landscape",
+      "imageSourceUrl": "https://en.wikipedia.org/wiki/Drakensberg",
+      "imageCredit": "Wikipedia / Wikimedia Commons"
+    },
+    {
+      "id": "southern-highlands",
+      "name": "Southern Highlands",
+      "kind": "region",
+      "category": "Wilderness & heritage region",
+      "province": "Qacha's Nek / Quthing",
+      "coordinates": [
+        28.87,
+        -30.12
+      ],
+      "radius": 88,
+      "wikiTitle": "Sehlabathebe_National_Park",
+      "summary": "A sparsely visited southern arc of sandstone wilderness, rock art, wetland, dinosaur heritage and traditional villages.",
+      "gettingThere": "Use the A4 through Qacha's Nek for Sehlabathebe or the A2 south through Mohale's Hoek and Quthing for the western sites. Links between the two sides are slow and sometimes rough, so treat them as separate loops unless you have a capable vehicle and current local advice.",
+      "connectivity": "Town coverage is usable; the national park, Lake Letsie and mountain valleys are largely offline.",
+      "connectivityScore": 2,
+      "difficulty": "Remote logistics and long unpaved approaches",
+      "difficultyScore": 8,
+      "accessibility": "Major towns are paved-access; wilderness destinations require rough-road travel and walking.",
+      "accessibilityScore": 3,
+      "fourByFour": "Strongly recommended for Lake Letsie and remote southern links; check the current Sehlabathebe access road before departure.",
+      "recommendedTime": "4–6 days",
+      "combineWith": [
+        "sehlabathebe",
+        "lake-letsie",
+        "quthing-dinosaur-footprints",
+        "masitise-cave-house"
+      ],
+      "tags": [
+        "Wilderness",
+        "Rock art",
+        "Road trip"
+      ],
+      "worldClass": {
+        "label": "Remote cultural landscape",
+        "score": 8.6,
+        "note": "A rare combination of World Heritage wilderness and low-traffic overland travel."
+      },
+      "sourceUrl": "https://www.visitlesotho.org.ls/place-to-visit/southern-rustic-route",
+      "image": "assets/places/ls/southern-highlands.jpg",
+      "imageAlt": "Southern Highlands landscape",
+      "imageSourceUrl": "https://en.wikipedia.org/wiki/Sehlabathebe_National_Park",
+      "imageCredit": "Wikipedia / Wikimedia Commons"
+    },
+    {
+      "id": "cultural-lowlands",
+      "name": "Cultural Lowlands",
+      "kind": "region",
+      "category": "History & culture region",
+      "province": "Maseru / Berea",
+      "coordinates": [
+        27.72,
+        -29.36
+      ],
+      "radius": 92,
+      "wikiTitle": "Thaba_Bosiu",
+      "summary": "The historical core of the Basotho nation, combining Thaba Bosiu, cave dwellings, rock art, Morija and the practical gateway of Maseru.",
+      "gettingThere": "Base in Maseru and make day trips east and south on paved A-roads. Thaba Bosiu is roughly 25 km from the capital; Morija is about 40 km south, while Kome and Ha Baroana need slower final approaches. A rental car or guide makes the cluster far easier to combine.",
+      "connectivity": "Best connectivity in the country around Maseru, with weaker signal at rural heritage sites.",
+      "connectivityScore": 8,
+      "difficulty": "Easy logistics with short walks and guided visits",
+      "difficultyScore": 3,
+      "accessibility": "Mostly paved approaches; individual cave, plateau and rock-art visits include uneven ground.",
+      "accessibilityScore": 7,
+      "fourByFour": "Not required for the core route in dry conditions; high clearance can help on rural access tracks.",
+      "recommendedTime": "2–4 days",
+      "combineWith": [
+        "maseru",
+        "thaba-bosiu",
+        "morija",
+        "kome-caves",
+        "ha-baroana"
+      ],
+      "tags": [
+        "History",
+        "Culture",
+        "Easy access"
+      ],
+      "worldClass": {
+        "label": "National heritage",
+        "score": 8.8,
+        "note": "Thaba Bosiu gives the region exceptional meaning within southern African history."
+      },
+      "sourceUrl": "https://www.visitlesotho.org.ls/place-to-visit/thaba-bosiu-monument",
+      "image": "assets/places/ls/cultural-lowlands.jpg",
+      "imageAlt": "Cultural Lowlands landscape",
+      "imageSourceUrl": "https://en.wikipedia.org/wiki/Thaba_Bosiu",
+      "imageCredit": "Wikipedia / Wikimedia Commons"
+    },
+    {
+      "id": "semonkong-malealea-belt",
+      "name": "Semonkong–Malealea Adventure Belt",
+      "kind": "region",
+      "category": "Waterfalls & pony-trekking region",
+      "province": "Maseru / Mafeteng",
+      "coordinates": [
+        27.86,
+        -29.83
+      ],
+      "radius": 92,
+      "wikiTitle": "Maletsunyane_Falls",
+      "summary": "The most accessible expression of Lesotho's adventure identity: giant waterfalls, pony treks, village stays, sandstone passes and multi-day trails.",
+      "gettingThere": "Drive south from Maseru and branch east to Semonkong or west through Mafeteng to Malealea. Both bases are reachable without a 4×4 in normal weather, but they are not a quick direct hop between each other; plan separate approach days or a guided overland transfer.",
+      "connectivity": "Reasonable around lodges and villages, weak on trails and between mountain settlements.",
+      "connectivityScore": 5,
+      "difficulty": "Flexible: easy viewpoints through demanding multi-day treks",
+      "difficultyScore": 6,
+      "accessibility": "Main bases have road access; waterfall rims, pony routes and village trails are uneven.",
+      "accessibilityScore": 5,
+      "fourByFour": "Not normally required to reach the main lodges; useful for remote waterfall tracks and cross-country links after rain.",
+      "recommendedTime": "4–6 days",
+      "combineWith": [
+        "maletsunyane-falls",
+        "semonkong",
+        "malealea",
+        "gates-of-paradise",
+        "ribaneng-falls"
+      ],
+      "tags": [
+        "Pony trekking",
+        "Waterfalls",
+        "Village stays"
+      ],
+      "worldClass": {
+        "label": "Community adventure",
+        "score": 9.0,
+        "note": "A signature Basotho mix of landscape, horseback travel and locally rooted tourism."
+      },
+      "sourceUrl": "https://www.visitlesotho.org.ls/place-to-visit",
+      "image": "assets/places/ls/semonkong-malealea-belt.jpg",
+      "imageAlt": "Semonkong–Malealea Adventure Belt landscape",
+      "imageSourceUrl": "https://en.wikipedia.org/wiki/Maletsunyane_Falls",
+      "imageCredit": "Wikipedia / Wikimedia Commons"
+    },
+    {
+      "id": "maseru",
+      "name": "Maseru",
+      "kind": "point",
+      "category": "Capital gateway",
+      "province": "Maseru",
+      "coordinates": [
+        27.4869,
+        -29.3158
+      ],
+      "wikiTitle": "Maseru",
+      "summary": "Lesotho's practical entry point for fuel, SIM cards, car rental, crafts and trip setup rather than the country's strongest standalone attraction.",
+      "gettingThere": "Cross at Maseru Bridge from Ladybrand or fly into Moshoeshoe I International Airport, about 20 km south of the centre. Use the capital to stock up, withdraw cash and confirm road conditions before the highlands; traffic and border queues can add time.",
+      "connectivity": "The country's strongest mobile data, banking and Wi-Fi coverage.",
+      "connectivityScore": 9,
+      "difficulty": "Straightforward urban stop",
+      "difficultyScore": 2,
+      "accessibility": "Paved streets and the broadest range of services, though pedestrian infrastructure is inconsistent.",
+      "accessibilityScore": 8,
+      "fourByFour": "Not required.",
+      "recommendedTime": "0.5–1 day",
+      "combineWith": [
+        "thaba-bosiu",
+        "morija",
+        "cultural-lowlands"
+      ],
+      "tags": [
+        "Gateway",
+        "Culture",
+        "Supplies"
+      ],
+      "worldClass": {
+        "label": "Urban travel",
+        "score": 4.8,
+        "note": "Useful and culturally interesting, but the mountain kingdom is the main reason to come."
+      },
+      "sourceUrl": "https://www.visitlesotho.org.ls/place-to-visit",
+      "image": "assets/places/ls/maseru.jpg",
+      "imageAlt": "Maseru landscape",
+      "imageSourceUrl": "https://en.wikipedia.org/wiki/Maseru",
+      "imageCredit": "Wikipedia / Wikimedia Commons"
+    },
+    {
+      "id": "thaba-bosiu",
+      "name": "Thaba Bosiu",
+      "kind": "point",
+      "category": "National monument",
+      "province": "Maseru",
+      "coordinates": [
+        27.735,
+        -29.361
+      ],
+      "wikiTitle": "Thaba_Bosiu",
+      "summary": "The sandstone plateau where Moshoeshoe I consolidated the Basotho nation, with royal graves, historic remains and a powerful view over the lowlands.",
+      "gettingThere": "Drive about 25 km east of Maseru on the paved road toward Thaba Bosiu. Start at the visitor centre or cultural village and use a local guide for the plateau ascent; allow extra time for the steep, exposed path and for the historical interpretation.",
+      "connectivity": "Usually usable around the cultural village, less reliable on the plateau.",
+      "connectivityScore": 6,
+      "difficulty": "Short but steep plateau walk",
+      "difficultyScore": 5,
+      "accessibility": "Visitor facilities are straightforward; the summit path is uneven and not step-free.",
+      "accessibilityScore": 5,
+      "fourByFour": "Not required.",
+      "recommendedTime": "3–5 hours",
+      "combineWith": [
+        "maseru",
+        "kome-caves",
+        "ha-baroana",
+        "cultural-lowlands"
+      ],
+      "tags": [
+        "History",
+        "Culture",
+        "Viewpoint"
+      ],
+      "worldClass": {
+        "label": "Historical significance",
+        "score": 9.0,
+        "note": "One of southern Africa's most meaningful nation-forming landscapes."
+      },
+      "sourceUrl": "https://www.visitlesotho.org.ls/place-to-visit/thaba-bosiu-monument",
+      "image": "assets/places/ls/thaba-bosiu.jpg",
+      "imageAlt": "Thaba Bosiu landscape",
+      "imageSourceUrl": "https://en.wikipedia.org/wiki/Thaba_Bosiu",
+      "imageCredit": "Wikipedia / Wikimedia Commons"
+    },
+    {
+      "id": "morija",
+      "name": "Morija Museum & Archives",
+      "kind": "point",
+      "category": "Museum & heritage town",
+      "province": "Maseru",
+      "coordinates": [
+        27.513,
+        -29.63
+      ],
+      "wikiTitle": "Thaba_Bosiu",
+      "summary": "A compact centre for Basotho history, archaeology, art and publishing heritage in Lesotho's oldest mission settlement.",
+      "gettingThere": "Follow the paved A2 south from Maseru for roughly 40 km and turn into Morija. The museum, church and village are easy to combine in a half day; confirm opening hours before leaving because exhibitions and guided access can vary.",
+      "connectivity": "Good mobile coverage in town, with limited café-style work options.",
+      "connectivityScore": 7,
+      "difficulty": "Easy cultural visit",
+      "difficultyScore": 2,
+      "accessibility": "Road access is simple; older buildings and paths may include steps or uneven surfaces.",
+      "accessibilityScore": 7,
+      "fourByFour": "Not required.",
+      "recommendedTime": "2–4 hours",
+      "combineWith": [
+        "maseru",
+        "thaba-bosiu",
+        "malealea",
+        "cultural-lowlands"
+      ],
+      "tags": [
+        "Museum",
+        "History",
+        "Architecture"
+      ],
+      "worldClass": {
+        "label": "Cultural archive",
+        "score": 7.4,
+        "note": "Small in scale but unusually important for understanding Basotho history and identity."
+      },
+      "sourceUrl": "https://www.visitlesotho.org.ls/place-to-visit",
+      "image": "assets/places/ls/morija.jpg",
+      "imageAlt": "Morija Museum & Archives landscape",
+      "imageSourceUrl": "https://en.wikipedia.org/wiki/Thaba_Bosiu",
+      "imageCredit": "Wikipedia / Wikimedia Commons"
+    },
+    {
+      "id": "kome-caves",
+      "name": "Kome Cave Dwellings",
+      "kind": "point",
+      "category": "Living heritage",
+      "province": "Berea",
+      "coordinates": [
+        27.604,
+        -29.236
+      ],
+      "wikiTitle": "Kome_Caves",
+      "summary": "Remarkable cave-front homes built into an overhang and still associated with the descendants of the original community.",
+      "gettingThere": "Drive north-east from Maseru toward Teyateyaneng and follow signs for Ha Kome. The last rural section is slower and can be rough after rain; arrange a local guide at the visitor area and approach homes respectfully because this is a living community, not an abandoned site.",
+      "connectivity": "Intermittent rural signal; do not rely on data for the final approach.",
+      "connectivityScore": 4,
+      "difficulty": "Short visit with rough footpaths",
+      "difficultyScore": 3,
+      "accessibility": "Vehicle access gets close, but the settlement path is uneven and can be muddy.",
+      "accessibilityScore": 5,
+      "fourByFour": "Usually not required in dry weather; high clearance helps after rain.",
+      "recommendedTime": "2–3 hours",
+      "combineWith": [
+        "thaba-bosiu",
+        "ha-baroana",
+        "cultural-lowlands"
+      ],
+      "tags": [
+        "Living culture",
+        "Architecture",
+        "Community"
+      ],
+      "worldClass": {
+        "label": "Vernacular architecture",
+        "score": 8.1,
+        "note": "A rare inhabited cave-dwelling tradition with strong cultural continuity."
+      },
+      "sourceUrl": "https://www.visitlesotho.org.ls/place-to-visit",
+      "image": "assets/places/ls/kome-caves.jpg",
+      "imageAlt": "Kome Cave Dwellings landscape",
+      "imageSourceUrl": "https://en.wikipedia.org/wiki/Kome_Caves",
+      "imageCredit": "Wikipedia / Wikimedia Commons"
+    },
+    {
+      "id": "ha-baroana",
+      "name": "Ha Baroana Rock Art",
+      "kind": "point",
+      "category": "Rock-art site",
+      "province": "Maseru",
+      "coordinates": [
+        27.915,
+        -29.455
+      ],
+      "wikiTitle": "Thaba_Bosiu",
+      "summary": "A sandstone shelter with San paintings overlooking the Liphiring River valley, best visited with local guidance and realistic expectations about preservation.",
+      "gettingThere": "Approach from the Thaba Bosiu side on rural roads, then walk down toward the shelter with a community guide. Road signage is limited and the descent can be slippery, so arrange directions locally, avoid late arrival and carry water.",
+      "connectivity": "Weak to absent at the shelter.",
+      "connectivityScore": 2,
+      "difficulty": "Steep, uneven approach path",
+      "difficultyScore": 6,
+      "accessibility": "Not step-free; the final descent requires balance on loose and uneven ground.",
+      "accessibilityScore": 2,
+      "fourByFour": "High clearance is useful on the final rural road, especially after rain.",
+      "recommendedTime": "2–4 hours",
+      "combineWith": [
+        "thaba-bosiu",
+        "kome-caves",
+        "cultural-lowlands"
+      ],
+      "tags": [
+        "Rock art",
+        "Archaeology",
+        "Hiking"
+      ],
+      "worldClass": {
+        "label": "Rock art",
+        "score": 6.9,
+        "note": "Historically valuable, though smaller and less preserved than the region's premier rock-art concentrations."
+      },
+      "sourceUrl": "https://www.visitlesotho.org.ls/place-to-visit",
+      "image": "assets/places/ls/ha-baroana.jpg",
+      "imageAlt": "Ha Baroana Rock Art landscape",
+      "imageSourceUrl": "https://en.wikipedia.org/wiki/Thaba_Bosiu",
+      "imageCredit": "Wikipedia / Wikimedia Commons"
+    },
+    {
+      "id": "maletsunyane-falls",
+      "name": "Maletsunyane Falls",
+      "kind": "point",
+      "category": "Waterfall & abseil",
+      "province": "Maseru",
+      "coordinates": [
+        28.051,
+        -29.868
+      ],
+      "wikiTitle": "Maletsunyane_Falls",
+      "summary": "Lesotho's defining natural landmark: a 192-metre single-drop waterfall in a vast basalt gorge beside Semonkong.",
+      "gettingThere": "Drive the paved mountain road from Maseru to Semonkong in roughly 3–4 hours, then use the signed viewpoint track or arrange a guided walk from town. The rim is exposed, mist and wind are common, and the commercial abseil must be booked with an operator in advance.",
+      "connectivity": "Usable around Semonkong lodges, weak or absent at the gorge.",
+      "connectivityScore": 4,
+      "difficulty": "Easy viewpoint; demanding abseil or gorge hike",
+      "difficultyScore": 6,
+      "accessibility": "The main viewpoint still involves rough ground; gorge routes are steep and technical.",
+      "accessibilityScore": 4,
+      "fourByFour": "Not required for Semonkong on the main road; useful for muddy viewpoint tracks after rain.",
+      "recommendedTime": "0.5–1 day",
+      "combineWith": [
+        "semonkong",
+        "ribaneng-falls",
+        "semonkong-malealea-belt"
+      ],
+      "tags": [
+        "Waterfall",
+        "Abseiling",
+        "Hiking"
+      ],
+      "worldClass": {
+        "label": "Waterfall",
+        "score": 9.5,
+        "note": "A genuinely world-scale single-drop waterfall with an exceptional highland setting."
+      },
+      "sourceUrl": "https://www.visitlesotho.org.ls/place-to-visit",
+      "image": "assets/places/ls/maletsunyane-falls.jpg",
+      "imageAlt": "Maletsunyane Falls landscape",
+      "imageSourceUrl": "https://en.wikipedia.org/wiki/Maletsunyane_Falls",
+      "imageCredit": "Wikipedia / Wikimedia Commons"
+    },
+    {
+      "id": "semonkong",
+      "name": "Semonkong",
+      "kind": "point",
+      "category": "Adventure base",
+      "province": "Maseru",
+      "coordinates": [
+        28.05,
+        -29.84
+      ],
+      "wikiTitle": "Maletsunyane_Falls",
+      "summary": "A highland trading town and lodge base for Maletsunyane, pony treks, village walks and longer routes through central Lesotho.",
+      "gettingThere": "Follow the paved A5 from Maseru over high passes; plan 3–4 hours and avoid arriving after dark because fog, livestock and sharp bends slow the final stages. Fuel in Maseru and confirm onward tracks locally before committing to remote waterfall or village routes.",
+      "connectivity": "Basic mobile data in town and around larger lodges; unreliable beyond the valley.",
+      "connectivityScore": 5,
+      "difficulty": "Easy base with weather-dependent excursions",
+      "difficultyScore": 4,
+      "accessibility": "Town and lodge access is manageable; most activities use rough paths or horses.",
+      "accessibilityScore": 5,
+      "fourByFour": "Not required on the main paved road; useful for remote excursions.",
+      "recommendedTime": "2–3 days",
+      "combineWith": [
+        "maletsunyane-falls",
+        "ribaneng-falls",
+        "semonkong-malealea-belt"
+      ],
+      "tags": [
+        "Pony trekking",
+        "Village stay",
+        "Hiking"
+      ],
+      "worldClass": {
+        "label": "Adventure base",
+        "score": 8.3,
+        "note": "One of southern Africa's strongest community-based mountain adventure bases."
+      },
+      "sourceUrl": "https://www.visitlesotho.org.ls/place-to-visit",
+      "image": "assets/places/ls/semonkong.jpg",
+      "imageAlt": "Semonkong landscape",
+      "imageSourceUrl": "https://en.wikipedia.org/wiki/Maletsunyane_Falls",
+      "imageCredit": "Wikipedia / Wikimedia Commons"
+    },
+    {
+      "id": "malealea",
+      "name": "Malealea",
+      "kind": "point",
+      "category": "Pony-trekking base",
+      "province": "Mafeteng",
+      "coordinates": [
+        27.61,
+        -29.82
+      ],
+      "wikiTitle": "Malealea",
+      "summary": "A celebrated village base for Basotho pony treks, hiking, community tourism and overnight routes into sandstone valleys.",
+      "gettingThere": "Drive south-west from Maseru via Mafeteng and turn toward Malealea, finishing over Gates of Paradise Pass. The lodge route is normally manageable in a standard car, but take it slowly, arrive in daylight and ask locally before using minor tracks after heavy rain.",
+      "connectivity": "Usable but inconsistent around the village; limited on pony routes.",
+      "connectivityScore": 5,
+      "difficulty": "Flexible from short rides to multi-day treks",
+      "difficultyScore": 5,
+      "accessibility": "Vehicle access reaches the village, while core activities involve horses and uneven trails.",
+      "accessibilityScore": 5,
+      "fourByFour": "Not normally required for the main lodge road; helpful on remote trails and after storms.",
+      "recommendedTime": "2–4 days",
+      "combineWith": [
+        "gates-of-paradise",
+        "morija",
+        "semonkong-malealea-belt"
+      ],
+      "tags": [
+        "Pony trekking",
+        "Community",
+        "Hiking"
+      ],
+      "worldClass": {
+        "label": "Pony trekking",
+        "score": 9.0,
+        "note": "A benchmark destination for experiencing mountain Lesotho by Basotho pony."
+      },
+      "sourceUrl": "https://www.visitlesotho.org.ls/place-to-visit",
+      "image": "assets/places/ls/malealea.jpg",
+      "imageAlt": "Malealea landscape",
+      "imageSourceUrl": "https://en.wikipedia.org/wiki/Malealea",
+      "imageCredit": "Wikipedia / Wikimedia Commons"
+    },
+    {
+      "id": "gates-of-paradise",
+      "name": "Gates of Paradise Pass",
+      "kind": "point",
+      "category": "Scenic pass",
+      "province": "Mafeteng",
+      "coordinates": [
+        27.6,
+        -29.75
+      ],
+      "wikiTitle": "Malealea",
+      "summary": "The dramatic sandstone gateway to Malealea, with one of the classic first panoramas of Lesotho's western mountain country.",
+      "gettingThere": "Follow the signed Malealea road from Mafeteng and climb the pass before the final descent to the village. Stop only where the road is wide and sight lines are clear; the surface and shoulders can deteriorate after rain, and local traffic or livestock may appear around blind bends.",
+      "connectivity": "Patchy mobile signal on the pass.",
+      "connectivityScore": 4,
+      "difficulty": "Easy drive in normal weather",
+      "difficultyScore": 3,
+      "accessibility": "Primarily a roadside viewpoint with rough pull-offs.",
+      "accessibilityScore": 6,
+      "fourByFour": "Not normally required; high clearance is useful after road damage.",
+      "recommendedTime": "30–60 minutes",
+      "combineWith": [
+        "malealea",
+        "morija",
+        "semonkong-malealea-belt"
+      ],
+      "tags": [
+        "Scenic drive",
+        "Viewpoint",
+        "Photography"
+      ],
+      "worldClass": {
+        "label": "Mountain pass",
+        "score": 7.1,
+        "note": "A memorable gateway view, though less extreme than Lesotho's eastern passes."
+      },
+      "sourceUrl": "https://www.visitlesotho.org.ls/place-to-visit",
+      "image": "assets/places/ls/gates-of-paradise.jpg",
+      "imageAlt": "Gates of Paradise Pass landscape",
+      "imageSourceUrl": "https://en.wikipedia.org/wiki/Malealea",
+      "imageCredit": "Wikipedia / Wikimedia Commons"
+    },
+    {
+      "id": "tsehlanyane",
+      "name": "Ts'ehlanyane National Park",
+      "kind": "point",
+      "category": "National park",
+      "province": "Leribe",
+      "coordinates": [
+        28.42,
+        -28.91
+      ],
+      "wikiTitle": "Maloti_Mountains",
+      "summary": "A rugged sanctuary protecting rare indigenous woodland, mountain streams and excellent day and overnight hiking in the northern Maloti.",
+      "gettingThere": "Leave the surfaced A1 about 23 km north-east of Hlotse and follow the roughly 32 km valley access road to the park. The final road is gravel and slower than it looks; check conditions after storms, arrive before gate closing and carry supplies beyond the lodge area.",
+      "connectivity": "Limited around accommodation and generally weak on trails.",
+      "connectivityScore": 3,
+      "difficulty": "Moderate mountain hiking with longer strenuous options",
+      "difficultyScore": 6,
+      "accessibility": "Road reaches the lodge and park base, but trails are steep and natural-surface.",
+      "accessibilityScore": 4,
+      "fourByFour": "Usually not required in dry conditions; high clearance helps on the gravel access road after rain.",
+      "recommendedTime": "1–3 days",
+      "combineWith": [
+        "liphofung",
+        "bokong",
+        "northern-highlands"
+      ],
+      "tags": [
+        "Hiking",
+        "Forest",
+        "Birding"
+      ],
+      "worldClass": {
+        "label": "Mountain hiking",
+        "score": 8.6,
+        "note": "Lesotho's richest combination of indigenous forest and accessible highland trails."
+      },
+      "sourceUrl": "https://www.visitlesotho.org.ls/place-to-visit/tsehlanyane-national-park",
+      "image": "assets/places/ls/tsehlanyane.jpg",
+      "imageAlt": "Ts'ehlanyane National Park landscape",
+      "imageSourceUrl": "https://en.wikipedia.org/wiki/Maloti_Mountains",
+      "imageCredit": "Wikipedia / Wikimedia Commons"
+    },
+    {
+      "id": "liphofung",
+      "name": "Liphofung Cave",
+      "kind": "point",
+      "category": "Cave & cultural site",
+      "province": "Butha-Buthe",
+      "coordinates": [
+        28.49,
+        -28.74
+      ],
+      "wikiTitle": "Maloti_Mountains",
+      "summary": "A large sandstone overhang associated with San rock art and Moshoeshoe I, presented through a compact community heritage centre.",
+      "gettingThere": "Turn off the A1/A8 corridor between Butha-Buthe and Oxbow and follow the signed local road to the cultural site. The attraction fits easily into a northern circuit; ask for a guide, wear shoes with grip and avoid touching the fragile painted surfaces.",
+      "connectivity": "Variable rural signal, with better coverage near the main highway.",
+      "connectivityScore": 5,
+      "difficulty": "Short walk on uneven ground",
+      "difficultyScore": 3,
+      "accessibility": "The centre is road-accessible; the cave approach includes irregular rock and steps.",
+      "accessibilityScore": 5,
+      "fourByFour": "Not normally required.",
+      "recommendedTime": "1–2 hours",
+      "combineWith": [
+        "tsehlanyane",
+        "afriski",
+        "northern-highlands"
+      ],
+      "tags": [
+        "Rock art",
+        "History",
+        "Cave"
+      ],
+      "worldClass": {
+        "label": "Cultural site",
+        "score": 7.2,
+        "note": "A strong compact introduction to northern Lesotho's layered cultural history."
+      },
+      "sourceUrl": "https://www.visitlesotho.org.ls/place-to-visit",
+      "image": "assets/places/ls/liphofung.jpg",
+      "imageAlt": "Liphofung Cave landscape",
+      "imageSourceUrl": "https://en.wikipedia.org/wiki/Maloti_Mountains",
+      "imageCredit": "Wikipedia / Wikimedia Commons"
+    },
+    {
+      "id": "bokong",
+      "name": "Bokong Nature Reserve",
+      "kind": "point",
+      "category": "Afro-alpine reserve",
+      "province": "Leribe",
+      "coordinates": [
+        28.43,
+        -29.07
+      ],
+      "wikiTitle": "Lesotho_Highlands",
+      "summary": "A high-elevation reserve above the Lepaqoa valley, known for bearded vultures, wetlands, flowers and trekking links toward Ts'ehlanyane.",
+      "gettingThere": "Reach the reserve from the A8 over Mafika-Lisiu Pass between Hlotse and Katse. The visitor area sits close to the paved road, but trail conditions change rapidly with mist, wind and snow; register locally before longer hikes and carry full mountain layers.",
+      "connectivity": "Very limited beyond the visitor centre.",
+      "connectivityScore": 2,
+      "difficulty": "High-altitude hiking and fast weather changes",
+      "difficultyScore": 7,
+      "accessibility": "Roadside visitor access is simple; reserve trails are rough, wet and exposed.",
+      "accessibilityScore": 4,
+      "fourByFour": "Not required for the main A8 access in normal conditions; useful for side tracks.",
+      "recommendedTime": "0.5–2 days",
+      "combineWith": [
+        "tsehlanyane",
+        "katse-dam",
+        "katse-central-highlands"
+      ],
+      "tags": [
+        "Birding",
+        "Hiking",
+        "Wetlands"
+      ],
+      "worldClass": {
+        "label": "Afro-alpine ecology",
+        "score": 8.2,
+        "note": "A compact and accessible window into Lesotho's high-elevation ecosystems."
+      },
+      "sourceUrl": "https://www.visitlesotho.org.ls/place-to-visit/bokong-nature-reserve",
+      "image": "assets/places/ls/bokong.jpg",
+      "imageAlt": "Bokong Nature Reserve landscape",
+      "imageSourceUrl": "https://en.wikipedia.org/wiki/Lesotho_Highlands",
+      "imageCredit": "Wikipedia / Wikimedia Commons"
+    },
+    {
+      "id": "katse-dam",
+      "name": "Katse Dam",
+      "kind": "point",
+      "category": "Engineering landmark",
+      "province": "Leribe",
+      "coordinates": [
+        28.506,
+        -29.337
+      ],
+      "wikiTitle": "Katse_Dam",
+      "summary": "A vast double-curvature arch dam set among steep mountains, combining impressive engineering with one of Lesotho's signature road journeys.",
+      "gettingThere": "Drive the paved A8 from Hlotse over Mafika-Lisiu Pass or approach from Thaba-Tseka. Stay in Katse Village and join a scheduled dam-wall presentation or tour; carry identification, check tour times and fuel before the long mountain approaches.",
+      "connectivity": "Reasonable in Katse Village, inconsistent around the reservoir.",
+      "connectivityScore": 5,
+      "difficulty": "Long but paved mountain drive",
+      "difficultyScore": 5,
+      "accessibility": "Visitor facilities and road access are good; some viewpoints and technical-tour areas include steps.",
+      "accessibilityScore": 7,
+      "fourByFour": "Not required on the main paved approaches.",
+      "recommendedTime": "0.5–1 day",
+      "combineWith": [
+        "katse-botanical-garden",
+        "bokong",
+        "katse-central-highlands"
+      ],
+      "tags": [
+        "Engineering",
+        "Scenic drive",
+        "Lake"
+      ],
+      "worldClass": {
+        "label": "Dam engineering",
+        "score": 8.6,
+        "note": "One of Africa's most spectacularly situated large dams and a destination-grade drive."
+      },
+      "sourceUrl": "https://www.lhda.org.ls/home/tourism",
+      "image": "assets/places/ls/katse-dam.jpg",
+      "imageAlt": "Katse Dam landscape",
+      "imageSourceUrl": "https://en.wikipedia.org/wiki/Katse_Dam",
+      "imageCredit": "Wikipedia / Wikimedia Commons"
+    },
+    {
+      "id": "katse-botanical-garden",
+      "name": "Katse Botanical Garden",
+      "kind": "point",
+      "category": "Botanical garden",
+      "province": "Leribe",
+      "coordinates": [
+        28.51,
+        -29.322
+      ],
+      "wikiTitle": "Katse_Dam",
+      "summary": "A 17-hectare conservation garden preserving indigenous plants rescued and propagated during the highlands water project.",
+      "gettingThere": "The garden is in Katse Village close to the dam visitor facilities and is best added before or after a scheduled wall tour. Ask locally about opening and guided walks; the surrounding mountain drive is the time-consuming part, not the transfer within the village.",
+      "connectivity": "Usable around Katse Village.",
+      "connectivityScore": 5,
+      "difficulty": "Easy garden walk",
+      "difficultyScore": 2,
+      "accessibility": "Managed paths are easier than most highland attractions, though gradients and surfaces vary.",
+      "accessibilityScore": 7,
+      "fourByFour": "Not required.",
+      "recommendedTime": "1–2 hours",
+      "combineWith": [
+        "katse-dam",
+        "bokong",
+        "katse-central-highlands"
+      ],
+      "tags": [
+        "Botany",
+        "Birding",
+        "Conservation"
+      ],
+      "worldClass": {
+        "label": "Botanical conservation",
+        "score": 6.8,
+        "note": "A worthwhile specialist stop that adds ecological depth to the Katse visit."
+      },
+      "sourceUrl": "https://www.lhda.org.ls/home/tourism",
+      "image": "assets/places/ls/katse-botanical-garden.jpg",
+      "imageAlt": "Katse Botanical Garden landscape",
+      "imageSourceUrl": "https://en.wikipedia.org/wiki/Katse_Dam",
+      "imageCredit": "Wikipedia / Wikimedia Commons"
+    },
+    {
+      "id": "afriski",
+      "name": "AfriSki Mountain Resort",
+      "kind": "point",
+      "category": "Mountain resort",
+      "province": "Butha-Buthe",
+      "coordinates": [
+        28.728,
+        -28.824
+      ],
+      "wikiTitle": "Afriski",
+      "summary": "Southern Africa's best-known high-altitude winter-sports base, also used for summer mountain biking, hiking and Roof of Africa road trips.",
+      "gettingThere": "Take the paved A1 from Butha-Buthe through Moteng Pass toward Oxbow and Mahlasela. The road is steep and exposed; in winter verify snow and ice conditions, carry warm emergency gear and avoid relying on a late-night arrival if weather is deteriorating.",
+      "connectivity": "Usable around the resort, weak on surrounding passes.",
+      "connectivityScore": 5,
+      "difficulty": "Easy resort logistics; winter driving can be serious",
+      "difficultyScore": 6,
+      "accessibility": "Road reaches the resort and facilities, while snow and altitude can limit mobility.",
+      "accessibilityScore": 6,
+      "fourByFour": "Not normally required on a clear paved road; chains, suitable tyres or 4×4 may be needed during snow events.",
+      "recommendedTime": "1–3 days",
+      "combineWith": [
+        "moteng-pass",
+        "liphofung",
+        "sani-pass",
+        "northern-highlands"
+      ],
+      "tags": [
+        "Skiing",
+        "Mountain biking",
+        "High altitude"
+      ],
+      "worldClass": {
+        "label": "African skiing",
+        "score": 7.8,
+        "note": "Globally modest ski terrain but highly distinctive as an African winter-sports experience."
+      },
+      "sourceUrl": "https://www.visitlesotho.org.ls/place-to-visit/afriski-mountain-resort",
+      "image": "assets/places/ls/afriski.jpg",
+      "imageAlt": "AfriSki Mountain Resort landscape",
+      "imageSourceUrl": "https://en.wikipedia.org/wiki/Afriski",
+      "imageCredit": "Wikipedia / Wikimedia Commons"
+    },
+    {
+      "id": "moteng-pass",
+      "name": "Moteng Pass",
+      "kind": "point",
+      "category": "Scenic mountain road",
+      "province": "Butha-Buthe",
+      "coordinates": [
+        28.63,
+        -28.77
+      ],
+      "wikiTitle": "Afriski",
+      "summary": "A steep, twisting paved pass climbing from the northern lowlands toward Oxbow, AfriSki and the Roof of Africa route.",
+      "gettingThere": "Follow the A1 east from Butha-Buthe after the Liphofung turn-off. Use low gears on the descent, watch for rockfall, livestock and stopped vehicles, and never assume winter conditions are clear simply because the lowlands are dry.",
+      "connectivity": "Intermittent to absent along the upper pass.",
+      "connectivityScore": 3,
+      "difficulty": "Steep paved driving with winter hazards",
+      "difficultyScore": 6,
+      "accessibility": "Experienced drivers can use the paved road; safe stopping places are limited.",
+      "accessibilityScore": 6,
+      "fourByFour": "Not required in clear conditions; winter traction equipment may be essential.",
+      "recommendedTime": "1–2 hours",
+      "combineWith": [
+        "afriski",
+        "liphofung",
+        "northern-highlands"
+      ],
+      "tags": [
+        "Scenic drive",
+        "Pass",
+        "Photography"
+      ],
+      "worldClass": {
+        "label": "Mountain road",
+        "score": 7.7,
+        "note": "A dramatic introduction to the Maloti, though Sani Pass is the country's bigger road icon."
+      },
+      "sourceUrl": "https://www.visitlesotho.org.ls/place-to-visit",
+      "image": "assets/places/ls/moteng-pass.jpg",
+      "imageAlt": "Moteng Pass landscape",
+      "imageSourceUrl": "https://en.wikipedia.org/wiki/Afriski",
+      "imageCredit": "Wikipedia / Wikimedia Commons"
+    },
+    {
+      "id": "sani-pass",
+      "name": "Sani Pass & Sani Top",
+      "kind": "point",
+      "category": "Border pass",
+      "province": "Mokhotlong",
+      "coordinates": [
+        29.287,
+        -29.585
+      ],
+      "wikiTitle": "Sani_Pass",
+      "summary": "A legendary switchback climb from KwaZulu-Natal to Lesotho's high plateau and one of Africa's most celebrated border-road experiences.",
+      "gettingThere": "Approach from Underberg in South Africa with a compliant 4×4 or join a licensed tour, clear both border posts and continue to Sani Top. Rules and road surfaces can change, so verify vehicle requirements, border hours and weather immediately before departure; snow can close the route.",
+      "connectivity": "Very limited on the pass; some service around Sani Top accommodation.",
+      "connectivityScore": 2,
+      "difficulty": "Technical mountain driving and border timing",
+      "difficultyScore": 9,
+      "accessibility": "Rough, steep road and high altitude make independent access demanding.",
+      "accessibilityScore": 3,
+      "fourByFour": "Required or effectively mandatory for the South African approach; check current border and vehicle rules.",
+      "recommendedTime": "0.5–1 day",
+      "combineWith": [
+        "thabana-ntlenyana",
+        "eastern-highlands",
+        "sehlabathebe"
+      ],
+      "tags": [
+        "4×4",
+        "Scenic drive",
+        "Border crossing"
+      ],
+      "worldClass": {
+        "label": "4×4 mountain pass",
+        "score": 9.4,
+        "note": "One of the world's best-known high-altitude border-pass drives."
+      },
+      "sourceUrl": "https://www.visitlesotho.org.ls/place-to-visit/sani-top-thabana-ntlenyana",
+      "image": "assets/places/ls/sani-pass.jpg",
+      "imageAlt": "Sani Pass & Sani Top landscape",
+      "imageSourceUrl": "https://en.wikipedia.org/wiki/Sani_Pass",
+      "imageCredit": "Wikipedia / Wikimedia Commons"
+    },
+    {
+      "id": "thabana-ntlenyana",
+      "name": "Thabana Ntlenyana",
+      "kind": "point",
+      "category": "Summit hike",
+      "province": "Mokhotlong",
+      "coordinates": [
+        29.269,
+        -29.469
+      ],
+      "wikiTitle": "Sani_Pass",
+      "summary": "At 3,482 metres, the highest mountain in southern Africa and a long, exposed highland hike rather than a technical climb.",
+      "gettingThere": "Most hikers start near Sani Top with a guide and complete a long out-and-back across an unmarked plateau. Arrange access in advance, start early and carry full navigation, water and cold-weather equipment; cloud, wind, snow and stream levels can turn a simple route serious.",
+      "connectivity": "Assume no reliable signal for most of the route.",
+      "connectivityScore": 1,
+      "difficulty": "Long, exposed high-altitude day hike",
+      "difficultyScore": 9,
+      "accessibility": "Remote trackless terrain with stream crossings; suitable only for fit, prepared hikers.",
+      "accessibilityScore": 1,
+      "fourByFour": "Not relevant to the summit itself; a capable vehicle or transfer is needed for some trailhead approaches.",
+      "recommendedTime": "1 full day",
+      "combineWith": [
+        "sani-pass",
+        "eastern-highlands"
+      ],
+      "tags": [
+        "Hiking",
+        "Summit",
+        "High altitude"
+      ],
+      "worldClass": {
+        "label": "Summit hiking",
+        "score": 8.8,
+        "note": "A major geographic summit with huge plateau atmosphere, though not a technically dramatic peak."
+      },
+      "sourceUrl": "https://www.visitlesotho.org.ls/place-to-visit/sani-top-thabana-ntlenyana",
+      "image": "assets/places/ls/thabana-ntlenyana.jpg",
+      "imageAlt": "Thabana Ntlenyana landscape",
+      "imageSourceUrl": "https://en.wikipedia.org/wiki/Sani_Pass",
+      "imageCredit": "Wikipedia / Wikimedia Commons"
+    },
+    {
+      "id": "sehlabathebe",
+      "name": "Sehlabathebe National Park",
+      "kind": "point",
+      "category": "World Heritage wilderness",
+      "province": "Qacha's Nek",
+      "coordinates": [
+        29.12,
+        -29.89
+      ],
+      "wikiTitle": "Sehlabathebe_National_Park",
+      "summary": "A remote World Heritage highland of sandstone arches, rock pools, endemic fish, rock art and vast open walking country.",
+      "gettingThere": "Approach from Qacha's Nek or cross-border routes only after checking the current road and border situation. The final stages are slow and remote; carry fuel, food, offline maps and recovery basics, register at the park and avoid attempting unfamiliar tracks after dark or in heavy weather.",
+      "connectivity": "Effectively offline across most of the park.",
+      "connectivityScore": 1,
+      "difficulty": "Remote navigation and exposed wilderness hiking",
+      "difficultyScore": 8,
+      "accessibility": "Basic facilities and rough approaches; exploration is mainly on foot or horseback.",
+      "accessibilityScore": 2,
+      "fourByFour": "Strongly recommended; confirm the current access road before travel.",
+      "recommendedTime": "2–4 days",
+      "combineWith": [
+        "sani-pass",
+        "southern-highlands",
+        "lake-letsie"
+      ],
+      "tags": [
+        "World Heritage",
+        "Hiking",
+        "Rock art"
+      ],
+      "worldClass": {
+        "label": "Highland wilderness",
+        "score": 9.1,
+        "note": "A globally significant and remarkably uncrowded component of the Maloti-Drakensberg World Heritage landscape."
+      },
+      "sourceUrl": "https://whc.unesco.org/en/list/985/",
+      "image": "assets/places/ls/sehlabathebe.jpg",
+      "imageAlt": "Sehlabathebe National Park landscape",
+      "imageSourceUrl": "https://en.wikipedia.org/wiki/Sehlabathebe_National_Park",
+      "imageCredit": "Wikipedia / Wikimedia Commons"
+    },
+    {
+      "id": "quthing-dinosaur-footprints",
+      "name": "Quthing Dinosaur Footprints",
+      "kind": "point",
+      "category": "Palaeontology site",
+      "province": "Quthing",
+      "coordinates": [
+        27.73,
+        -30.39
+      ],
+      "wikiTitle": "Sehlabathebe_National_Park",
+      "summary": "Accessible fossil trackways near Quthing that reveal Lesotho's rich dinosaur record in the southern sandstone country.",
+      "gettingThere": "Drive the paved A2 south to Quthing and arrange local directions or a guide for the final village access. Tracks are exposed natural features rather than a large formal museum, so confirm the exact meeting point, avoid wet-weather damage and do not walk on fragile impressions.",
+      "connectivity": "Usable near Quthing, weaker at rural track sites.",
+      "connectivityScore": 5,
+      "difficulty": "Short rural walk",
+      "difficultyScore": 3,
+      "accessibility": "Road access is close, but surfaces are uneven and interpretation may be informal.",
+      "accessibilityScore": 5,
+      "fourByFour": "Usually not required in dry weather; local access can become muddy.",
+      "recommendedTime": "1–3 hours",
+      "combineWith": [
+        "masitise-cave-house",
+        "lake-letsie",
+        "southern-highlands"
+      ],
+      "tags": [
+        "Dinosaurs",
+        "Geology",
+        "Culture"
+      ],
+      "worldClass": {
+        "label": "Fossil heritage",
+        "score": 7.6,
+        "note": "Part of an important regional dinosaur landscape, rewarding for specialists and families."
+      },
+      "sourceUrl": "https://www.visitlesotho.org.ls/place-to-visit/masitise-and-moyeni-to-fort-hartley",
+      "image": "assets/places/ls/quthing-dinosaur-footprints.jpg",
+      "imageAlt": "Quthing Dinosaur Footprints landscape",
+      "imageSourceUrl": "https://en.wikipedia.org/wiki/Sehlabathebe_National_Park",
+      "imageCredit": "Wikipedia / Wikimedia Commons"
+    },
+    {
+      "id": "masitise-cave-house",
+      "name": "Masitise Cave House",
+      "kind": "point",
+      "category": "Cave house museum",
+      "province": "Quthing",
+      "coordinates": [
+        27.606,
+        -30.402
+      ],
+      "wikiTitle": "Sehlabathebe_National_Park",
+      "summary": "A missionary cave house and small museum built beneath a sandstone overhang, with local history and fossil context.",
+      "gettingThere": "Continue south-west from Quthing toward Masitise and follow local signs to the museum. Combine it with the district's dinosaur tracks, confirm opening access in town and expect a modest community-scale site rather than a heavily staffed attraction.",
+      "connectivity": "Intermittent rural coverage.",
+      "connectivityScore": 4,
+      "difficulty": "Easy short visit",
+      "difficultyScore": 2,
+      "accessibility": "Vehicle access is close; historic spaces and paths can be narrow or uneven.",
+      "accessibilityScore": 6,
+      "fourByFour": "Not normally required.",
+      "recommendedTime": "1–2 hours",
+      "combineWith": [
+        "quthing-dinosaur-footprints",
+        "lake-letsie",
+        "southern-highlands"
+      ],
+      "tags": [
+        "Museum",
+        "Architecture",
+        "History"
+      ],
+      "worldClass": {
+        "label": "Cave architecture",
+        "score": 6.9,
+        "note": "A distinctive and intimate heritage stop rather than a major international landmark."
+      },
+      "sourceUrl": "https://www.visitlesotho.org.ls/place-to-visit/masitise-and-moyeni-to-fort-hartley",
+      "image": "assets/places/ls/masitise-cave-house.jpg",
+      "imageAlt": "Masitise Cave House landscape",
+      "imageSourceUrl": "https://en.wikipedia.org/wiki/Sehlabathebe_National_Park",
+      "imageCredit": "Wikipedia / Wikimedia Commons"
+    },
+    {
+      "id": "mohale-dam",
+      "name": "Mohale Dam",
+      "kind": "point",
+      "category": "Dam & scenic drive",
+      "province": "Maseru",
+      "coordinates": [
+        28.1,
+        -29.45
+      ],
+      "wikiTitle": "Katse_Dam",
+      "summary": "A quieter highlands-water-project destination with a dramatic wall, reservoir cruises, pony routes and a superb pass-filled approach from Maseru.",
+      "gettingThere": "From Maseru follow the road toward Roma, turn at the Mohale junction and cross Bushmen's, God Help Me and Blue Mountain passes. Continue roughly 11 km beyond Mohale village to the information centre; confirm tour times and fuel before leaving the capital.",
+      "connectivity": "Usable near the village and lodge, patchy around the reservoir.",
+      "connectivityScore": 4,
+      "difficulty": "Long winding drive but straightforward navigation",
+      "difficultyScore": 5,
+      "accessibility": "Paved main approach and visitor facilities; side activities use rougher terrain.",
+      "accessibilityScore": 7,
+      "fourByFour": "Not required on the main paved road in normal conditions.",
+      "recommendedTime": "1–2 days",
+      "combineWith": [
+        "thaba-bosiu",
+        "katse-dam",
+        "katse-central-highlands"
+      ],
+      "tags": [
+        "Engineering",
+        "Boating",
+        "Scenic drive"
+      ],
+      "worldClass": {
+        "label": "Mountain reservoir",
+        "score": 7.8,
+        "note": "Less monumental than Katse but quieter and reached by an exceptional sequence of passes."
+      },
+      "sourceUrl": "https://www.lhda.org.ls/home/tourism",
+      "image": "assets/places/ls/mohale-dam.jpg",
+      "imageAlt": "Mohale Dam landscape",
+      "imageSourceUrl": "https://en.wikipedia.org/wiki/Katse_Dam",
+      "imageCredit": "Wikipedia / Wikimedia Commons"
+    },
+    {
+      "id": "ribaneng-falls",
+      "name": "Ribaneng Falls",
+      "kind": "point",
+      "category": "Remote waterfall",
+      "province": "Mafeteng",
+      "coordinates": [
+        27.75,
+        -29.99
+      ],
+      "wikiTitle": "Maletsunyane_Falls",
+      "summary": "A secluded waterfall and gorge reached through rural southern foothills, best suited to travellers who value the walk and village landscape as much as the cascade.",
+      "gettingThere": "Approach from the Malealea or Mafeteng side with current local directions and arrange a community guide for the final walking route. Tracks are poorly signed and conditions change after rain; start early, carry water and do not expect formal barriers or developed viewpoints.",
+      "connectivity": "Weak to absent on the approach and at the falls.",
+      "connectivityScore": 1,
+      "difficulty": "Remote route-finding and uneven hiking",
+      "difficultyScore": 7,
+      "accessibility": "Natural trail with steep or slippery sections and no developed facilities.",
+      "accessibilityScore": 2,
+      "fourByFour": "High clearance or 4×4 is useful for the nearest vehicle approach; local advice is essential.",
+      "recommendedTime": "1 full day",
+      "combineWith": [
+        "malealea",
+        "maletsunyane-falls",
+        "semonkong-malealea-belt"
+      ],
+      "tags": [
+        "Waterfall",
+        "Hiking",
+        "Remote"
+      ],
+      "worldClass": {
+        "label": "Waterfall hike",
+        "score": 7.7,
+        "note": "A rewarding low-traffic adventure, though Maletsunyane is the essential waterfall."
+      },
+      "sourceUrl": "https://www.visitlesotho.org.ls/place-to-visit/ribaneng-falls",
+      "image": "assets/places/ls/ribaneng-falls.jpg",
+      "imageAlt": "Ribaneng Falls landscape",
+      "imageSourceUrl": "https://en.wikipedia.org/wiki/Maletsunyane_Falls",
+      "imageCredit": "Wikipedia / Wikimedia Commons"
+    },
+    {
+      "id": "lake-letsie",
+      "name": "Lake Letsie",
+      "kind": "point",
+      "category": "Ramsar wetland",
+      "province": "Quthing",
+      "coordinates": [
+        28.15,
+        -30.31
+      ],
+      "wikiTitle": "Lesotho_Highlands",
+      "summary": "Lesotho's only Ramsar wetland, a remote afro-alpine lake basin surrounded by broad, treeless southern highlands.",
+      "gettingThere": "Use the Quthing Valley 4×4 route toward the remote Letseng-la-Letsie reserve and obtain current directions before leaving the A2 corridor. Carry fuel, food, recovery equipment and offline navigation; river levels and track damage can make the final approach impassable.",
+      "connectivity": "Assume no mobile service at the lake.",
+      "connectivityScore": 1,
+      "difficulty": "Remote 4×4 access and self-sufficient travel",
+      "difficultyScore": 9,
+      "accessibility": "No simple public-transport or standard-car access; facilities are minimal.",
+      "accessibilityScore": 1,
+      "fourByFour": "Essential; use a robust high-clearance vehicle and current local route advice.",
+      "recommendedTime": "1–2 days",
+      "combineWith": [
+        "quthing-dinosaur-footprints",
+        "masitise-cave-house",
+        "southern-highlands"
+      ],
+      "tags": [
+        "Wetland",
+        "4×4",
+        "Birding"
+      ],
+      "worldClass": {
+        "label": "Remote wetland",
+        "score": 8.3,
+        "note": "A strikingly isolated high-altitude wetland and one of Lesotho's strongest expedition-style stops."
+      },
+      "sourceUrl": "https://www.visitlesotho.org.ls/place-to-visit/quthing-valley-4x4",
+      "image": "assets/places/ls/lake-letsie.jpg",
+      "imageAlt": "Lake Letsie landscape",
+      "imageSourceUrl": "https://en.wikipedia.org/wiki/Lesotho_Highlands",
+      "imageCredit": "Wikipedia / Wikimedia Commons"
+    }
+  ],
+  "airports": [
+    {
+      "id": "airport-msu",
+      "code": "MSU",
+      "name": "Moshoeshoe I International Airport",
+      "coordinates": [
+        27.5525,
+        -29.4623
+      ],
+      "type": "Primary international gateway",
+      "directRoutes": 1,
+      "network": "Lesotho's only airport with scheduled passenger service, linked to Johannesburg by Airlink and used as the country's formal air gateway.",
+      "topOriginLabel": "Top foreign origin",
+      "topOriginCountry": "South Africa",
+      "topOriginDetail": "Johannesburg is the only scheduled nonstop route, with about 92 flights in the current month; all scheduled international frequency therefore originates in South Africa.",
+      "connections": [
+        "maseru",
+        "thaba-bosiu",
+        "mohale-dam",
+        "cultural-lowlands"
+      ],
+      "sourceUrl": "https://www.flightconnections.com/flights-from-maseru-msu"
+    },
+    {
+      "id": "airport-sok",
+      "code": "SOK",
+      "name": "Semonkong Airport",
+      "coordinates": [
+        28.058,
+        -29.8386
+      ],
+      "type": "Remote airstrip / charter access",
+      "directRoutes": 0,
+      "network": "A small highland airstrip serving charter, government and emergency movements; it has no regular scheduled passenger network.",
+      "topOriginLabel": "Scheduled origin",
+      "topOriginCountry": "None",
+      "topOriginDetail": "No scheduled commercial flights are published; arrange any charter directly and confirm runway, weather and transfer conditions.",
+      "connections": [
+        "semonkong",
+        "maletsunyane-falls",
+        "semonkong-malealea-belt"
+      ],
+      "sourceUrl": "https://ourairports.com/airports/FXSM/"
+    },
+    {
+      "id": "airport-mkh",
+      "code": "MKH",
+      "name": "Mokhotlong Airport",
+      "coordinates": [
+        29.0728,
+        -29.2818
+      ],
+      "type": "Highland airstrip / charter access",
+      "directRoutes": 0,
+      "network": "A small airfield near Mokhotlong used for non-scheduled access; normal travellers reach the eastern highlands by road through the A1, Sani Pass or Thaba-Tseka.",
+      "topOriginLabel": "Scheduled origin",
+      "topOriginCountry": "None",
+      "topOriginDetail": "No regular passenger route is published; charter operations are weather- and operator-dependent.",
+      "connections": [
+        "eastern-highlands",
+        "sani-pass",
+        "thabana-ntlenyana"
+      ],
+      "sourceUrl": "https://ourairports.com/airports/FXMK/"
+    }
+  ]
+}

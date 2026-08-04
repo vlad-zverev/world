@@ -84,7 +84,7 @@ def page_images(titles: list[str]) -> dict[str, dict[str, str]]:
 
 
 def main() -> None:
-    parser = argparse.ArgumentParser(description="Fetch Wikipedia lead images for South Africa destination cards.")
+    parser = argparse.ArgumentParser(description="Fetch Wikipedia lead images for country destination cards.")
     parser.add_argument("data", type=Path)
     parser.add_argument("output_directory", type=Path)
     args = parser.parse_args()
@@ -93,6 +93,10 @@ def main() -> None:
     destinations = payload.get("destinations")
     if not isinstance(destinations, list):
         raise ValueError(f"Invalid destination data in {args.data}")
+    meta = payload.get("meta")
+    if not isinstance(meta, dict) or not isinstance(meta.get("iso2"), str):
+        raise ValueError(f"Missing country metadata in {args.data}")
+    asset_prefix = f"assets/places/{meta['iso2'].lower()}"
     args.output_directory.mkdir(parents=True, exist_ok=True)
 
     titles = [str(destination["wikiTitle"]) for destination in destinations if isinstance(destination, dict)]
@@ -112,7 +116,7 @@ def main() -> None:
                 file_name = existing_files[0].name
             else:
                 file_name = download(image_data["source"], args.output_directory / destination_id)
-            destination["image"] = f"assets/places/za/{file_name}"
+            destination["image"] = f"{asset_prefix}/{file_name}"
             destination["imageAlt"] = f"{destination['name']} landscape"
             destination["imageSourceUrl"] = image_data["page"]
             destination["imageCredit"] = "Wikipedia / Wikimedia Commons"
