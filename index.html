@@ -1,0 +1,249 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#080a0d" />
+    <meta name="description" content="Larili Atlas — a personal guide to African countries for thoughtful travel planning." />
+    <title>Larili Atlas — Africa travel intelligence</title>
+    <link rel="icon" type="image/png" href="assets/brand/larili-atlas-neon.png" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&amp;family=Unbounded:wght@500;600&amp;display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+    <div class="app-shell">
+        <aside class="sidebar">
+            <a class="brand" href="#" aria-label="Larili Atlas — home">
+                <span class="brand-mark"><img src="assets/brand/larili-atlas-neon.png" alt="" /></span>
+                <span><strong>Larili Atlas</strong><small>travel intelligence</small></span>
+            </a>
+
+            <nav class="nav-list" aria-label="Main navigation">
+                <a class="nav-item active" href="#explore"><span>◫</span> Explore</a>
+                <button class="nav-item" type="button" data-scroll="countries"><span>◎</span> Countries</button>
+                <button class="nav-item" type="button" data-action="show-favorites"><span>☆</span> Favorites <b id="favoritesBadge">0</b></button>
+                <button class="nav-item" type="button" data-scroll="compare"><span>⇄</span> Compare <b id="compareBadge">0</b></button>
+            </nav>
+
+            <section class="filter-section" aria-labelledby="filterTitle">
+                <div class="section-kicker">
+                    <h2 id="filterTitle">Filters</h2>
+                    <button id="resetFilters" class="text-button" type="button">Reset</button>
+                </div>
+
+                <label class="search-field">
+                    <span aria-hidden="true">⌕</span>
+                    <input id="searchInput" type="search" placeholder="Find a country" autocomplete="off" />
+                </label>
+
+                <label class="field">
+                    <span>Region</span>
+                    <select id="regionSelect">
+                        <option value="all">◎ All of Africa</option>
+                    </select>
+                </label>
+
+                <label class="field">
+                    <span>Visa access</span>
+                    <select id="visaSelect">
+                        <option value="all">◇ Any passport status</option>
+                        <optgroup label="Russian passport">
+                            <option value="ru:free">○ Russia · visa-free</option>
+                            <option value="ru:easy">↗ Russia · easy entry</option>
+                            <option value="ru:required">× Russia · visa required</option>
+                        </optgroup>
+                        <optgroup label="Chilean passport">
+                            <option value="cl:free">○ Chile · visa-free</option>
+                            <option value="cl:easy">↗ Chile · easy entry</option>
+                            <option value="cl:required">× Chile · visa required</option>
+                        </optgroup>
+                    </select>
+                </label>
+
+                <label class="field">
+                    <span>Sort by</span>
+                    <select id="prioritySelect">
+                        <option value="travelScore">◆ Travel score</option>
+                    </select>
+                </label>
+
+                <label class="field">
+                    <span>Map focus</span>
+                    <select id="focusSelect">
+                        <optgroup label="Overview">
+                            <option value="travelScore">◆ Travel score</option>
+                            <option value="personalScore">☆ Personal score</option>
+                        </optgroup>
+                        <optgroup label="Safety &amp; inclusion">
+                            <option value="safety">⌾ Safety</option>
+                            <option value="womenSafety">♀ Women’s safety</option>
+                            <option value="gayFriendly">◈ LGBTQ+ friendly</option>
+                        </optgroup>
+                        <optgroup label="Travel fundamentals">
+                            <option value="heatComfort">☼ Heat comfort</option>
+                            <option value="roads">═ Roads</option>
+                            <option value="runningInfrastructure">◌ Running infrastructure</option>
+                            <option value="selfDrive">↗ Self-drive</option>
+                            <option value="touristConvenience">◎ Tourist ease</option>
+                            <option value="airAccess">⌁ Air access</option>
+                        </optgroup>
+                        <optgroup label="Experiences">
+                            <option value="nature">♧ Nature</option>
+                            <option value="safari">◇ Safari</option>
+                            <option value="hiking">△ Hiking</option>
+                            <option value="beaches">≈ Beaches</option>
+                            <option value="cultureHistory">⌂ Culture &amp; history</option>
+                            <option value="diving">◉ Diving</option>
+                            <option value="surfingKite">⌇ Surf &amp; kite</option>
+                            <option value="birds">⌁ Birding</option>
+                            <option value="endemics">◈ Endemics</option>
+                            <option value="deserts">⋰ Deserts</option>
+                            <option value="jungle">♧ Rainforest</option>
+                            <option value="mountains">△ Mountains</option>
+                            <option value="waterWaterfalls">≋ Water &amp; falls</option>
+                        </optgroup>
+                        <optgroup label="Digital &amp; budget">
+                            <option value="internet">⌁ Internet</option>
+                            <option value="remoteWork">⌂ Remote work</option>
+                            <option value="affordability">¤ Affordability</option>
+                            <option value="mapsPayments">▣ Maps &amp; payments</option>
+                            <option value="dailyBudget">$ Daily budget</option>
+                        </optgroup>
+                        <optgroup label="Logistics &amp; stays">
+                            <option value="fuel">◉ Fuel</option>
+                            <option value="camping">△ Camping</option>
+                            <option value="recommendedStayDays">▥ Suggested stay</option>
+                        </optgroup>
+                        <optgroup label="Health, language &amp; entry">
+                            <option value="healthcare">+ Healthcare</option>
+                            <option value="english">Ⓐ English</option>
+                            <option value="visaRussiaScore">◇ Russian passport</option>
+                            <option value="visaChileScore">◇ Chilean passport</option>
+                        </optgroup>
+                        <optgroup label="Country context">
+                            <option value="populationMillion">◌ Population</option>
+                            <option value="areaKm2">□ Area</option>
+                            <option value="daytimeTemperature">☼ Daytime temperature</option>
+                            <option value="religion">☾ Religion mix</option>
+                        </optgroup>
+                    </select>
+                </label>
+
+                <label class="field">
+                    <span>Travel month</span>
+                    <select id="monthSelect">
+                        <option value="all">◷ Any month</option>
+                        <option value="0">◷ January</option>
+                        <option value="1">◷ February</option>
+                        <option value="2">◷ March</option>
+                        <option value="3">◷ April</option>
+                        <option value="4">◷ May</option>
+                        <option value="5">◷ June</option>
+                        <option value="6">◷ July</option>
+                        <option value="7">◷ August</option>
+                        <option value="8">◷ September</option>
+                        <option value="9">◷ October</option>
+                        <option value="10">◷ November</option>
+                        <option value="11">◷ December</option>
+                    </select>
+                </label>
+
+                <label class="range-field" for="budgetRange">
+                    <span><span>Daily budget</span><output id="budgetOutput" for="budgetRange">Any budget</output></span>
+                    <input id="budgetRange" type="range" min="60" max="360" step="10" value="360" />
+                    <small><span>$60</span><span>$360+</span></small>
+                </label>
+
+                <label class="switch-row">
+                    <span><strong>Favorites only</strong><small>Saved on this device</small></span>
+                    <input id="favoritesOnly" type="checkbox" />
+                    <i aria-hidden="true"></i>
+                </label>
+            </section>
+
+            <div class="sidebar-note">
+                <span class="live-dot"></span>
+                <p><strong>Database · Africa</strong><small>55 detailed profiles · sourced enrichment</small></p>
+            </div>
+        </aside>
+
+        <main id="explore" class="workspace">
+            <header class="topbar">
+                <div>
+                    <p class="breadcrumb">Atlas <span>/</span> Africa</p>
+                    <h1>Where to next?</h1>
+                </div>
+                <div class="top-actions">
+                    <button class="continent-button" type="button"><span>Africa</span><small>01</small></button>
+                    <button class="avatar" type="button" aria-label="Personal profile">IK</button>
+                </div>
+            </header>
+
+            <section class="hero-grid">
+                <article class="map-card panel">
+                    <div class="panel-header">
+                        <div class="map-heading">
+                            <button id="mapBackButton" class="map-back-button" type="button" hidden aria-label="Return to Africa map">←</button>
+                            <div>
+                            <p id="mapLayerLabel" class="eyebrow">Data layer · Travel score /100</p>
+                            <h2 id="mapTitle">Africa</h2>
+                            </div>
+                        </div>
+                        <div id="mapNavigationControls" class="map-navigation-controls" hidden aria-label="Map navigation mode">
+                            <button type="button" data-map-navigation="manual" aria-pressed="true">✥ Manual</button>
+                            <button type="button" data-map-navigation="auto" aria-pressed="false">◎ Auto focus</button>
+                        </div>
+                    </div>
+
+                    <div class="map-stage">
+                        <div class="map-coordinates top">37°N</div>
+                        <svg id="africaMap" viewBox="0 0 760 700" role="img" aria-label="Map of African countries"></svg>
+                        <button id="mapFocusClose" class="map-focus-close" type="button" hidden aria-label="Close place focus">×</button>
+                        <div id="mapTooltip" class="map-tooltip" hidden></div>
+                        <div class="map-coordinates bottom">35°S</div>
+                    </div>
+
+                    <div class="map-footer">
+                        <div id="mapLegend" class="scale-legend"><span>lower</span><i></i><span>higher</span></div>
+                        <p><span class="data-dot"></span><span id="mapInstruction">Select a highlighted country to open its profile</span></p>
+                    </div>
+                </article>
+
+                <aside id="countryDetail" class="country-detail panel" aria-live="polite">
+                    <div id="detailContent"></div>
+                </aside>
+            </section>
+
+            <section id="countries" class="countries-section">
+                <div class="section-heading">
+                    <div>
+                        <p class="eyebrow">Shortlist</p>
+                        <h2>Countries for your next route</h2>
+                    </div>
+                    <div class="result-summary"><strong id="statsCount">0</strong><span>profiles found</span></div>
+                </div>
+                <div id="countryGrid" class="country-grid"></div>
+            </section>
+
+            <section id="compare" class="compare-section panel">
+                <div class="panel-header">
+                    <div>
+                        <p class="eyebrow">Up to three countries</p>
+                        <h2>Quick comparison</h2>
+                    </div>
+                    <span id="compareHint" class="muted-label">Add countries from their cards</span>
+                </div>
+                <div id="compareList" class="compare-list"></div>
+            </section>
+
+            <footer>
+                <p>Larili Atlas / Africa database · assessed 04 Aug 2026 · climate normals 1991–2020</p>
+                <p>Entry rules and other dynamic travel data must be rechecked before booking.</p>
+            </footer>
+        </main>
+    </div>
+    <script src="app.js"></script>
+</body>
+</html>

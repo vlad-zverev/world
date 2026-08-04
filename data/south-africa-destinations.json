@@ -1,0 +1,1700 @@
+{
+  "meta": {
+    "country": "South Africa",
+    "iso2": "ZA",
+    "assessmentDate": "2026-08-04",
+    "destinationCount": 35,
+    "airportCount": 9,
+    "note": "Access, road, connectivity and time estimates are trip-planning summaries. Confirm park gates, permits, weather and road conditions before travel.",
+    "boundarySource": "https://www.geoboundaries.org/",
+    "primarySources": [
+      "https://www.sanparks.org/parks",
+      "https://www.isimangaliso.com/",
+      "https://www.southafrica.net/"
+    ]
+  },
+  "mustVisitScores": {
+    "kruger": 10,
+    "drakensberg": 9,
+    "garden-route": 9.6,
+    "cape-winelands": 9,
+    "wild-coast": 7.4,
+    "kgalagadi": 6.7,
+    "table-mountain": 10,
+    "cape-point": 9.3,
+    "boulders-beach": 8.8,
+    "robben-island": 8.4,
+    "hermanus": 7.8,
+    "tsitsikamma": 8.5,
+    "addo": 8,
+    "isimangaliso": 7.7,
+    "hluhluwe-imfolozi": 7,
+    "durban": 5.8,
+    "soweto": 7.8,
+    "cradle-humankind": 5,
+    "blyde-river-canyon": 8.7,
+    "pilanesberg": 4.5,
+    "madikwe": 4.2,
+    "sani-pass": 6.7,
+    "golden-gate": 4.8,
+    "cederberg": 6.8,
+    "augrabies": 4,
+    "mapungubwe": 4.3,
+    "namaqua": 7.5,
+    "royal-natal-amphitheatre": 9.4,
+    "cathedral-peak-didima": 8.8,
+    "monks-cowl": 8.7,
+    "giants-castle": 8.2,
+    "ushaka-marine-world": 7.2,
+    "moses-mabhida": 6.8,
+    "umhlanga-promenade": 7.1,
+    "durban-botanic-gardens": 6.4
+  },
+  "destinations": [
+    {
+      "id": "kruger",
+      "name": "Kruger National Park",
+      "kind": "region",
+      "category": "Safari region",
+      "province": "Mpumalanga / Limpopo",
+      "coordinates": [
+        31.45,
+        -24.35
+      ],
+      "radius": 58,
+      "wikiTitle": "Kruger_National_Park",
+      "summary": "South Africa’s flagship safari ecosystem: a vast self-drive network, major rest camps and exceptional Big Five density across very different northern and southern landscapes.",
+      "gettingThere": "Fly to Skukuza, Hoedspruit, Kruger Mpumalanga or drive 4.5–6 hours from Johannesburg; choose the gate closest to your camp.",
+      "connectivity": "Patchy between camps; usable mobile data and limited Wi-Fi around major camps.",
+      "connectivityScore": 5,
+      "difficulty": "Easy navigation, long driving days",
+      "difficultyScore": 4,
+      "accessibility": "Excellent by safari standards; paved camp facilities and many sedan-friendly roads.",
+      "accessibilityScore": 8,
+      "fourByFour": "Not required on the public road network",
+      "recommendedTime": "3–6 days",
+      "combineWith": [
+        "blyde-river-canyon",
+        "mapungubwe"
+      ],
+      "tags": [
+        "Safari",
+        "Wildlife",
+        "Self-drive"
+      ],
+      "worldClass": {
+        "label": "Safari",
+        "score": 9.7,
+        "note": "One of the world’s most complete and accessible large-scale safari destinations."
+      },
+      "sourceUrl": "https://www.sanparks.org/parks/kruger",
+      "image": "assets/places/za/kruger.jpg",
+      "imageAlt": "Kruger National Park landscape",
+      "imageSourceUrl": "https://en.wikipedia.org/wiki/Kruger_National_Park",
+      "imageCredit": "Wikipedia / Wikimedia Commons"
+    },
+    {
+      "id": "drakensberg",
+      "name": "Drakensberg",
+      "kind": "region",
+      "category": "Mountain region",
+      "province": "KwaZulu-Natal",
+      "coordinates": [
+        29.2,
+        -29.15
+      ],
+      "radius": 48,
+      "wikiTitle": "Drakensberg",
+      "summary": "A huge escarpment of basalt peaks, amphitheatres, waterfalls and San rock art, ranging from gentle valley walks to serious multi-day traverses.",
+      "gettingThere": "Use King Shaka International Airport for the Durban side or OR Tambo for the northern approaches, then rent a car. The major valleys are separate roadheads rather than one continuous park: allow roughly 3–4 hours from Durban and 3.5–5 hours from Johannesburg, confirm your exact camp before leaving the N3, refuel in towns such as Winterton or Bergville, and avoid planning mountain-road arrivals after dark or in heavy mist.",
+      "connectivity": "Reasonable at resorts and towns, weak or absent in valleys and on the escarpment.",
+      "connectivityScore": 4,
+      "difficulty": "From easy walks to expert alpine traverses",
+      "difficultyScore": 8,
+      "accessibility": "Main valleys are straightforward; high routes are weather-dependent and remote.",
+      "accessibilityScore": 6,
+      "fourByFour": "Not usually; required for some remote approaches",
+      "recommendedTime": "3–6 days",
+      "combineWith": [
+        "royal-natal-amphitheatre",
+        "cathedral-peak-didima",
+        "monks-cowl",
+        "giants-castle",
+        "sani-pass",
+        "golden-gate"
+      ],
+      "tags": [
+        "Hiking",
+        "Mountains",
+        "Rock art"
+      ],
+      "worldClass": {
+        "label": "Hiking",
+        "score": 9.2,
+        "note": "A globally distinctive escarpment with exceptional wilderness and cultural depth."
+      },
+      "sourceUrl": "https://whc.unesco.org/en/list/985/",
+      "image": "assets/places/za/drakensberg.jpg",
+      "imageAlt": "Drakensberg landscape",
+      "imageSourceUrl": "https://en.wikipedia.org/wiki/Drakensberg",
+      "imageCredit": "Wikipedia / Wikimedia Commons"
+    },
+    {
+      "id": "garden-route",
+      "name": "Garden Route",
+      "kind": "region",
+      "category": "Road-trip region",
+      "province": "Western Cape / Eastern Cape",
+      "coordinates": [
+        23.05,
+        -34.0
+      ],
+      "radius": 55,
+      "wikiTitle": "Garden_Route",
+      "summary": "A compact coastal road trip linking forests, lagoons, surf beaches, cliff walks and adventure stops between Mossel Bay and Storms River.",
+      "gettingThere": "Drive from Cape Town in 4–6 hours to the western section, or fly to George and rent a car.",
+      "connectivity": "Generally good in towns; intermittent inside forests and deep gorges.",
+      "connectivityScore": 8,
+      "difficulty": "Easy road trip with optional hard activities",
+      "difficultyScore": 3,
+      "accessibility": "Excellent roads, many towns and a broad range of accommodation.",
+      "accessibilityScore": 9,
+      "fourByFour": "Not required",
+      "recommendedTime": "4–7 days",
+      "combineWith": [
+        "tsitsikamma",
+        "addo"
+      ],
+      "tags": [
+        "Road trip",
+        "Coast",
+        "Forest"
+      ],
+      "worldClass": {
+        "label": "Scenic road trip",
+        "score": 9.0,
+        "note": "One of the strongest short self-drive combinations of coast, forest and activities."
+      },
+      "sourceUrl": "https://www.sanparks.org/parks/garden-route",
+      "image": "assets/places/za/garden-route.gif",
+      "imageAlt": "Garden Route landscape",
+      "imageSourceUrl": "https://en.wikipedia.org/wiki/Garden_Route",
+      "imageCredit": "Wikipedia / Wikimedia Commons"
+    },
+    {
+      "id": "cape-winelands",
+      "name": "Cape Winelands",
+      "kind": "region",
+      "category": "Wine region",
+      "province": "Western Cape",
+      "coordinates": [
+        19.0,
+        -33.9
+      ],
+      "radius": 38,
+      "wikiTitle": "Cape_Winelands",
+      "summary": "Historic towns, mountain passes, vineyard estates and destination restaurants centred on Stellenbosch, Franschhoek and Paarl.",
+      "gettingThere": "Stellenbosch starts about 45 minutes from central Cape Town; self-drive or a driver-led wine tour works best.",
+      "connectivity": "Strong in towns and most estates.",
+      "connectivityScore": 9,
+      "difficulty": "Easy",
+      "difficultyScore": 2,
+      "accessibility": "Very good, though tasting itineraries need a designated driver.",
+      "accessibilityScore": 9,
+      "fourByFour": "Not required",
+      "recommendedTime": "2–4 days",
+      "combineWith": [
+        "table-mountain",
+        "hermanus"
+      ],
+      "tags": [
+        "Wine",
+        "Food",
+        "Architecture"
+      ],
+      "worldClass": {
+        "label": "Wine travel",
+        "score": 9.1,
+        "note": "World-class wine, food and scenery packed into a highly accessible region."
+      },
+      "sourceUrl": "https://www.wesgro.co.za/travel/places/cape-winelands",
+      "image": "assets/places/za/cape-winelands.jpg",
+      "imageAlt": "Cape Winelands landscape",
+      "imageSourceUrl": "https://en.wikipedia.org/wiki/Boland,_Western_Cape",
+      "imageCredit": "Wikipedia / Wikimedia Commons"
+    },
+    {
+      "id": "wild-coast",
+      "name": "Wild Coast",
+      "kind": "region",
+      "category": "Coastal wilderness",
+      "province": "Eastern Cape",
+      "coordinates": [
+        29.0,
+        -31.75
+      ],
+      "radius": 48,
+      "wikiTitle": "Wild_Coast_Region,_Eastern_Cape",
+      "summary": "Remote green headlands, river mouths, traditional villages and undeveloped beaches where travel is slower and logistics matter.",
+      "gettingThere": "Drive from East London, Mthatha or Durban; final approaches often use slow secondary roads and local transfers.",
+      "connectivity": "Patchy to absent outside larger settlements and lodges.",
+      "connectivityScore": 3,
+      "difficulty": "Logistically demanding",
+      "difficultyScore": 7,
+      "accessibility": "Limited public transport and long rural approaches; guided hikes simplify logistics.",
+      "accessibilityScore": 4,
+      "fourByFour": "Recommended for remote beaches and wet-season roads",
+      "recommendedTime": "4–7 days",
+      "combineWith": [
+        "drakensberg",
+        "hluhluwe-imfolozi"
+      ],
+      "tags": [
+        "Coast",
+        "Hiking",
+        "Culture"
+      ],
+      "worldClass": {
+        "label": "Coastal wilderness",
+        "score": 8.8,
+        "note": "A rare long stretch of culturally rich, largely undeveloped coastline."
+      },
+      "sourceUrl": "https://www.southafrica.net/gl/en/travel/category/places-to-go/eastern-cape/wild-coast",
+      "image": "assets/places/za/wild-coast.jpg",
+      "imageAlt": "Wild Coast landscape",
+      "imageSourceUrl": "https://en.wikipedia.org/wiki/Wild_Coast_Region,_Eastern_Cape",
+      "imageCredit": "Wikipedia / Wikimedia Commons"
+    },
+    {
+      "id": "kgalagadi",
+      "name": "Kgalagadi Transfrontier Park",
+      "kind": "region",
+      "category": "Desert safari region",
+      "province": "Northern Cape",
+      "coordinates": [
+        20.5,
+        -25.4
+      ],
+      "radius": 54,
+      "wikiTitle": "Kgalagadi_Transfrontier_Park",
+      "summary": "Red dunes, dry riverbeds, black-maned lions and raptors in a remote transfrontier desert shared with Botswana.",
+      "gettingThere": "A long road journey from Upington or a charter flight; fuel, food and accommodation must be planned well ahead.",
+      "connectivity": "Very limited; assume long offline stretches.",
+      "connectivityScore": 2,
+      "difficulty": "Remote but navigable on main routes",
+      "difficultyScore": 7,
+      "accessibility": "Main camps and roads are manageable, wilderness camps require more preparation.",
+      "accessibilityScore": 4,
+      "fourByFour": "Recommended; required for selected Botswana and wilderness routes",
+      "recommendedTime": "4–7 days",
+      "combineWith": [
+        "augrabies",
+        "namaqua"
+      ],
+      "tags": [
+        "Safari",
+        "Desert",
+        "Photography"
+      ],
+      "worldClass": {
+        "label": "Desert safari",
+        "score": 9.4,
+        "note": "Among the world’s finest desert predator and wildlife-photography environments."
+      },
+      "sourceUrl": "https://www.sanparks.org/parks/kgalagadi",
+      "image": "assets/places/za/kgalagadi.jpg",
+      "imageAlt": "Kgalagadi Transfrontier Park landscape",
+      "imageSourceUrl": "https://en.wikipedia.org/wiki/Kgalagadi_Transfrontier_Park",
+      "imageCredit": "Wikipedia / Wikimedia Commons"
+    },
+    {
+      "id": "table-mountain",
+      "name": "Table Mountain",
+      "kind": "point",
+      "category": "Mountain / city icon",
+      "province": "Western Cape",
+      "coordinates": [
+        18.4098,
+        -33.9628
+      ],
+      "wikiTitle": "Table_Mountain",
+      "summary": "Cape Town’s defining landmark, reached by cableway or a large network of exposed hiking routes with ocean and city panoramas.",
+      "gettingThere": "Taxi, city bus or drive to the Lower Cableway; hiking starts include Platteklip Gorge, Skeleton Gorge and Kloof Corner.",
+      "connectivity": "Strong around the cableway and city-facing slopes; variable in ravines.",
+      "connectivityScore": 8,
+      "difficulty": "Cableway easy; hikes moderate to hard",
+      "difficultyScore": 6,
+      "accessibility": "Cableway and summit paths provide strong access, but wind frequently stops operations.",
+      "accessibilityScore": 8,
+      "fourByFour": "Not required",
+      "recommendedTime": "Half to full day",
+      "combineWith": [
+        "cape-point",
+        "robben-island",
+        "cape-winelands"
+      ],
+      "tags": [
+        "Hiking",
+        "Views",
+        "Cape Town"
+      ],
+      "worldClass": {
+        "label": "Urban hiking",
+        "score": 9.6,
+        "note": "Few major cities have a mountain wilderness of this scale directly above downtown."
+      },
+      "sourceUrl": "https://www.sanparks.org/parks/table-mountain",
+      "image": "assets/places/za/table-mountain.jpg",
+      "imageAlt": "Table Mountain landscape",
+      "imageSourceUrl": "https://en.wikipedia.org/wiki/Table_Mountain",
+      "imageCredit": "Wikipedia / Wikimedia Commons"
+    },
+    {
+      "id": "cape-point",
+      "name": "Cape Point & Cape of Good Hope",
+      "kind": "point",
+      "category": "Coastal scenery",
+      "province": "Western Cape",
+      "coordinates": [
+        18.497,
+        -34.357
+      ],
+      "wikiTitle": "Cape_Point",
+      "summary": "A dramatic peninsula of cliffs, fynbos, beaches and lighthouse viewpoints within Table Mountain National Park.",
+      "gettingThere": "Drive about 1.5–2 hours from central Cape Town via either False Bay or Chapman’s Peak; tours run daily.",
+      "connectivity": "Generally usable near main visitor areas, weaker on remote trails.",
+      "connectivityScore": 6,
+      "difficulty": "Easy viewpoints; moderate coastal walks",
+      "difficultyScore": 3,
+      "accessibility": "Good roads, parking and funicular; some viewpoints require steps.",
+      "accessibilityScore": 8,
+      "fourByFour": "Not required",
+      "recommendedTime": "Half to full day",
+      "combineWith": [
+        "boulders-beach",
+        "table-mountain"
+      ],
+      "tags": [
+        "Coast",
+        "Views",
+        "Wildlife"
+      ],
+      "worldClass": {
+        "label": "Coastal scenery",
+        "score": 8.9,
+        "note": "An unusually wild and biodiverse headland on the edge of a major city."
+      },
+      "sourceUrl": "https://www.sanparks.org/parks/table-mountain/what-to-do/attractions/cape-point",
+      "image": "assets/places/za/cape-point.jpg",
+      "imageAlt": "Cape Point & Cape of Good Hope landscape",
+      "imageSourceUrl": "https://en.wikipedia.org/wiki/Cape_Point",
+      "imageCredit": "Wikipedia / Wikimedia Commons"
+    },
+    {
+      "id": "boulders-beach",
+      "name": "Boulders Penguin Colony",
+      "kind": "point",
+      "category": "Wildlife encounter",
+      "province": "Western Cape",
+      "coordinates": [
+        18.451,
+        -34.197
+      ],
+      "wikiTitle": "Boulders_Beach",
+      "summary": "Boardwalk access to a breeding colony of endangered African penguins beside sheltered granite coves near Simon’s Town.",
+      "gettingThere": "Drive or take the Southern Line train toward Simon’s Town when operating, then use a taxi or walk to the reserve entrance.",
+      "connectivity": "Good.",
+      "connectivityScore": 9,
+      "difficulty": "Easy",
+      "difficultyScore": 1,
+      "accessibility": "Boardwalks make the main viewpoints accessible; arrive early for fewer crowds.",
+      "accessibilityScore": 9,
+      "fourByFour": "Not required",
+      "recommendedTime": "1.5–3 hours",
+      "combineWith": [
+        "cape-point",
+        "table-mountain"
+      ],
+      "tags": [
+        "Penguins",
+        "Beach",
+        "Photography"
+      ],
+      "worldClass": {
+        "label": "Urban wildlife",
+        "score": 8.8,
+        "note": "One of the easiest places anywhere to observe penguins at close range responsibly."
+      },
+      "sourceUrl": "https://www.sanparks.org/parks/table-mountain/what-to-do/attractions/boulders-penguin-colony",
+      "image": "assets/places/za/boulders-beach.jpg",
+      "imageAlt": "Boulders Penguin Colony landscape",
+      "imageSourceUrl": "https://en.wikipedia.org/wiki/Boulders_Beach",
+      "imageCredit": "Wikipedia / Wikimedia Commons"
+    },
+    {
+      "id": "robben-island",
+      "name": "Robben Island",
+      "kind": "point",
+      "category": "History / heritage",
+      "province": "Western Cape",
+      "coordinates": [
+        18.366,
+        -33.806
+      ],
+      "wikiTitle": "Robben_Island",
+      "summary": "UNESCO-listed prison island central to South Africa’s apartheid history, visited on timed ferry-and-guided-bus tours.",
+      "gettingThere": "Prebook an official ferry from the Nelson Mandela Gateway at the V&A Waterfront; sailings depend on sea conditions.",
+      "connectivity": "Generally usable, but the visit is structured and time-limited.",
+      "connectivityScore": 7,
+      "difficulty": "Easy",
+      "difficultyScore": 2,
+      "accessibility": "Organized transport throughout; check accessibility needs with the museum before booking.",
+      "accessibilityScore": 8,
+      "fourByFour": "Not applicable",
+      "recommendedTime": "4 hours",
+      "combineWith": [
+        "table-mountain",
+        "cape-winelands"
+      ],
+      "tags": [
+        "History",
+        "UNESCO",
+        "Cape Town"
+      ],
+      "worldClass": {
+        "label": "Modern history",
+        "score": 9.3,
+        "note": "A globally important site of political imprisonment, resistance and reconciliation."
+      },
+      "sourceUrl": "https://www.robben-island.org.za/",
+      "image": "assets/places/za/robben-island.jpg",
+      "imageAlt": "Robben Island landscape",
+      "imageSourceUrl": "https://en.wikipedia.org/wiki/Robben_Island",
+      "imageCredit": "Wikipedia / Wikimedia Commons"
+    },
+    {
+      "id": "hermanus",
+      "name": "Hermanus",
+      "kind": "point",
+      "category": "Whale-watching town",
+      "province": "Western Cape",
+      "coordinates": [
+        19.235,
+        -34.418
+      ],
+      "wikiTitle": "Hermanus,_Western_Cape",
+      "summary": "A coastal town famous for land-based southern right whale viewing, cliff paths and access to Walker Bay.",
+      "gettingThere": "Drive about two hours from Cape Town via the N2/R43 or the slower Clarence Drive coastal route.",
+      "connectivity": "Strong in town.",
+      "connectivityScore": 9,
+      "difficulty": "Easy",
+      "difficultyScore": 1,
+      "accessibility": "Excellent town infrastructure; boat trips are weather-dependent.",
+      "accessibilityScore": 9,
+      "fourByFour": "Not required",
+      "recommendedTime": "1–2 days",
+      "combineWith": [
+        "cape-winelands",
+        "garden-route"
+      ],
+      "tags": [
+        "Whales",
+        "Coast",
+        "Food"
+      ],
+      "worldClass": {
+        "label": "Whale watching",
+        "score": 9.4,
+        "note": "One of the world’s strongest land-based whale-watching destinations in season."
+      },
+      "sourceUrl": "https://www.hermanus.co.za/",
+      "image": "assets/places/za/hermanus.jpg",
+      "imageAlt": "Hermanus landscape",
+      "imageSourceUrl": "https://en.wikipedia.org/wiki/Hermanus",
+      "imageCredit": "Wikipedia / Wikimedia Commons"
+    },
+    {
+      "id": "tsitsikamma",
+      "name": "Tsitsikamma",
+      "kind": "point",
+      "category": "Coastal forest park",
+      "province": "Eastern Cape",
+      "coordinates": [
+        23.89,
+        -34.02
+      ],
+      "wikiTitle": "Tsitsikamma_National_Park",
+      "summary": "Storms River mouth, indigenous forest, suspension bridges and the start of the multi-day Otter Trail.",
+      "gettingThere": "Drive on the N2, roughly 2 hours from George or 2.5 hours from Gqeberha; rental car is easiest.",
+      "connectivity": "Usable around Storms River village and camp, patchy on trails.",
+      "connectivityScore": 6,
+      "difficulty": "Easy viewpoints to hard multi-day hiking",
+      "difficultyScore": 7,
+      "accessibility": "Main camp is easy to reach; major hikes require permits and advance booking.",
+      "accessibilityScore": 7,
+      "fourByFour": "Not required",
+      "recommendedTime": "1–3 days",
+      "combineWith": [
+        "garden-route",
+        "addo"
+      ],
+      "tags": [
+        "Hiking",
+        "Forest",
+        "Kayaking"
+      ],
+      "worldClass": {
+        "label": "Coastal hiking",
+        "score": 9.0,
+        "note": "The Otter Trail and Storms River combine forest and exposed ocean scenery at world-class level."
+      },
+      "sourceUrl": "https://www.sanparks.org/parks/garden-route/explore/tsitsikamma",
+      "image": "assets/places/za/tsitsikamma.jpg",
+      "imageAlt": "Tsitsikamma landscape",
+      "imageSourceUrl": "https://en.wikipedia.org/wiki/Tsitsikamma_National_Park",
+      "imageCredit": "Wikipedia / Wikimedia Commons"
+    },
+    {
+      "id": "addo",
+      "name": "Addo Elephant National Park",
+      "kind": "point",
+      "category": "Safari park",
+      "province": "Eastern Cape",
+      "coordinates": [
+        25.74,
+        -33.44
+      ],
+      "wikiTitle": "Addo_Elephant_National_Park",
+      "summary": "A malaria-free safari park with dense elephant viewing, self-drive roads and easy access from Gqeberha.",
+      "gettingThere": "Drive about 45–75 minutes from Gqeberha airport depending on the gate; the main game area is straightforward by rental car.",
+      "connectivity": "Patchy in the park, better at the main camp.",
+      "connectivityScore": 5,
+      "difficulty": "Easy self-drive",
+      "difficultyScore": 2,
+      "accessibility": "Good roads and facilities; suitable for a short first safari.",
+      "accessibilityScore": 9,
+      "fourByFour": "Not required in the main game area",
+      "recommendedTime": "1–3 days",
+      "combineWith": [
+        "tsitsikamma",
+        "garden-route"
+      ],
+      "tags": [
+        "Safari",
+        "Elephants",
+        "Self-drive"
+      ],
+      "worldClass": {
+        "label": "Elephant safari",
+        "score": 8.8,
+        "note": "Exceptional elephant density with unusually simple malaria-free access."
+      },
+      "sourceUrl": "https://www.sanparks.org/parks/addo-elephant",
+      "image": "assets/places/za/addo.jpg",
+      "imageAlt": "Addo Elephant National Park landscape",
+      "imageSourceUrl": "https://en.wikipedia.org/wiki/Addo_Elephant_National_Park",
+      "imageCredit": "Wikipedia / Wikimedia Commons"
+    },
+    {
+      "id": "isimangaliso",
+      "name": "iSimangaliso Wetland Park",
+      "kind": "point",
+      "category": "Wetland / coastal reserve",
+      "province": "KwaZulu-Natal",
+      "coordinates": [
+        32.5,
+        -27.6
+      ],
+      "wikiTitle": "ISimangaliso_Wetland_Park",
+      "summary": "A UNESCO landscape of lakes, dunes, beaches, reefs and game areas stretching along the subtropical north coast.",
+      "gettingThere": "Drive about 2.5–3 hours from Durban to St Lucia; northern sections require longer drives and specific gate planning.",
+      "connectivity": "Good in St Lucia, patchy or absent in remote park sections.",
+      "connectivityScore": 5,
+      "difficulty": "Moderate logistics across a large park",
+      "difficultyScore": 5,
+      "accessibility": "St Lucia and Cape Vidal are straightforward; remote beaches and lakes need more preparation.",
+      "accessibilityScore": 7,
+      "fourByFour": "Required for several beach and remote northern routes",
+      "recommendedTime": "2–4 days",
+      "combineWith": [
+        "hluhluwe-imfolozi",
+        "durban"
+      ],
+      "tags": [
+        "UNESCO",
+        "Beach",
+        "Wildlife"
+      ],
+      "worldClass": {
+        "label": "Coastal biodiversity",
+        "score": 9.2,
+        "note": "An exceptional meeting of marine, wetland, dune and savanna ecosystems."
+      },
+      "sourceUrl": "https://www.isimangaliso.com/",
+      "image": "assets/places/za/isimangaliso.jpg",
+      "imageAlt": "iSimangaliso Wetland Park landscape",
+      "imageSourceUrl": "https://en.wikipedia.org/wiki/ISimangaliso_Wetland_Park",
+      "imageCredit": "Wikipedia / Wikimedia Commons"
+    },
+    {
+      "id": "hluhluwe-imfolozi",
+      "name": "Hluhluwe–iMfolozi Park",
+      "kind": "point",
+      "category": "Safari park",
+      "province": "KwaZulu-Natal",
+      "coordinates": [
+        31.95,
+        -28.22
+      ],
+      "wikiTitle": "Hluhluwe%E2%80%93Imfolozi_Park",
+      "summary": "Historic Big Five reserve renowned for rhino conservation, rolling hills and self-drive safari access.",
+      "gettingThere": "Drive about 2.5–3 hours north from Durban; access via Memorial Gate or Nyalazi Gate.",
+      "connectivity": "Patchy; strongest near camps and gates.",
+      "connectivityScore": 4,
+      "difficulty": "Easy to moderate self-drive",
+      "difficultyScore": 3,
+      "accessibility": "Main roads are accessible to standard cars, with fewer facilities than Kruger.",
+      "accessibilityScore": 7,
+      "fourByFour": "Not required on main roads",
+      "recommendedTime": "2–3 days",
+      "combineWith": [
+        "isimangaliso",
+        "durban"
+      ],
+      "tags": [
+        "Safari",
+        "Rhino",
+        "Self-drive"
+      ],
+      "worldClass": {
+        "label": "Rhino safari",
+        "score": 9.0,
+        "note": "A globally important rhino-conservation landscape with excellent viewing potential."
+      },
+      "sourceUrl": "https://www.kznwildlife.com/hluhluwe-imfolozi-park/",
+      "image": "assets/places/za/hluhluwe-imfolozi.jpg",
+      "imageAlt": "Hluhluwe–iMfolozi Park landscape",
+      "imageSourceUrl": "https://en.wikipedia.org/wiki/Hluhluwe%E2%80%93Imfolozi_Park",
+      "imageCredit": "Wikipedia / Wikimedia Commons"
+    },
+    {
+      "id": "durban",
+      "name": "Durban",
+      "kind": "point",
+      "category": "Coastal city",
+      "province": "KwaZulu-Natal",
+      "coordinates": [
+        31.02,
+        -29.86
+      ],
+      "wikiTitle": "Durban",
+      "summary": "Warm-water city beaches, Indian-influenced food, Zulu culture and the practical gateway to KwaZulu-Natal’s coast and reserves.",
+      "gettingThere": "Fly into King Shaka International Airport, about 35 km north of central Durban. Pre-book a rental car, hotel transfer or app-based ride for the 30–45 minute trip via the N2/M4; allow longer in commuter traffic. The beachfront sights are close enough to combine by taxi or promenade walk, while Umhlanga and inland KZN trips are easier with a car. Intercity buses reach Durban, but long-distance rail is not the practical default.",
+      "connectivity": "Strong urban mobile data and broadband.",
+      "connectivityScore": 9,
+      "difficulty": "Easy with neighborhood awareness",
+      "difficultyScore": 3,
+      "accessibility": "Good airport and city services; a car helps beyond the beachfront.",
+      "accessibilityScore": 8,
+      "fourByFour": "Not required",
+      "recommendedTime": "1–3 days",
+      "combineWith": [
+        "ushaka-marine-world",
+        "moses-mabhida",
+        "umhlanga-promenade",
+        "durban-botanic-gardens",
+        "isimangaliso",
+        "hluhluwe-imfolozi",
+        "drakensberg"
+      ],
+      "tags": [
+        "City",
+        "Beach",
+        "Food"
+      ],
+      "worldClass": {
+        "label": "Urban beach culture",
+        "score": 7.8,
+        "note": "A distinctive warm-ocean city base with one of Africa’s strongest Indian culinary traditions."
+      },
+      "sourceUrl": "https://visitdurban.travel/",
+      "image": "assets/places/za/durban.jpg",
+      "imageAlt": "Durban landscape",
+      "imageSourceUrl": "https://en.wikipedia.org/wiki/Durban",
+      "imageCredit": "Wikipedia / Wikimedia Commons"
+    },
+    {
+      "id": "soweto",
+      "name": "Soweto",
+      "kind": "point",
+      "category": "Urban history",
+      "province": "Gauteng",
+      "coordinates": [
+        27.86,
+        -26.25
+      ],
+      "wikiTitle": "Soweto",
+      "summary": "A vast township central to the history of apartheid resistance, with Vilakazi Street, museums, food and community-led tours.",
+      "gettingThere": "Use a reputable guided tour, private transfer or local host from Johannesburg; independent driving requires route awareness.",
+      "connectivity": "Strong urban coverage.",
+      "connectivityScore": 9,
+      "difficulty": "Easy with a local guide",
+      "difficultyScore": 3,
+      "accessibility": "Close to Johannesburg but best understood through a responsible community-based guide.",
+      "accessibilityScore": 8,
+      "fourByFour": "Not required",
+      "recommendedTime": "Half to full day",
+      "combineWith": [
+        "cradle-humankind",
+        "pilanesberg"
+      ],
+      "tags": [
+        "History",
+        "Culture",
+        "Food"
+      ],
+      "worldClass": {
+        "label": "Political history",
+        "score": 8.7,
+        "note": "One of the essential places for understanding modern South African history."
+      },
+      "sourceUrl": "https://www.gauteng.net/attractions/soweto/",
+      "image": "assets/places/za/soweto.jpg",
+      "imageAlt": "Soweto landscape",
+      "imageSourceUrl": "https://en.wikipedia.org/wiki/Soweto",
+      "imageCredit": "Wikipedia / Wikimedia Commons"
+    },
+    {
+      "id": "cradle-humankind",
+      "name": "Cradle of Humankind",
+      "kind": "point",
+      "category": "UNESCO / archaeology",
+      "province": "Gauteng",
+      "coordinates": [
+        27.66,
+        -25.97
+      ],
+      "wikiTitle": "Cradle_of_Humankind",
+      "summary": "A fossil-rich UNESCO landscape with the Maropeng visitor centre and Sterkfontein cave system near Johannesburg.",
+      "gettingThere": "Drive roughly one hour from Johannesburg or Pretoria; organized day tours are available.",
+      "connectivity": "Generally good around visitor sites.",
+      "connectivityScore": 8,
+      "difficulty": "Easy",
+      "difficultyScore": 2,
+      "accessibility": "Strong visitor facilities; cave access can involve steps and confined spaces.",
+      "accessibilityScore": 8,
+      "fourByFour": "Not required",
+      "recommendedTime": "Half to full day",
+      "combineWith": [
+        "soweto",
+        "pilanesberg"
+      ],
+      "tags": [
+        "UNESCO",
+        "Archaeology",
+        "Science"
+      ],
+      "worldClass": {
+        "label": "Human origins",
+        "score": 9.6,
+        "note": "One of the world’s most consequential concentrations of hominin fossil sites."
+      },
+      "sourceUrl": "https://www.maropeng.co.za/",
+      "image": "assets/places/za/cradle-humankind.jpg",
+      "imageAlt": "Cradle of Humankind landscape",
+      "imageSourceUrl": "https://en.wikipedia.org/wiki/Cradle_of_Humankind",
+      "imageCredit": "Wikipedia / Wikimedia Commons"
+    },
+    {
+      "id": "blyde-river-canyon",
+      "name": "Blyde River Canyon",
+      "kind": "point",
+      "category": "Canyon / panorama",
+      "province": "Mpumalanga",
+      "coordinates": [
+        30.8,
+        -24.58
+      ],
+      "wikiTitle": "Blyde_River_Canyon",
+      "summary": "A vast green canyon and the core of the Panorama Route, with viewpoints such as Three Rondavels and Bourke’s Luck Potholes.",
+      "gettingThere": "Drive from Mbombela, Hoedspruit or Johannesburg; the R532 links the main viewpoints.",
+      "connectivity": "Variable, with stronger coverage in towns and at major stops.",
+      "connectivityScore": 6,
+      "difficulty": "Easy viewpoints, moderate hikes",
+      "difficultyScore": 3,
+      "accessibility": "Good road access; mist can erase views and roads are slower than map estimates.",
+      "accessibilityScore": 8,
+      "fourByFour": "Not required",
+      "recommendedTime": "1–2 days",
+      "combineWith": [
+        "kruger"
+      ],
+      "tags": [
+        "Views",
+        "Road trip",
+        "Hiking"
+      ],
+      "worldClass": {
+        "label": "Canyon scenery",
+        "score": 8.8,
+        "note": "A highly scenic, unusually green escarpment canyon with easy viewpoint access."
+      },
+      "sourceUrl": "https://www.mpumalanga.com/our-provincial-parks/blyde-river-canyon-nature-reserve",
+      "image": "assets/places/za/blyde-river-canyon.jpg",
+      "imageAlt": "Blyde River Canyon landscape",
+      "imageSourceUrl": "https://en.wikipedia.org/wiki/Blyde_River_Canyon",
+      "imageCredit": "Wikipedia / Wikimedia Commons"
+    },
+    {
+      "id": "pilanesberg",
+      "name": "Pilanesberg Game Reserve",
+      "kind": "point",
+      "category": "Safari reserve",
+      "province": "North West",
+      "coordinates": [
+        27.1,
+        -25.25
+      ],
+      "wikiTitle": "Pilanesberg_Game_Reserve",
+      "summary": "A malaria-free Big Five reserve inside an ancient volcanic complex, practical for a short safari from Johannesburg.",
+      "gettingThere": "Drive 2.5–3 hours from Johannesburg or Pretoria; many operators offer day tours.",
+      "connectivity": "Patchy inside the reserve.",
+      "connectivityScore": 5,
+      "difficulty": "Easy self-drive",
+      "difficultyScore": 2,
+      "accessibility": "Very accessible for a first or short safari, with standard-car roads and nearby lodging.",
+      "accessibilityScore": 9,
+      "fourByFour": "Not required",
+      "recommendedTime": "1–2 days",
+      "combineWith": [
+        "soweto",
+        "cradle-humankind",
+        "madikwe"
+      ],
+      "tags": [
+        "Safari",
+        "Malaria-free",
+        "Self-drive"
+      ],
+      "worldClass": {
+        "label": "Short safari",
+        "score": 8.1,
+        "note": "Exceptional convenience rather than the scale and wilderness of Kruger or Kgalagadi."
+      },
+      "sourceUrl": "https://www.pilanesbergnationalpark.org/",
+      "image": "assets/places/za/pilanesberg.jpg",
+      "imageAlt": "Pilanesberg Game Reserve landscape",
+      "imageSourceUrl": "https://en.wikipedia.org/wiki/Pilanesberg_National_Park",
+      "imageCredit": "Wikipedia / Wikimedia Commons"
+    },
+    {
+      "id": "madikwe",
+      "name": "Madikwe Game Reserve",
+      "kind": "point",
+      "category": "Safari reserve",
+      "province": "North West",
+      "coordinates": [
+        26.3,
+        -24.75
+      ],
+      "wikiTitle": "Madikwe_Game_Reserve",
+      "summary": "A large malaria-free reserve on the Botswana border known for guided lodge safaris and strong wild-dog potential.",
+      "gettingThere": "Drive 4–5 hours from Johannesburg or use a charter flight; lodge transfers handle the final reserve access.",
+      "connectivity": "Limited outside lodges; many lodges offer Wi-Fi.",
+      "connectivityScore": 4,
+      "difficulty": "Easy once at a lodge",
+      "difficultyScore": 2,
+      "accessibility": "High logistical comfort but mostly lodge-based and significantly more expensive than self-drive parks.",
+      "accessibilityScore": 7,
+      "fourByFour": "Guest self-drive generally not the format; lodge vehicles handle game drives",
+      "recommendedTime": "3–4 days",
+      "combineWith": [
+        "pilanesberg",
+        "cradle-humankind"
+      ],
+      "tags": [
+        "Safari",
+        "Wild dogs",
+        "Lodges"
+      ],
+      "worldClass": {
+        "label": "Lodge safari",
+        "score": 8.8,
+        "note": "A strong high-comfort, malaria-free safari with excellent conservation credentials."
+      },
+      "sourceUrl": "https://www.madikwegamereserve.co.za/",
+      "image": "assets/places/za/madikwe.jpg",
+      "imageAlt": "Madikwe Game Reserve landscape",
+      "imageSourceUrl": "https://en.wikipedia.org/wiki/Madikwe_Game_Reserve",
+      "imageCredit": "Wikipedia / Wikimedia Commons"
+    },
+    {
+      "id": "sani-pass",
+      "name": "Sani Pass",
+      "kind": "point",
+      "category": "Mountain drive",
+      "province": "KwaZulu-Natal",
+      "coordinates": [
+        29.28,
+        -29.59
+      ],
+      "wikiTitle": "Sani_Pass",
+      "summary": "A steep border road climbing the Drakensberg from South Africa into Lesotho through dramatic switchbacks and rapidly changing weather.",
+      "gettingThere": "Base in Underberg or Himeville, roughly 2.5–3 hours by road from Durban, and arrange a licensed local 4×4 tour if you are not bringing a compliant vehicle. The ascent is an international border crossing into Lesotho: carry the correct passport and entry documents, allow time for both border posts, and confirm current vehicle and insurance rules before departure. Leave early because rain, snow, road works and border hours can close or delay the pass; fuel up in Underberg and do not rely on mobile data once climbing.",
+      "connectivity": "Weak to absent on the pass.",
+      "connectivityScore": 2,
+      "difficulty": "Hard technical mountain driving",
+      "difficultyScore": 8,
+      "accessibility": "Border documents and vehicle rules apply; snow, rain and road works can change access quickly.",
+      "accessibilityScore": 4,
+      "fourByFour": "Required",
+      "recommendedTime": "Full day or 1 night",
+      "combineWith": [
+        "drakensberg"
+      ],
+      "tags": [
+        "4×4",
+        "Mountains",
+        "Border crossing"
+      ],
+      "worldClass": {
+        "label": "Scenic 4×4 pass",
+        "score": 8.8,
+        "note": "A famous high-drama mountain ascent linking two very different landscapes."
+      },
+      "sourceUrl": "https://www.sani-pass.co.za/",
+      "image": "assets/places/za/sani-pass.jpg",
+      "imageAlt": "Sani Pass landscape",
+      "imageSourceUrl": "https://en.wikipedia.org/wiki/Sani_Pass",
+      "imageCredit": "Wikipedia / Wikimedia Commons"
+    },
+    {
+      "id": "golden-gate",
+      "name": "Golden Gate Highlands",
+      "kind": "point",
+      "category": "Mountain national park",
+      "province": "Free State",
+      "coordinates": [
+        28.62,
+        -28.52
+      ],
+      "wikiTitle": "Golden_Gate_Highlands_National_Park",
+      "summary": "Golden sandstone cliffs, grassland drives, short hikes and Basotho cultural heritage near Clarens.",
+      "gettingThere": "From Johannesburg, drive south via the N3 and R57/R712 approaches in roughly 3.5–4 hours; from Durban, allow about 4 hours via Harrismith. Clarens, around 20 minutes from the park, is the easiest base for fuel, restaurants and supplies, while Glen Reenen provides in-park accommodation. Main viewpoints use paved roads suitable for normal cars, but mountain weather and livestock can slow the final section, so arrive before dark and download maps in advance.",
+      "connectivity": "Usable near Clarens and the main rest camp, weaker on trails.",
+      "connectivityScore": 6,
+      "difficulty": "Easy drives to moderate hikes",
+      "difficultyScore": 4,
+      "accessibility": "Good paved access and short trail options.",
+      "accessibilityScore": 8,
+      "fourByFour": "Not required",
+      "recommendedTime": "1–2 days",
+      "combineWith": [
+        "drakensberg",
+        "sani-pass"
+      ],
+      "tags": [
+        "Hiking",
+        "Scenery",
+        "Culture"
+      ],
+      "worldClass": {
+        "label": "Highland scenery",
+        "score": 8.0,
+        "note": "A compact and accessible sandstone highland landscape with strong road-trip value."
+      },
+      "sourceUrl": "https://www.sanparks.org/parks/golden-gate-highlands",
+      "image": "assets/places/za/golden-gate.jpg",
+      "imageAlt": "Golden Gate Highlands landscape",
+      "imageSourceUrl": "https://en.wikipedia.org/wiki/Golden_Gate_Highlands_National_Park",
+      "imageCredit": "Wikipedia / Wikimedia Commons"
+    },
+    {
+      "id": "cederberg",
+      "name": "Cederberg Wilderness",
+      "kind": "point",
+      "category": "Hiking wilderness",
+      "province": "Western Cape",
+      "coordinates": [
+        19.17,
+        -32.45
+      ],
+      "wikiTitle": "Cederberg",
+      "summary": "Remote sandstone formations, rock art, clear night skies and multi-day hiking north of Cape Town.",
+      "gettingThere": "Drive 2.5–4 hours from Cape Town; final roads vary by trailhead and accommodation.",
+      "connectivity": "Weak to absent in the wilderness; some lodges provide Wi-Fi.",
+      "connectivityScore": 3,
+      "difficulty": "Moderate to hard wilderness hiking",
+      "difficultyScore": 7,
+      "accessibility": "Permits, heat and water planning matter; distances between services are significant.",
+      "accessibilityScore": 5,
+      "fourByFour": "Helpful for remote approaches, not universal",
+      "recommendedTime": "2–4 days",
+      "combineWith": [
+        "cape-winelands",
+        "namaqua"
+      ],
+      "tags": [
+        "Hiking",
+        "Rock art",
+        "Stargazing"
+      ],
+      "worldClass": {
+        "label": "Desert-mountain hiking",
+        "score": 8.7,
+        "note": "A distinctive sandstone wilderness with low trail density and superb night skies."
+      },
+      "sourceUrl": "https://www.capenature.co.za/reserves/cederberg-wilderness-area",
+      "image": "assets/places/za/cederberg.jpg",
+      "imageAlt": "Cederberg Wilderness landscape",
+      "imageSourceUrl": "https://en.wikipedia.org/wiki/Cederberg",
+      "imageCredit": "Wikipedia / Wikimedia Commons"
+    },
+    {
+      "id": "augrabies",
+      "name": "Augrabies Falls",
+      "kind": "point",
+      "category": "Waterfall / desert park",
+      "province": "Northern Cape",
+      "coordinates": [
+        20.44,
+        -28.59
+      ],
+      "wikiTitle": "Augrabies_Falls_National_Park",
+      "summary": "The Orange River plunges into a granite gorge amid arid landscapes, viewpoints and short desert trails.",
+      "gettingThere": "Drive about 1.5 hours west of Upington; the falls and main camp are reached by paved roads.",
+      "connectivity": "Limited but usually available around the main camp.",
+      "connectivityScore": 5,
+      "difficulty": "Easy viewpoints; heat can be severe",
+      "difficultyScore": 3,
+      "accessibility": "Main viewpoints are close to camp; summer temperatures limit longer walks.",
+      "accessibilityScore": 8,
+      "fourByFour": "Not required for the main visitor area",
+      "recommendedTime": "1–2 days",
+      "combineWith": [
+        "kgalagadi",
+        "namaqua"
+      ],
+      "tags": [
+        "Waterfall",
+        "Desert",
+        "Road trip"
+      ],
+      "worldClass": {
+        "label": "Desert waterfall",
+        "score": 8.3,
+        "note": "Most impressive at high flow, with a powerful river-in-desert setting."
+      },
+      "sourceUrl": "https://www.sanparks.org/parks/augrabies-falls",
+      "image": "assets/places/za/augrabies.jpg",
+      "imageAlt": "Augrabies Falls landscape",
+      "imageSourceUrl": "https://en.wikipedia.org/wiki/Augrabies_Falls_National_Park",
+      "imageCredit": "Wikipedia / Wikimedia Commons"
+    },
+    {
+      "id": "mapungubwe",
+      "name": "Mapungubwe National Park",
+      "kind": "point",
+      "category": "Heritage / safari park",
+      "province": "Limpopo",
+      "coordinates": [
+        29.23,
+        -22.21
+      ],
+      "wikiTitle": "Mapungubwe_National_Park",
+      "summary": "A remote UNESCO cultural landscape of sandstone formations, wildlife and the remains of a powerful precolonial kingdom.",
+      "gettingThere": "Drive roughly 5.5–6 hours from Johannesburg; fuel up before the final rural approach.",
+      "connectivity": "Very limited in much of the park.",
+      "connectivityScore": 2,
+      "difficulty": "Remote, otherwise moderate",
+      "difficultyScore": 6,
+      "accessibility": "Long access drive and dispersed sections; some roads close after heavy rain.",
+      "accessibilityScore": 5,
+      "fourByFour": "Useful, with some routes restricted to high-clearance vehicles",
+      "recommendedTime": "2–3 days",
+      "combineWith": [
+        "kruger"
+      ],
+      "tags": [
+        "UNESCO",
+        "History",
+        "Safari"
+      ],
+      "worldClass": {
+        "label": "African heritage",
+        "score": 9.0,
+        "note": "A major archaeological kingdom embedded in a beautiful transfrontier landscape."
+      },
+      "sourceUrl": "https://www.sanparks.org/parks/mapungubwe",
+      "image": "assets/places/za/mapungubwe.jpg",
+      "imageAlt": "Mapungubwe National Park landscape",
+      "imageSourceUrl": "https://en.wikipedia.org/wiki/Mapungubwe_National_Park",
+      "imageCredit": "Wikipedia / Wikimedia Commons"
+    },
+    {
+      "id": "namaqua",
+      "name": "Namaqua National Park",
+      "kind": "point",
+      "category": "Seasonal wildflowers",
+      "province": "Northern Cape",
+      "coordinates": [
+        17.8,
+        -30.05
+      ],
+      "wikiTitle": "Namaqua_National_Park",
+      "summary": "Arid plains and coast transformed by immense seasonal wildflower displays, with remote tracks and dramatic Atlantic scenery.",
+      "gettingThere": "Drive north from Cape Town via the N7; Springbok and Kamieskroon are practical bases.",
+      "connectivity": "Patchy inland and weak on remote coastal sections.",
+      "connectivityScore": 3,
+      "difficulty": "Easy in the main flower area, harder on remote tracks",
+      "difficultyScore": 5,
+      "accessibility": "Highly seasonal; bloom timing changes with rain and temperature.",
+      "accessibilityScore": 6,
+      "fourByFour": "Recommended or required for selected coastal routes",
+      "recommendedTime": "2–4 days",
+      "combineWith": [
+        "cederberg",
+        "augrabies",
+        "kgalagadi"
+      ],
+      "tags": [
+        "Wildflowers",
+        "Photography",
+        "Coast"
+      ],
+      "worldClass": {
+        "label": "Wildflower spectacle",
+        "score": 9.3,
+        "note": "In a good season, one of the planet’s most dramatic large-scale desert flower displays."
+      },
+      "sourceUrl": "https://www.sanparks.org/parks/namaqua",
+      "image": "assets/places/za/namaqua.jpg",
+      "imageAlt": "Namaqua National Park landscape",
+      "imageSourceUrl": "https://en.wikipedia.org/wiki/Namaqua_National_Park",
+      "imageCredit": "Wikipedia / Wikimedia Commons"
+    },
+    {
+      "id": "royal-natal-amphitheatre",
+      "name": "Royal Natal & Amphitheatre",
+      "kind": "point",
+      "category": "Mountain amphitheatre / hiking",
+      "province": "KwaZulu-Natal · Northern Drakensberg",
+      "coordinates": [
+        28.72,
+        -28.69
+      ],
+      "wikiTitle": "Royal_Natal_National_Park",
+      "summary": "The northern Drakensberg’s signature cliff wall, with Tugela Falls, the gentler gorge trail below and the exposed chain-ladder route to the escarpment above.",
+      "gettingThere": "From Durban, take the N3 toward Harrismith, leave for Bergville and follow the R74 to Royal Natal; allow about 3.5 hours. From Johannesburg, approach via Harrismith and Oliviershoek Pass in roughly 4 hours. The tarred park road reaches Mahai and Thendele in a normal car, but the Sentinel trailhead for the chain-ladder hike is a separate mountain-road approach and should be checked locally before departure.",
+      "connectivity": "Intermittent around camps and weak to absent in the gorge and on the escarpment.",
+      "connectivityScore": 3,
+      "difficulty": "Easy valley walks to a strenuous, exposed chain-ladder summit day",
+      "difficultyScore": 8,
+      "accessibility": "Mahai and Thendele are straightforward; high routes require weather judgment, registration and mountain fitness.",
+      "accessibilityScore": 6,
+      "fourByFour": "Not required for Royal Natal camps; high clearance can help on the separate Sentinel trailhead road",
+      "recommendedTime": "2–4 days",
+      "combineWith": [
+        "drakensberg",
+        "cathedral-peak-didima",
+        "golden-gate"
+      ],
+      "tags": [
+        "Hiking",
+        "Waterfalls",
+        "Mountains"
+      ],
+      "worldClass": {
+        "label": "Mountain scenery",
+        "score": 9.6,
+        "note": "The Amphitheatre and Tugela Falls form one of Africa’s defining high-mountain landscapes."
+      },
+      "sourceUrl": "https://www.kznwildlife.com/explore/our-parks/overnight-visits/royal-natal-thendele-and-mahai-and-rugged-glen",
+      "image": "assets/places/za/royal-natal-amphitheatre.jpg",
+      "imageAlt": "Royal Natal & Amphitheatre landscape",
+      "imageSourceUrl": "https://en.wikipedia.org/wiki/Royal_Natal_National_Park",
+      "imageCredit": "Wikipedia / Wikimedia Commons"
+    },
+    {
+      "id": "cathedral-peak-didima",
+      "name": "Cathedral Peak & Didima",
+      "kind": "point",
+      "category": "Mountain valley / hiking",
+      "province": "KwaZulu-Natal · Central Drakensberg",
+      "coordinates": [
+        29.24,
+        -28.95
+      ],
+      "wikiTitle": "Cathedral_Peak_(South_Africa)",
+      "summary": "A dramatic valley of freestanding peaks, waterfalls and San heritage, with everything from short resort walks to the demanding Cathedral Peak summit route.",
+      "gettingThere": "From Durban, follow the N3 to Exit 179 at Estcourt North, continue through Winterton and take the signed Cathedral Peak road for the final 32 km; allow around 4 hours. From Johannesburg, use the N3 and the Bergville/Winterton approach in roughly 5 hours. The access road to Didima is suitable for standard cars, but fill up and buy supplies around Winterton because services in the valley are limited.",
+      "connectivity": "Usable around Didima and nearby hotels, unreliable on trails and behind ridges.",
+      "connectivityScore": 4,
+      "difficulty": "Broad range, with a very strenuous and exposed summit option",
+      "difficultyScore": 8,
+      "accessibility": "Good road access and established lodging; hikers must sign the mountain rescue register and monitor fast-changing weather.",
+      "accessibilityScore": 7,
+      "fourByFour": "Not required for Didima; required only if taking the separate Mike’s Pass 4×4 route",
+      "recommendedTime": "2–4 days",
+      "combineWith": [
+        "drakensberg",
+        "monks-cowl",
+        "giants-castle"
+      ],
+      "tags": [
+        "Hiking",
+        "Rock art",
+        "Waterfalls"
+      ],
+      "worldClass": {
+        "label": "Mountain hiking",
+        "score": 9.1,
+        "note": "A highly varied Drakensberg base combining big peaks, cultural interpretation and accessible valley trails."
+      },
+      "sourceUrl": "https://www.kznwildlife.com/explore/our-parks/overnight-visits/didima-cathedral-peak",
+      "image": "assets/places/za/cathedral-peak-didima.jpg",
+      "imageAlt": "Cathedral Peak & Didima landscape",
+      "imageSourceUrl": "https://en.wikipedia.org/wiki/Cathedral_Peak_(South_Africa)",
+      "imageCredit": "Wikipedia / Wikimedia Commons"
+    },
+    {
+      "id": "monks-cowl",
+      "name": "Monk’s Cowl & Champagne Valley",
+      "kind": "point",
+      "category": "Mountain trailhead",
+      "province": "KwaZulu-Natal · Central Drakensberg",
+      "coordinates": [
+        29.05,
+        -29.05
+      ],
+      "wikiTitle": "Monk%27s_Cowl",
+      "summary": "A central Drakensberg trailhead beneath Cathkin Peak and Champagne Castle, excellent for day hikes, camping and permit-based routes into the high wilderness.",
+      "gettingThere": "Leave the N3 at Estcourt North, drive through Winterton and follow the R600 through Champagne Valley to the Monk’s Cowl gate; allow about 3–3.5 hours from Durban. The road is tarred to the trailhead and suitable for a normal car. Arrive before the gate closes, register longer hikes, and carry food, water and offline mapping because facilities shrink rapidly beyond the valley resorts.",
+      "connectivity": "Reasonable around Champagne Valley resorts, then poor or absent above the trailhead.",
+      "connectivityScore": 4,
+      "difficulty": "Easy foothill loops to difficult wilderness and summit routes",
+      "difficultyScore": 7,
+      "accessibility": "Straightforward trailhead access with camping and basic facilities; upper routes are remote and weather-exposed.",
+      "accessibilityScore": 7,
+      "fourByFour": "Not required for the main trailhead",
+      "recommendedTime": "2–4 days",
+      "combineWith": [
+        "drakensberg",
+        "cathedral-peak-didima",
+        "giants-castle"
+      ],
+      "tags": [
+        "Hiking",
+        "Camping",
+        "Mountains"
+      ],
+      "worldClass": {
+        "label": "Trail network",
+        "score": 9.0,
+        "note": "One of the most useful gateways into the central Drakensberg’s iconic peaks and wilderness routes."
+      },
+      "sourceUrl": "https://www.kznwildlife.com/explore/our-parks/overnight-visits/monks-cowl",
+      "image": "assets/places/za/monks-cowl.jpg",
+      "imageAlt": "Monk’s Cowl & Champagne Valley landscape",
+      "imageSourceUrl": "https://en.wikipedia.org/wiki/Monk%27s_Cowl",
+      "imageCredit": "Wikipedia / Wikimedia Commons"
+    },
+    {
+      "id": "giants-castle",
+      "name": "Giant’s Castle",
+      "kind": "point",
+      "category": "Mountain reserve / rock art",
+      "province": "KwaZulu-Natal · Central Drakensberg",
+      "coordinates": [
+        29.48,
+        -29.35
+      ],
+      "wikiTitle": "Giant%27s_Castle",
+      "summary": "A quieter Drakensberg reserve known for huge grassland valleys, Main Caves rock art, eland, vultures and access to serious escarpment hiking.",
+      "gettingThere": "From Durban, follow the N3 to the Estcourt area, continue through Mooi River or Estcourt toward Loskop and follow Giant’s Castle signs; plan roughly 3.5–4 hours and verify the preferred route with the reserve. The final rural section is paved but winding, livestock and mist are common, and there is no useful public transport to the gate. Refuel before leaving the larger towns and avoid a late-night arrival.",
+      "connectivity": "Limited near the lodge and generally absent in valleys and on high routes.",
+      "connectivityScore": 3,
+      "difficulty": "Moderate day walks to remote multi-day mountain travel",
+      "difficultyScore": 7,
+      "accessibility": "Good lodge access but a long rural approach; guided Main Caves visits and trail conditions should be confirmed ahead.",
+      "accessibilityScore": 6,
+      "fourByFour": "Not required for the main reserve road",
+      "recommendedTime": "2–3 days",
+      "combineWith": [
+        "drakensberg",
+        "monks-cowl",
+        "cathedral-peak-didima"
+      ],
+      "tags": [
+        "Rock art",
+        "Hiking",
+        "Birding"
+      ],
+      "worldClass": {
+        "label": "Rock art and wilderness",
+        "score": 8.8,
+        "note": "A particularly strong combination of San heritage, open mountain country and specialist vulture viewing."
+      },
+      "sourceUrl": "https://www.kznwildlife.com/explore/our-parks/overnight-visits/giants-castle",
+      "image": "assets/places/za/giants-castle.jpg",
+      "imageAlt": "Giant’s Castle landscape",
+      "imageSourceUrl": "https://en.wikipedia.org/wiki/Giant%27s_Castle",
+      "imageCredit": "Wikipedia / Wikimedia Commons"
+    },
+    {
+      "id": "ushaka-marine-world",
+      "name": "uShaka Marine World",
+      "kind": "point",
+      "category": "Aquarium / waterfront",
+      "province": "KwaZulu-Natal · Durban Central",
+      "coordinates": [
+        31.045,
+        -29.867
+      ],
+      "wikiTitle": "UShaka_Marine_World",
+      "summary": "Durban’s major waterfront attraction, combining a large shipwreck-themed aquarium, water park and the southern end of the beachfront promenade.",
+      "gettingThere": "From central beachfront hotels, walk or take a short app-based ride south along the Golden Mile; from King Shaka Airport allow about 35–50 minutes via the N2 and city approaches. Paid parking is available around the complex, but weekend and holiday traffic can be slow. Confirm the operating calendar and book timed activities before setting out.",
+      "connectivity": "Strong urban mobile coverage and venue Wi-Fi in selected areas.",
+      "connectivityScore": 9,
+      "difficulty": "Easy urban visit",
+      "difficultyScore": 1,
+      "accessibility": "Purpose-built visitor facilities with paved, step-free circulation across most public areas.",
+      "accessibilityScore": 9,
+      "fourByFour": "Not applicable",
+      "recommendedTime": "Half to full day",
+      "combineWith": [
+        "durban",
+        "moses-mabhida",
+        "durban-botanic-gardens"
+      ],
+      "tags": [
+        "Aquarium",
+        "Family",
+        "Waterfront"
+      ],
+      "worldClass": {
+        "label": "Urban aquarium",
+        "score": 8.0,
+        "note": "A polished regional attraction and an easy anchor for a Durban beachfront day."
+      },
+      "sourceUrl": "https://visitdurban.travel/page/durban-visitor-guide",
+      "image": "assets/places/za/ushaka-marine-world.jpg",
+      "imageAlt": "uShaka Marine World landscape",
+      "imageSourceUrl": "https://en.wikipedia.org/wiki/UShaka_Marine_World",
+      "imageCredit": "Wikipedia / Wikimedia Commons"
+    },
+    {
+      "id": "moses-mabhida",
+      "name": "Moses Mabhida Stadium",
+      "kind": "point",
+      "category": "Architecture / city viewpoint",
+      "province": "KwaZulu-Natal · Durban Central",
+      "coordinates": [
+        31.03,
+        -29.829
+      ],
+      "wikiTitle": "Moses_Mabhida_Stadium",
+      "summary": "Durban’s arch-topped landmark beside the promenade, used for events and panoramic city-and-ocean views when the elevated attractions are operating.",
+      "gettingThere": "The stadium sits just inland from the northern Golden Mile, around 10 minutes by car from central beachfront hotels and 30–45 minutes from King Shaka Airport outside peak traffic. Use an app-based ride for a simple point-to-point visit or park in the stadium precinct. Check event-day road closures and confirm whether the SkyCar or SkyWalk is operating before travelling specifically for the view.",
+      "connectivity": "Strong city mobile coverage throughout the precinct.",
+      "connectivityScore": 9,
+      "difficulty": "Easy precinct visit; elevated activities vary",
+      "difficultyScore": 2,
+      "accessibility": "Broad paved approaches and event infrastructure; individual elevated experiences have separate access rules.",
+      "accessibilityScore": 9,
+      "fourByFour": "Not applicable",
+      "recommendedTime": "1–3 hours",
+      "combineWith": [
+        "durban",
+        "ushaka-marine-world",
+        "umhlanga-promenade"
+      ],
+      "tags": [
+        "Architecture",
+        "Viewpoint",
+        "Promenade"
+      ],
+      "worldClass": {
+        "label": "Stadium architecture",
+        "score": 8.1,
+        "note": "A distinctive contemporary landmark whose arch defines Durban’s modern skyline."
+      },
+      "sourceUrl": "https://visitdurban.travel/page/durban-visitor-guide",
+      "image": "assets/places/za/moses-mabhida.jpg",
+      "imageAlt": "Moses Mabhida Stadium landscape",
+      "imageSourceUrl": "https://en.wikipedia.org/wiki/Moses_Mabhida_Stadium",
+      "imageCredit": "Wikipedia / Wikimedia Commons"
+    },
+    {
+      "id": "umhlanga-promenade",
+      "name": "uMhlanga Promenade & Lighthouse",
+      "kind": "point",
+      "category": "Urban coast / beach walk",
+      "province": "KwaZulu-Natal · Greater Durban",
+      "coordinates": [
+        31.089,
+        -29.727
+      ],
+      "wikiTitle": "Umhlanga_Rocks_Lighthouse",
+      "summary": "A polished coastal base north of Durban with a long promenade, warm-water beaches, the red-and-white lighthouse and dense restaurant infrastructure.",
+      "gettingThere": "uMhlanga is about 18 km north of central Durban and roughly 20 km south of King Shaka Airport. Use the M4 for the scenic coastal approach or the N2 for the faster regional connection; allow 20–35 minutes from either the airport or central beachfront outside rush hour. Parking near the main beach fills quickly on sunny weekends, so an app-based ride is often easier for a promenade visit.",
+      "connectivity": "Excellent mobile data, broadband and abundant café or hotel Wi-Fi.",
+      "connectivityScore": 10,
+      "difficulty": "Easy promenade and resort-area visit",
+      "difficultyScore": 1,
+      "accessibility": "Strong urban services and a mostly level promenade, though sand access varies by beach entrance.",
+      "accessibilityScore": 9,
+      "fourByFour": "Not applicable",
+      "recommendedTime": "Half to full day",
+      "combineWith": [
+        "durban",
+        "moses-mabhida",
+        "ushaka-marine-world"
+      ],
+      "tags": [
+        "Beach",
+        "Running",
+        "Food"
+      ],
+      "worldClass": {
+        "label": "Urban coast",
+        "score": 7.8,
+        "note": "One of South Africa’s easiest warm-water coastal bases, particularly strong for walking and running."
+      },
+      "sourceUrl": "https://visitdurban.travel/space/umhlanga-lighthouse",
+      "image": "assets/places/za/umhlanga-promenade.jpg",
+      "imageAlt": "uMhlanga Promenade & Lighthouse landscape",
+      "imageSourceUrl": "https://en.wikipedia.org/wiki/Umhlanga_Rocks_Lighthouse",
+      "imageCredit": "Wikipedia / Wikimedia Commons"
+    },
+    {
+      "id": "durban-botanic-gardens",
+      "name": "Durban Botanic Gardens",
+      "kind": "point",
+      "category": "Urban garden",
+      "province": "KwaZulu-Natal · Durban Central",
+      "coordinates": [
+        30.983,
+        -29.848
+      ],
+      "wikiTitle": "Durban_Botanic_Gardens",
+      "summary": "A compact historic garden with tropical collections, cycads, orchids and shaded paths that provide a calm counterpoint to Durban’s beachfront.",
+      "gettingThere": "The gardens are in Berea, around 10–15 minutes by car from the central beachfront and roughly 35–50 minutes from King Shaka Airport. An app-based ride is simplest because the surrounding roads are busy and parking availability varies with events. Combine it with nearby Berea or Indian-district stops in daylight rather than attempting a long walk from the beach.",
+      "connectivity": "Strong urban mobile coverage.",
+      "connectivityScore": 9,
+      "difficulty": "Easy garden paths",
+      "difficultyScore": 1,
+      "accessibility": "Mostly gentle paths with central-city services nearby; confirm event closures and specific mobility routes.",
+      "accessibilityScore": 8,
+      "fourByFour": "Not applicable",
+      "recommendedTime": "1–2 hours",
+      "combineWith": [
+        "durban",
+        "ushaka-marine-world",
+        "moses-mabhida"
+      ],
+      "tags": [
+        "Gardens",
+        "Botany",
+        "Quiet"
+      ],
+      "worldClass": {
+        "label": "Botanic heritage",
+        "score": 7.7,
+        "note": "A historically important subtropical garden with particularly notable cycad collections."
+      },
+      "sourceUrl": "https://visitdurban.travel/page/durban-visitor-guide",
+      "image": "assets/places/za/durban-botanic-gardens.jpg",
+      "imageAlt": "Durban Botanic Gardens landscape",
+      "imageSourceUrl": "https://en.wikipedia.org/wiki/Durban_Botanic_Gardens",
+      "imageCredit": "Wikipedia / Wikimedia Commons"
+    }
+  ],
+  "airports": [
+    {
+      "id": "airport-jnb",
+      "code": "JNB",
+      "name": "OR Tambo International Airport",
+      "coordinates": [
+        28.246,
+        -26.139
+      ],
+      "type": "Primary international hub",
+      "directRoutes": 78,
+      "network": "South Africa’s largest air gateway, with the country’s broadest domestic, African and long-haul network.",
+      "topOriginLabel": "Top foreign origin",
+      "topOriginCountry": "Zimbabwe",
+      "topOriginDetail": "Harare is the busiest international nonstop route at about 14 flights per day; Bulawayo and Victoria Falls add more Zimbabwe frequency.",
+      "connections": [
+        "soweto",
+        "cradle-humankind",
+        "kruger"
+      ],
+      "sourceUrl": "https://aviability.com/en/airport/jnb-johannesburg-or-tambo/destinations"
+    },
+    {
+      "id": "airport-cpt",
+      "code": "CPT",
+      "name": "Cape Town International Airport",
+      "coordinates": [
+        18.602,
+        -33.971
+      ],
+      "type": "International gateway",
+      "directRoutes": 41,
+      "network": "The main gateway for Cape Town, the Winelands and the western end of the Garden Route, with extensive domestic and long-haul service.",
+      "topOriginLabel": "Top foreign origin",
+      "topOriginCountry": "United Arab Emirates",
+      "topOriginDetail": "Dubai leads the current international nonstop schedule at about 3 flights per day.",
+      "connections": [
+        "table-mountain",
+        "cape-point",
+        "cape-winelands",
+        "hermanus"
+      ],
+      "sourceUrl": "https://aviability.com/en/airport/cpt-cape-town/destinations"
+    },
+    {
+      "id": "airport-dur",
+      "code": "DUR",
+      "name": "King Shaka International Airport",
+      "coordinates": [
+        31.12,
+        -29.614
+      ],
+      "type": "International gateway",
+      "directRoutes": 12,
+      "network": "KwaZulu-Natal’s principal airport, useful for Durban, the Dolphin Coast, iSimangaliso and the southern approaches to the Drakensberg.",
+      "topOriginLabel": "Top foreign origin",
+      "topOriginCountry": "Zimbabwe (tied)",
+      "topOriginDetail": "Harare and Dubai each run at about 1 nonstop flight per day; Maputo is close behind at roughly 6 per week.",
+      "connections": [
+        "durban",
+        "isimangaliso",
+        "hluhluwe-imfolozi",
+        "drakensberg"
+      ],
+      "sourceUrl": "https://aviability.com/en/airport/dur-durban-king-shaka/destinations"
+    },
+    {
+      "id": "airport-mqp",
+      "code": "MQP",
+      "name": "Kruger Mpumalanga International Airport",
+      "coordinates": [
+        31.105,
+        -25.383
+      ],
+      "type": "Safari gateway",
+      "directRoutes": 6,
+      "network": "A practical fly-in base for southern Kruger and the Panorama Route, with strong links to Johannesburg and Cape Town.",
+      "topOriginLabel": "Top foreign origin",
+      "topOriginCountry": "Zimbabwe",
+      "topOriginDetail": "Victoria Falls is the leading international nonstop route at about 2 flights per day; seasonal schedules can change.",
+      "connections": [
+        "kruger",
+        "blyde-river-canyon"
+      ],
+      "sourceUrl": "https://aviability.com/en/airport/mqp-nelspruit-kruger-mpumalanga/destinations"
+    },
+    {
+      "id": "airport-grj",
+      "code": "GRJ",
+      "name": "George Airport",
+      "coordinates": [
+        22.379,
+        -34.006
+      ],
+      "type": "Garden Route gateway",
+      "directRoutes": 6,
+      "network": "The most convenient scheduled airport for the central Garden Route, Wilderness, Knysna and Oudtshoorn.",
+      "topOriginLabel": "Largest origin country",
+      "topOriginCountry": "South Africa",
+      "topOriginDetail": "The scheduled network is domestic-only; Johannesburg and Cape Town provide the core service.",
+      "connections": [
+        "garden-route",
+        "tsitsikamma"
+      ],
+      "sourceUrl": "https://www.flightconnections.com/flights-from-george-grj"
+    },
+    {
+      "id": "airport-plz",
+      "code": "PLZ",
+      "name": "Chief Dawid Stuurman International Airport",
+      "coordinates": [
+        25.617,
+        -33.985
+      ],
+      "type": "Eastern Cape gateway",
+      "directRoutes": 4,
+      "network": "The main scheduled gateway for Gqeberha, Addo Elephant National Park and the eastern Garden Route.",
+      "topOriginLabel": "Largest origin country",
+      "topOriginCountry": "South Africa",
+      "topOriginDetail": "Despite the name, its current scheduled nonstop network is domestic-only.",
+      "connections": [
+        "addo",
+        "tsitsikamma",
+        "garden-route"
+      ],
+      "sourceUrl": "https://www.flightconnections.com/flights-from-port-elizabeth-plz"
+    },
+    {
+      "id": "airport-hds",
+      "code": "HDS",
+      "name": "Hoedspruit Eastgate Airport",
+      "coordinates": [
+        30.95,
+        -24.369
+      ],
+      "type": "Safari gateway",
+      "directRoutes": 3,
+      "network": "A small but strategically useful airport for private reserves west of Kruger, central Kruger gates and Blyde River Canyon.",
+      "topOriginLabel": "Largest origin country",
+      "topOriginCountry": "South Africa",
+      "topOriginDetail": "The scheduled network is domestic-only, led by Johannesburg and Cape Town.",
+      "connections": [
+        "kruger",
+        "blyde-river-canyon"
+      ],
+      "sourceUrl": "https://www.flightconnections.com/flights-from-hoedspruit-hds"
+    },
+    {
+      "id": "airport-szk",
+      "code": "SZK",
+      "name": "Skukuza Airport",
+      "coordinates": [
+        31.589,
+        -24.961
+      ],
+      "type": "In-park safari airport",
+      "directRoutes": 2,
+      "network": "The fastest scheduled air entry into southern Kruger, located inside the park near Skukuza Rest Camp.",
+      "topOriginLabel": "Largest origin country",
+      "topOriginCountry": "South Africa",
+      "topOriginDetail": "The scheduled network is domestic-only, linking Johannesburg and Cape Town.",
+      "connections": [
+        "kruger"
+      ],
+      "sourceUrl": "https://www.flightconnections.com/flights-from-skukuza-szk"
+    },
+    {
+      "id": "airport-utn",
+      "code": "UTN",
+      "name": "Upington International Airport",
+      "coordinates": [
+        21.26,
+        -28.399
+      ],
+      "type": "Northern Cape gateway",
+      "directRoutes": 2,
+      "network": "The useful scheduled gateway for the vast Northern Cape, reducing the road approach to Augrabies and Kgalagadi.",
+      "topOriginLabel": "Largest origin country",
+      "topOriginCountry": "South Africa",
+      "topOriginDetail": "The scheduled passenger network is domestic-only, centred on Johannesburg and Cape Town.",
+      "connections": [
+        "augrabies",
+        "kgalagadi"
+      ],
+      "sourceUrl": "https://www.flightconnections.com/flights-from-upington-utn"
+    }
+  ]
+}
