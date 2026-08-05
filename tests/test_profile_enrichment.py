@@ -176,6 +176,22 @@ class SouthAfricaDestinationTests(unittest.TestCase):
         self.assertIn("resetCountryMapViewBox", script)
         self.assertIn("centered ? 0.5 : horizontalAnchor", script)
         self.assertIn("x: centered ? targetX", script)
+
+    def test_country_map_drag_tooltips_labels_and_place_copy_are_readable(self) -> None:
+        script = (ROOT / "app.js").read_text(encoding="utf-8")
+        styles = (ROOT / "styles.css").read_text(encoding="utf-8")
+        html = (ROOT / "index.html").read_text(encoding="utf-8")
+        country_map_renderer = script[
+            script.index("function renderCountryMap()"):script.index("function renderMap()")
+        ]
+
+        self.assertIn("#africaMap, #africaMap text { -webkit-user-select: none; user-select: none; }", styles)
+        self.assertNotIn("<title>", country_map_renderer)
+        self.assertIn("const countryMapPlaceLabelZoom = 1.65", script)
+        self.assertIn("map-place-labels-visible", script)
+        self.assertIn(".destination-zone text, .place-map-label, .selected-place-label { font-size: 12px; }", styles)
+        self.assertIn(".place-summary { font-size: 14px; line-height: 1.6; }", styles)
+        self.assertIn(".place-field-notes li > span, .place-info-block p", styles)
         self.assertIn("y: centered ? targetY", script)
         self.assertIn("focusCountryMapPlace(selectedPlace.id, pinLayout, true)", script)
         self.assertIn("if (state.selectedPlaceId) return;", script)
@@ -196,7 +212,7 @@ class SouthAfricaDestinationTests(unittest.TestCase):
         self.assertIn(".map-focus-close", styles)
         self.assertIn("pointer-events: none", styles)
         self.assertIn("#africaMap.map-auto-navigation .destination-zone .zone-halo { pointer-events: all; }", styles)
-        self.assertIn("#africaMap.map-focus-active .place-map-label", styles)
+        self.assertIn("#africaMap.map-place-labels-visible .place-map-label", styles)
         self.assertIn("--map-label-scale", styles)
 
     def test_south_africa_map_supports_manual_and_auto_navigation(self) -> None:
@@ -418,6 +434,17 @@ class InterfaceRegressionTests(unittest.TestCase):
         self.assertIn("fetch('./data/lesotho-districts.geojson')", script)
         self.assertIn("fetch('./data/lesotho-destinations.json')", script)
         self.assertNotIn("country?.iso2 === 'ZA'", script)
+
+    def test_country_map_collapses_sidebar_and_uses_its_space(self) -> None:
+        script = (ROOT / "app.js").read_text(encoding="utf-8")
+        styles = (ROOT / "styles.css").read_text(encoding="utf-8")
+
+        self.assertIn("state.mapMode === 'country-detail'", script)
+        self.assertIn("classList.toggle('country-map-active', countryMapActive)", script)
+        self.assertIn("els.sidebar.inert = countryMapActive", script)
+        self.assertIn("body.country-map-active .sidebar", styles)
+        self.assertIn("body.country-map-active .workspace { margin-left: 0; }", styles)
+        self.assertIn("body.country-map-active .hero-grid { max-width: none; }", styles)
 
     def test_larili_atlas_brand_asset_is_integrated(self) -> None:
         html = (ROOT / "index.html").read_text(encoding="utf-8")

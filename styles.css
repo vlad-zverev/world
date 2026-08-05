@@ -58,6 +58,7 @@ h1, h2, h3, p { margin-top: 0; }
     overflow-y: auto;
     border-right: 1px solid var(--line);
     background: var(--sidebar);
+    transition: opacity .2s ease, transform .28s cubic-bezier(.22,.75,.25,1);
 }
 
 .brand {
@@ -180,7 +181,11 @@ h1, h2, h3, p { margin-top: 0; }
 .sidebar-note small { color: var(--muted-2); font-size: 9px; line-height: 1.5; }
 .live-dot, .data-dot { display: inline-block; width: 6px; height: 6px; border-radius: 50%; background: var(--score-high); box-shadow: 0 0 0 4px rgba(72,173,104,.12); }
 
-.workspace { margin-left: 278px; padding: 24px clamp(12px, 1.4vw, 24px) 22px; }
+.workspace { margin-left: 278px; padding: 24px clamp(12px, 1.4vw, 24px) 22px; transition: margin-left .28s cubic-bezier(.22,.75,.25,1); }
+
+body.country-map-active .sidebar { opacity: 0; pointer-events: none; transform: translateX(calc(-100% - 1px)); }
+body.country-map-active .workspace { margin-left: 0; }
+body.country-map-active .hero-grid { max-width: none; }
 
 .topbar { display: flex; align-items: flex-end; justify-content: space-between; gap: 20px; margin: 0 auto 28px; max-width: 1760px; }
 .breadcrumb { margin-bottom: 8px; color: var(--muted); font-size: 11px; letter-spacing: .04em; }
@@ -209,6 +214,7 @@ h1 { margin-bottom: 0; font-family: "Unbounded", sans-serif; font-size: clamp(24
 
 .map-stage { position: relative; min-height: 640px; }
 #africaMap { display: block; width: 100%; height: 640px; overflow: visible; }
+#africaMap, #africaMap text { -webkit-user-select: none; user-select: none; }
 #africaMap.map-focus-active { overflow: hidden; }
 #africaMap.map-manual-navigation, #africaMap.map-manual-navigation .destination-marker, #africaMap.map-manual-navigation .airport-marker { cursor: grab; touch-action: none; }
 #africaMap.map-manual-navigation.map-dragging, #africaMap.map-manual-navigation.map-dragging .destination-marker, #africaMap.map-manual-navigation.map-dragging .airport-marker { cursor: grabbing; }
@@ -253,7 +259,7 @@ h1 { margin-bottom: 0; font-family: "Unbounded", sans-serif; font-size: clamp(24
 .destination-zone .zone-halo { fill: color-mix(in srgb, var(--tone), transparent 90%); stroke: color-mix(in srgb, var(--tone), transparent 30%); stroke-dasharray: 4 4; stroke-width: 1.4; pointer-events: none; transition: fill .18s ease, stroke .18s ease; }
 #africaMap.map-auto-navigation .destination-zone .zone-halo { pointer-events: all; }
 .destination-zone .zone-core { fill: var(--tone); stroke: #0b0e12; stroke-width: 2; transform: scale(var(--map-label-scale, 1)); transform-box: fill-box; transform-origin: center; }
-.destination-zone text { fill: color-mix(in srgb, var(--tone), white 35%); font-size: 8px; font-weight: 700; paint-order: stroke; pointer-events: none; stroke: #0b0e12; stroke-width: 2.5px; }
+.destination-zone text { opacity: 0; fill: color-mix(in srgb, var(--tone), white 35%); font-size: 12px; font-weight: 700; paint-order: stroke; pointer-events: none; stroke: #0b0e12; stroke-width: 3px; transition: opacity .18s ease; }
 .destination-zone:hover .zone-halo, .destination-zone:focus .zone-halo, .destination-zone.selected .zone-halo { fill: color-mix(in srgb, var(--tone), transparent 74%); stroke: #edf2d9; stroke-width: 2; }
 .destination-point .point-halo { fill: color-mix(in srgb, var(--tone), transparent 90%); stroke: color-mix(in srgb, var(--tone), transparent 45%); transition: fill .18s ease, stroke .18s ease, transform .18s ease; transform: scale(var(--map-label-scale, 1)); transform-box: fill-box; transform-origin: center; }
 .destination-point .point-core { fill: var(--tone); stroke: #0b0e12; stroke-width: 1.5; transform: scale(var(--map-label-scale, 1)); transform-box: fill-box; transform-origin: center; }
@@ -263,8 +269,8 @@ h1 { margin-bottom: 0; font-family: "Unbounded", sans-serif; font-size: clamp(24
 .destination-point:hover .point-halo, .destination-point:focus .point-halo, .destination-point.selected .point-halo { fill: color-mix(in srgb, var(--tone), transparent 72%); stroke: #edf2d9; transform: scale(var(--map-marker-hover-scale, 1.35)); }
 .destination-point.selected .point-core { fill: var(--tone); stroke: #f7f9ee; stroke-width: 2; }
 .destination-point:hover .point-stem, .destination-point:focus .point-stem, .destination-point.selected .point-stem { stroke: #edf2d9; stroke-width: 1.6; }
-.place-map-label { opacity: 0; fill: #cfd5cb; font-size: 8px; font-weight: 700; paint-order: stroke; pointer-events: none; stroke: #0b0e12; stroke-width: 3px; transition: opacity .18s ease; }
-#africaMap.map-focus-active .place-map-label, .selected-place-label { opacity: 1; }
+.place-map-label { opacity: 0; fill: #cfd5cb; font-size: 12px; font-weight: 700; paint-order: stroke; pointer-events: none; stroke: #0b0e12; stroke-width: 3px; transition: opacity .18s ease; }
+#africaMap.map-place-labels-visible .place-map-label, #africaMap.map-place-labels-visible .destination-zone text, .selected-place-label, .destination-zone.selected text { opacity: 1; }
 .selected-place-label { fill: #f3f1e8; }
 .destination-legend { display: flex; flex-wrap: wrap; gap: 13px; color: var(--muted-2); font-size: 8px; text-transform: uppercase; }
 .destination-legend span { display: inline-flex; align-items: center; gap: 6px; }
@@ -527,8 +533,8 @@ body { font-size: 16px; }
 .card-trip, .card-insights i, .card-insights b, .card-bar, .layer-chip,
 footer { font-size: 11px; }
 
-.map-tooltip small, .province-label, .destination-zone text,
-.selected-place-label, .airport-marker .airport-code { font-size: 10px; }
+.map-tooltip small, .province-label, .airport-marker .airport-code { font-size: 10px; }
+.destination-zone text, .place-map-label, .selected-place-label { font-size: 12px; }
 
 .season-strip b, .season-strip em, .card-budget small, .card-insights small,
 .card-insights b, .card-insights i { font-size: 10px; }
@@ -545,7 +551,16 @@ footer { font-size: 11px; }
 .custom-select-group > span { font-size: 11px; }
 .custom-select-option { font-size: 12px; }
 .field:has(.custom-select.open) { z-index: 70; }
-.place-facts span, .place-facts strong, .place-fact > p { font-size: 12px; }
+.place-hero-copy small, .world-class-score span, .world-class-score strong small,
+.place-field-notes-heading > span, .place-field-notes-heading > a,
+.place-info-block span, .combine-section > span, .place-source > span,
+.combine-section button, .place-source { font-size: 12px; }
+.place-toolbar .text-button, .place-toolbar span, .world-class-score p,
+.place-field-notes li > span, .place-info-block p,
+.place-facts span, .place-facts strong, .place-fact > p { font-size: 13px; }
+.place-summary { font-size: 14px; line-height: 1.6; }
+.place-priority span, .place-priority small { font-size: 13px; }
+.place-priority strong { font-size: 18px; }
 
 @media (max-width: 1250px) {
     .hero-grid { grid-template-columns: 1fr; }
@@ -555,6 +570,7 @@ footer { font-size: 11px; }
 
 @media (max-width: 900px) {
     .sidebar { position: static; width: auto; height: auto; padding: 18px; border-right: 0; border-bottom: 1px solid var(--line); }
+    body.country-map-active .sidebar { display: none; }
     .brand { margin-bottom: 18px; }
     .nav-list { display: flex; margin-bottom: 20px; overflow-x: auto; }
     .nav-item { width: auto; white-space: nowrap; }
@@ -564,6 +580,10 @@ footer { font-size: 11px; }
     .switch-row { grid-column: 1/-1; max-width: 260px; margin-top: 4px; }
     .sidebar-note { display: none; }
     .workspace { margin-left: 0; padding: 24px 18px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .sidebar, .workspace { transition: none; }
 }
 
 @media (max-width: 680px) {

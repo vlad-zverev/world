@@ -48,6 +48,7 @@ const islandCoordinates = {
 };
 
 const els = {
+    sidebar: document.querySelector('.sidebar'),
     searchInput: document.querySelector('#searchInput'),
     regionSelect: document.querySelector('#regionSelect'),
     visaSelect: document.querySelector('#visaSelect'),
@@ -77,6 +78,7 @@ const els = {
 };
 
 const countryMapBaseViewBox = { x: 0, y: 0, width: 760, height: 700 };
+const countryMapPlaceLabelZoom = 1.65;
 let countryMapViewBox = { ...countryMapBaseViewBox };
 let countryMapZoomFrame = null;
 let countryMapFocusPoint = null;
@@ -905,7 +907,7 @@ function countryMapViewBoxFor(center, zoom, centered = false, anchorPoint = cent
 function countryMapFocusLabels(pinLayout) {
     const destinationLabels = state.destinations.map((place) => {
         const [x, y] = place.kind === 'region' ? countryMapProject(place.coordinates) : pinLayout.get(place.id).pin;
-        return { x, y: y - (place.kind === 'region' ? 12 : 14), width: Math.min(158, Math.max(36, place.name.length * 6.3)), height: 13 };
+        return { x, y: y - (place.kind === 'region' ? 12 : 14), width: Math.min(182, Math.max(42, place.name.length * 7.5)), height: 16 };
     });
     const airportLabels = state.airports.map((airport) => {
         const [x, y] = pinLayout.get(airport.id).pin;
@@ -946,6 +948,7 @@ function applyCountryMapViewBox(viewBox) {
     els.africaMap.style.setProperty('--map-marker-hover-scale', String(1.35 / zoom));
     els.africaMap.style.setProperty('--map-airport-hover-scale', String(1.25 / zoom));
     els.africaMap.classList.toggle('map-focus-active', zoom > 1.02);
+    els.africaMap.classList.toggle('map-place-labels-visible', zoom > countryMapPlaceLabelZoom);
     updateCountryMapPinDisplacements(zoom);
     positionMapFocusClose();
 }
@@ -1232,7 +1235,7 @@ function renderCountryMap() {
     els.africaMap.setAttribute('aria-label', `Map of ${country.name} ${map.meta.adminLabelPlural || 'regions'}, travel destinations and airports`);
     const provincePaths = state.provinceFeatures.map((feature, index) => {
         const name = provinceLabel(feature.properties.shapeName);
-        return `<path class="province-shape tone-${index % 3}" d="${geometryToPath(feature.geometry, countryMapProject)}"><title>${escapeHtml(name)}</title></path>`;
+        return `<path class="province-shape tone-${index % 3}" d="${geometryToPath(feature.geometry, countryMapProject)}"></path>`;
     }).join('');
     const provinceLabels = state.provinceFeatures.map((feature) => {
         const name = provinceLabel(feature.properties.shapeName);
@@ -1248,7 +1251,6 @@ function renderCountryMap() {
             <circle class="zone-halo" cx="${x.toFixed(1)}" cy="${y.toFixed(1)}" r="${place.radius}"></circle>
             <circle class="zone-core" cx="${x.toFixed(1)}" cy="${y.toFixed(1)}" r="7"></circle>
             <text x="${x.toFixed(1)}" y="${(y - 12).toFixed(1)}" text-anchor="middle">${escapeHtml(place.name)}</text>
-            <title>${escapeHtml(place.name)} · ${escapeHtml(place.category)}</title>
         </g>`;
     }).join('');
     const points = state.destinations.filter((place) => place.kind !== 'region').map((place) => {
@@ -1261,7 +1263,6 @@ function renderCountryMap() {
             ${stem}
             <g class="map-pin-body"><circle class="point-halo" cx="${x.toFixed(1)}" cy="${y.toFixed(1)}" r="10"></circle>
             <circle class="point-core" cx="${x.toFixed(1)}" cy="${y.toFixed(1)}" r="4"></circle>${pointLabel}</g>
-            <title>${escapeHtml(place.name)} · ${escapeHtml(place.category)}</title>
         </g>`;
     }).join('');
     const airports = state.airports.map((airport) => {
@@ -1274,7 +1275,6 @@ function renderCountryMap() {
             <circle class="airport-core" cx="${x.toFixed(1)}" cy="${y.toFixed(1)}" r="7"></circle>
             <text class="airport-icon" x="${x.toFixed(1)}" y="${(y + 3).toFixed(1)}" text-anchor="middle">✈</text>
             <text class="airport-code" x="${x.toFixed(1)}" y="${(y - 15).toFixed(1)}" text-anchor="middle">${escapeHtml(airport.code)}</text></g>
-            <title>${escapeHtml(airport.name)} · ${escapeHtml(airport.type)}</title>
         </g>`;
     }).join('');
     const geographicLabels = (map.meta.geographicLabels || []).map((label) => `<text class="map-ocean-label" x="${label.x}" y="${label.y}"${label.rotate ? ` transform="rotate(${label.rotate} ${label.x} ${label.y})"` : ''}>${escapeHtml(label.text)}</text>`).join('');
@@ -1552,6 +1552,10 @@ function bindScrollButtons(root = document) {
 }
 
 function render() {
+    const countryMapActive = state.mapMode === 'country-detail';
+    document.body.classList.toggle('country-map-active', countryMapActive);
+    els.sidebar.inert = countryMapActive;
+    els.sidebar.setAttribute('aria-hidden', String(countryMapActive));
     filterCountries();
     renderCountryGrid();
     renderDetail();
